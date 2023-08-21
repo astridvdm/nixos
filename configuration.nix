@@ -51,7 +51,7 @@
 
 
 
-  networking.hostName = "max-pc"; # Define your hostname.
+  networking.hostName = "hera"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
