@@ -37,7 +37,7 @@
       commit.gpgsign = true;
       gpg.format = "ssh";
       gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-      user.signingkey = "~/.ssh/max-git-yk.pub";
+      user.signingkey = "~/.ssh/max-git.pub";
     };
   };
 
@@ -218,7 +218,7 @@
       hostname = "10.0.0.3";
       user = "git";
       port = 2222;
-      identityFile = "/home/max/.ssh/max-git-yk";
+      identityFile = "/home/max/.ssh/max-git";
       };
     };
   };
