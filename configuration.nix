@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -21,8 +17,8 @@
   };
 
   # Enable swap on luks
-  boot.initrd.luks.devices."luks-9f36e060-437b-4a1c-ab2e-d6304ea428f5".device = "/dev/disk/by-uuid/9f36e060-437b-4a1c-ab2e-d6304ea428f5";
-  boot.initrd.luks.devices."luks-9f36e060-437b-4a1c-ab2e-d6304ea428f5".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-d32a96da-8d4d-4428-a041-fb78496291d9".device = "/dev/disk/by-uuid/d32a96da-8d4d-4428-a041-fb78496291d9";
+  boot.initrd.luks.devices."luks-d32a96da-8d4d-4428-a041-fb78496291d9".keyFile = "/crypto_keyfile.bin";
 
   fileSystems."/mnt/terra" =
     { device = "max@10.0.0.3:/mnt/terra";
