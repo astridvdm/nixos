@@ -58,7 +58,13 @@
          port = 2222;
          identityFile = "/home/max/.ssh/max-git";
          };
-       };
+         "git.maxvdm.com" = {
+          hostname = "10.0.0.3";
+          user = "git";
+          port = 2202;
+          identityFile = "/home/max/.ssh/max-git";
+        };
+      };
      };
      programs.zsh.enable = true;
      programs.starship = {
