@@ -223,7 +223,7 @@
       "git.maxvdm.com" = {
       hostname = "10.0.0.3";
       user = "git";
-      port = 2022;
+      port = 2202;
       identityFile = "/home/max/.ssh/max-git";
       };
     };
