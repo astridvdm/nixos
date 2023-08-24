@@ -220,6 +220,12 @@
       port = 2222;
       identityFile = "/home/max/.ssh/max-git";
       };
+      "git.maxvdm.com" = {
+      hostname = "10.0.0.3";
+      user = "git";
+      port = 2022;
+      identityFile = "/home/max/.ssh/max-git";
+      };
     };
   };
   programs.zsh = {
