@@ -47,7 +47,7 @@
 
 
 
-  networking.hostName = "hera"; # Define your hostname.
+  networking.hostName = "ion"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
