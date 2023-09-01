@@ -198,7 +198,7 @@
   # Docker
   virtualisation.docker = {
   enable = true;
-  enableNvidia = true;
+  #enableNvidia = true;
   };
 
   # Make sure docker starts after the storage array is mounted.
