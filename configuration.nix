@@ -96,7 +96,7 @@
          identityFile = "/home/max/.ssh/hetzner-borg";
          };
          "gitea.svdm.me" = {
-         hostname = "10.0.0.3";
+         hostname = "10.0.0.2";
          user = "git";
          port = 2222;
          identityFile = "/home/max/.ssh/max-git";
