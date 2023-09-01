@@ -107,6 +107,11 @@
          port = 2202;
          identityFile = "/home/max/.ssh/max-git";
          };
+         "github.com" = {
+         hostname = "github.com";
+         user = "git";
+         identityFile = "/home/max/.ssh/max-git";
+         };
        };
      };
      programs.zsh.enable = true;
