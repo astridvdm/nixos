@@ -52,6 +52,11 @@
          port = 23;
          identityFile = "/home/max/.ssh/hetzner-borg";
          };
+         "github.com" = {
+         hostname = "github.com";
+         user = "git";
+         identityFile = "/home/max/.ssh/max-git";
+         };
          "gitea.svdm.me" = {
          hostname = "10.0.0.3";
          user = "git";
