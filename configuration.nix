@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #./nvidia-config.nix
+      ./nvidia-config.nix
       <home-manager/nixos>
     ];
 
@@ -198,14 +198,14 @@
   # Docker
   virtualisation.docker = {
   enable = true;
-  #enableNvidia = true;
+  enableNvidia = true;
   };
 
   # Make sure docker starts after the storage array is mounted.
   systemd.services.docker.after = ["mnt-terra.mount"];
 
   # Services
-  #programs.steam.enable = true;
+  programs.steam.enable = true;
   programs.nix-ld.enable = true;
   #services.tailscale.enable = true;
 
