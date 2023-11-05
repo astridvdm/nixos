@@ -174,6 +174,7 @@
     systemCronJobs = [
       "0 3 * * 1,3,6      max    sh /mnt/terra/media/cron-sj.sh >> /dev/null"
       "0 2 * * 1,3,6      max    sh /home/max/terra-docker-compose/backup-terra-docker.sh >> /dev/null"
+      "0 1 * * 1,3,6      max    sh /mnt/terra/backups/photosync/photosync-backup.sh >> /dev/null"
     ];
   };
 
