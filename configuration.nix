@@ -11,6 +11,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
 
   # Networking
@@ -166,7 +167,6 @@
      #iperf3
      #fio
      #smartmontools
-     linuxKernel.kernels.linux_zen # Zen Kernel
    ];
 
   # Enable cron service
