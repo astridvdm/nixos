@@ -166,6 +166,7 @@
      #iperf3
      #fio
      #smartmontools
+     linuxKernel.kernels.linux_zen # Zen Kernel
    ];
 
   # Enable cron service
@@ -195,11 +196,18 @@
     { type = "ed25519"; bits = 256; path = "/etc/ssh/ssh_host_ed25519_key"; }
   ];
 
+  programs.ssh.hostKeyAlgorithms = [
+    "ssh-rsa"
+    "ssh-ed25519"
+    "ssh-dss"
+  ];
 
   # Docker
   virtualisation.docker = {
   enable = true;
   enableNvidia = true;
+  daemon.settings.ipv6 = true;
+  daemon.settings."fixed-cidr-v6" = "fd00::/80";
   };
 
   # Make sure docker starts after the storage array is mounted.
