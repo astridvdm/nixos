@@ -8,14 +8,18 @@
       <home-manager/nixos>
     ];
 
-  # Use the systemd-boot EFI boot loader.
+  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Choose kernel package
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
 
   # Networking
-  networking.hostName = "terra"; # Define your hostname.
+
+  # Define your hostname
+  networking.hostName = "terra";
 
   networking.defaultGateway = "10.0.0.1";
   networking.nameservers = [ "9.9.9.9" "1.1.1.1" "1.0.0.1" "2620:fe::fe" "2606:4700:4700::1111" "2606:4700:4700::1001" ];
@@ -31,6 +35,8 @@
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
 
+
+  # BTRFS Array
   fileSystems."/mnt/terra" =
     { device = "/dev/disk/by-uuid/1bca9e27-fc20-4ed1-b84e-3db5a6486019";
       fsType = "btrfs";
@@ -45,6 +51,7 @@
       ];
     };
 
+  # Archival BTRFS Array
   fileSystems."/mnt/max-12tb" =
     { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
       fsType = "btrfs";
@@ -59,11 +66,13 @@
       ];
     };
 
+  # Printing
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
+
   # for a WiFi printer
   services.avahi.openFirewall = true;
   services.printing.drivers = [ pkgs.pantum-driver ];
@@ -74,39 +83,43 @@
   services.printing.allowFrom = [ "all" ]; # this gives access to anyone on the interface you might want to limit it see the official documentation
   services.printing.defaultShared = true; # If you want
 
+  # Firewall
   networking.firewall.allowedUDPPorts = [ 631 ];
   networking.firewall.allowedTCPPorts = [ 631 ];
 
+
+  # Users
+
+  # Max
+  # create account as standard user
   users.users.max.isNormalUser = true;
+   # Name
    users.users.max.description = "Max";
-   users.users.max.shell = "/home/max/.nix-profile/bin/zsh";
+   # Groups
    users.users.max.extraGroups = [ "wheel" "docker" ];
+   # Set user ID
    users.users.max.uid = 1000;
+   # SSH public keys allowed to connect to the ssh server for user.
    users.users.max.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIGaeHs7LX8API5+OH4brfqe31b8WMSIZnJ2PIdHsD65 max-pc-lux" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFFi3dbVfeHJBHYqbx2UD1JkMofbWGdG9kWpu+QqesEN max-a17-lux" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBItfYtTxsE7xl6BgH3LtAoHnFureihclIkoIIyp0HSvdWXz8lyHAYTNm5fRqdb8Wl7ApDn4okCoOajsnyQmLQ/A= max@iphone" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC93Pzn2DxRZK3naV+TCa3FhSKUj+c30GXndAiNiJ0Ksb+KM/fKoxD4tndbF8fSI9e5Kgtneem/1y3ARJrQqiDM= max@ipad" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMsnW2eSbP4juFbmLpaEc0E5zROGWoU6Qx3V9n73yl9M max-iphone"];
+   # Specify user shell
+   users.users.max.shell = "/home/max/.nix-profile/bin/zsh";
+   # User packages
    home-manager.users.max = { pkgs, ... }: {
      home.packages = with pkgs; [
  ];
+     # Config SSH
      programs.ssh = {
        enable = true;
        compression = true;
+
+       # Server conigs
        matchBlocks = {
+         # Hetzer storage
          "u334582.your-storagebox.de" = {
          hostname = "u334582.your-storagebox.de";
          user = "u334582";
          port = 23;
          identityFile = "/home/max/.ssh/hetzner-borg";
-         };
-         "gitea.svdm.me" = {
-         hostname = "10.0.0.2";
-         user = "git";
-         port = 2222;
-         identityFile = "/home/max/.ssh/max-git";
-         };
-         "git.maxvdm.com" = {
-         hostname = "10.0.0.3";
-         user = "git";
-         port = 2202;
-         identityFile = "/home/max/.ssh/max-git";
          };
          "github.com" = {
          hostname = "github.com";
@@ -130,6 +143,7 @@
        # package.disabled = true;
        };
      };
+     # Configure git
      programs.git = {
        enable = true;
        userName  = "Max van der Merwe";
@@ -147,8 +161,10 @@
      nixpkgs.config = import ./nixpkgs-config.nix;
     };
 
+  # Allow unfree
   nixpkgs.config.allowUnfree = true;
 
+  # System packages
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -163,10 +179,7 @@
      aria
      borgbackup
      screen
-     #tailscale
-     #iperf3
-     #fio
-     #smartmontools
+     tailscale
    ];
 
   # Enable cron service
@@ -183,7 +196,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Enable legacy macs for older sftp clients, ie VLC Photosync
+  # Enable legacy macs for older sftp clients, ie VLC and Photosync
   services.openssh.settings.Macs = [
     "hmac-sha2-512-etm@openssh.com"
     "hmac-sha2-256-etm@openssh.com"
@@ -214,8 +227,13 @@
   systemd.services.docker.after = ["mnt-terra.mount"];
 
   # Services
+
+  # Run unpatched dynamic binaries on NixOS - Required for VSCode remotes
   programs.nix-ld.enable = true;
+
+  # Tailscale
   services.tailscale.enable = true;
+  networking.firewall.checkReversePath = "loose";
 
   # UPS Backup
   power.ups = {
@@ -234,8 +252,6 @@
   environment.etc."nut/upsd.conf".source = ./ups/upsd.conf;
   environment.etc."nut/upsd.users".source = ./ups/upsd.users;
   environment.etc."nut/upsmon.conf".source = ./ups/upsmon.conf;
-
-  networking.firewall.checkReversePath = "loose";
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;
