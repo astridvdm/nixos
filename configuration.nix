@@ -143,7 +143,7 @@
          user.signingkey = "~/.ssh/max-git.pub";
        };
      };
-     home.stateVersion = "23.05";
+     home.stateVersion = "23.11";
      nixpkgs.config = import ./nixpkgs-config.nix;
     };
 
@@ -204,19 +204,18 @@
 
   # Docker
   virtualisation.docker = {
-  enable = true;
-  enableNvidia = true;
-  daemon.settings.ipv6 = true;
-  daemon.settings."fixed-cidr-v6" = "fd00::/80";
+    enable = true;
+    enableNvidia = true;
+  #  daemon.settings.ipv6 = true;
+  #  daemon.settings."fixed-cidr-v6" = "fd00::/80";
   };
 
   # Make sure docker starts after the storage array is mounted.
   systemd.services.docker.after = ["mnt-terra.mount"];
 
   # Services
-  programs.steam.enable = true;
   programs.nix-ld.enable = true;
-  #services.tailscale.enable = true;
+  services.tailscale.enable = true;
 
   # UPS Backup
   power.ups = {
@@ -256,7 +255,7 @@
   nix.settings.auto-optimise-store = true;
 
   # NixOS System Version
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }
 
 
