@@ -160,6 +160,11 @@
     zip
     lm_sensors
 
+    # iOS
+    libimobiledevice
+    #libimobiledevice-utils
+    ifuse
+    usbmuxd
 
     #### Virtualization ####
     qemu

@@ -208,6 +208,10 @@
   enableNvidia = true;
   };
 
+  # iOS Documents
+  services.usbmuxd.enable = true;
+
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
