@@ -128,6 +128,7 @@
     screen # Allow terminal tasks to run in background
     tailscale # Remote wireguard based p2p vpn
     libimobiledevice
+    ifuse
   ];
 
   # Allow Mailspring to be installed due to known CVE in webp
