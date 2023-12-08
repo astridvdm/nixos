@@ -77,6 +77,9 @@
     #### Signal ####
     signal-desktop
 
+    # SimpleX
+    simplex-chat-desktop
+
     #### Matrix ####
     #fluffychat
     # #fractal-next
