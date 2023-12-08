@@ -152,7 +152,7 @@
     wineWowPackages.full # wine packages for running windows software/games
     # wineWowPackages.waylandFull # same as above for wayland
     #winetricks # wine manager
-    protontricks # steam game bases wine manager
+    #protontricks # steam game bases wine manager
     protonup-qt
     zip
     lm_sensors
