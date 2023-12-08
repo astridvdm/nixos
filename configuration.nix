@@ -129,6 +129,7 @@
     tailscale # Remote wireguard based p2p vpn
     libimobiledevice
     ifuse
+    usbmuxd
   ];
 
   # Allow Mailspring to be installed due to known CVE in webp
