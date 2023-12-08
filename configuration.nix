@@ -172,7 +172,9 @@
 
   # Asus
   services.supergfxd.enable = true;
-  services.asusd.enable = true;
+
+  # iOS documents in files
+  services.usbmuxd.enable = true;
 
   # Docker
   virtualisation.docker = {
