@@ -123,6 +123,12 @@
     #### RPI ####
     #rpi-imager
 
+    # OBS Studio
+    obs-studio
+
+    # Davinci Resolve non liner video editing
+    davinci-resolve
+
     #### Teamviewer ####
     #teamviewer
 
