@@ -182,21 +182,21 @@
     enable = true;
     compression = true;
     matchBlocks = {
-      # "ares" = {
-      # hostname = "10.0.0.2";
-      # user = "max";
-      # identityFile = "/home/max/.ssh/max-a17-lux";
-      # };
-      # "terra" = {
-      # hostname = "10.0.0.3";
-      # user = "max";
-      # identityFile = "/home/max/.ssh/max-a17-lux";
-      # };
-      # "hera" = {
-      # hostname = "10.0.0.21";
-      # user = "max";
-      # identityFile = "/home/max/.ssh/max-a17-lux";
-      # };
+      "ares" = {
+      hostname = "10.0.0.2";
+      user = "max";
+      identityFile = "/home/max/.ssh/max-a17-lux";
+      };
+      "terra" = {
+      hostname = "10.0.0.3";
+      user = "max";
+      identityFile = "/home/max/.ssh/max-a17-lux";
+      };
+      "hera" = {
+      hostname = "10.0.0.21";
+      user = "max";
+      identityFile = "/home/max/.ssh/max-a17-lux";
+      };
       "orion" = {
       hostname = "100.112.75.88";
       user = "max";
