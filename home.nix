@@ -234,7 +234,7 @@
       extended = true;
       size = 99999;
       share = true;
-    }
+    };
     #enableAutosuggestions = true;
     #histSize = 10000;
     #histFile = "${config.xdg.dataHome}/zsh/history";
@@ -242,7 +242,7 @@
       enable = true;
       plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" "zsh-autosuggestions" ];
       #theme = "robbyrussell";
-  };
+    };
   };
   # starship - an customizable prompt for any shell
   programs.starship =
