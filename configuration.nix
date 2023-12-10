@@ -171,6 +171,7 @@
   programs.steam.enable = true;
 
   # Asus
+  services.asusd.enable = true;
   services.supergfxd.enable = true;
 
   # iOS documents in files
