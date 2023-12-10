@@ -181,14 +181,7 @@
     gnome.gnome-tweaks
     catppuccin
     catppuccin-cursors
-    catppuccin-gtk
     bibata-cursors
-    # catppuccin-gtk.override {
-    #   accents = [ "pink" ]; # You can specify multiple accents here to output multiple themes
-    #   size = "compact";
-    #   tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
-    #   variant = "macchiato";
-    # }
   ];
   # ssh remote host configs
   programs.ssh = {
@@ -243,6 +236,19 @@
     enable = true;
     # settings = {
     # };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-Mocha-Standard-Blue-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "blue" ];
+        size = "standard";
+        tweaks = [ "rimless" ];
+        variant = "mocha";
+      };
+    };
   };
 
   # This value determines the home Manager release that your
