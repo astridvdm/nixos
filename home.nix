@@ -69,6 +69,7 @@
 
     #### Spotify ####
     #spotify
+    spicetify-cli
 
     #### Telegram ####
     telegram-desktop
