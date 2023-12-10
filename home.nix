@@ -235,12 +235,10 @@
       size = 99999;
       share = true;
     };
-    #enableAutosuggestions = true;
-    #histSize = 10000;
-    #histFile = "${config.xdg.dataHome}/zsh/history";
+    enableAutosuggestions = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" "zsh-autosuggestions" ];
+      plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];
       #theme = "robbyrussell";
     };
   };
