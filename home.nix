@@ -182,6 +182,8 @@
     catppuccin
     catppuccin-cursors
     catppuccin-gtk
+    bibata-cursors
+    bibata-extra-cursors
     # catppuccin-gtk.override {
     #   accents = [ "pink" ]; # You can specify multiple accents here to output multiple themes
     #   size = "compact";
@@ -194,16 +196,16 @@
     enable = true;
     compression = true;
     matchBlocks = {
-      # "ares" = {
-      # hostname = "10.0.0.2";
-      # user = "max";
-      # identityFile = "/home/max/.ssh/max-a17-lux";
-      # };
-      # "terra" = {
-      # hostname = "10.0.0.3";
-      # user = "max";
-      # identityFile = "/home/max/.ssh/max-a17-lux";
-      # };
+      "ares" = {
+      hostname = "10.0.0.2";
+      user = "max";
+      identityFile = "/home/max/.ssh/max-a17-lux";
+      };
+      "terra" = {
+      hostname = "10.0.0.3";
+      user = "max";
+      identityFile = "/home/max/.ssh/max-a17-lux";
+      };
       # "hera" = {
       # hostname = "10.0.0.21";
       # user = "max";
