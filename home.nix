@@ -58,9 +58,6 @@
     #filebot
 
     #### Discord ####
-    #betterdiscordctl
-    #betterdiscord-installer
-    #discord
     (pkgs.discord.override {
      # remove any overrides that you don't want
       withOpenASAR = true;
@@ -142,9 +139,6 @@
     #### Magic wormhole P2P file transfer ####
     magic-wormhole-rs
 
-    #### Unifi Game Engine
-    #unityhub
-
     #### System ####
     pciutils # lspci
     usbutils # lsusb
@@ -185,6 +179,15 @@
     #### Gnome ####
     gnome-extension-manager
     gnome.gnome-tweaks
+    catppuccin
+    catppuccin-cursors
+    catppuccin-gtk
+    # catppuccin-gtk.override {
+    #   accents = [ "pink" ]; # You can specify multiple accents here to output multiple themes
+    #   size = "compact";
+    #   tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
+    #   variant = "macchiato";
+    # }
   ];
   # ssh remote host configs
   programs.ssh = {
@@ -240,7 +243,6 @@
     # settings = {
     # };
   };
-
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
