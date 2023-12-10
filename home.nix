@@ -159,6 +159,7 @@
     protonup-qt
     zip
     lm_sensors
+    thefuck
 
     # iOS
     libimobiledevice
@@ -230,6 +231,13 @@
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
+    #histSize = 10000;
+    #histFile = "${config.xdg.dataHome}/zsh/history";
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];
+      #theme = "robbyrussell";
+  };
   };
   # starship - an customizable prompt for any shell
   programs.starship =
