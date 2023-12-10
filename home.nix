@@ -172,6 +172,10 @@
     #### Gnome ####
     gnome-extension-manager
     gnome.gnome-tweaks
+    catppuccin
+    catppuccin-cursors
+    bibata-cursors
+
   ];
   # ssh remote host configs
   programs.ssh = {
@@ -222,10 +226,37 @@
     enableAutosuggestions = true;
   };
   # starship - an customizable prompt for any shell
-  programs.starship = {
+  programs.starship =
+    let
+      flavour = "mocha"; # One of `latte`, `frappe`, `macchiato`, or `mocha`
+    in
+    {
+      enable = true;
+      settings = {
+        # Other config here
+        format = "$all"; # Remove this line to disable the default prompt format
+        palette = "catppuccin_${flavour}";
+      } // builtins.fromTOML (builtins.readFile
+        (pkgs.fetchFromGitHub
+          {
+            owner = "catppuccin";
+            repo = "starship";
+            rev = "5629d2356f62a9f2f8efad3ff37476c19969bd4f"; # Replace with the latest commit hash
+            sha256 = "sha256-nsRuxQFKbQkyEI4TXgvAjcroVdG+heKX5Pauq/4Ota0=";
+          } + /palettes/${flavour}.toml));
+    };
+
+  gtk = {
     enable = true;
-    # settings = {
-    # };
+    theme = {
+      name = "Catppuccin-Mocha-Standard-Blue-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "blue" ];
+        size = "standard";
+        tweaks = [ "rimless" ];
+        variant = "mocha";
+      };
+    };
   };
 
 
