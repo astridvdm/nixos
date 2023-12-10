@@ -183,7 +183,6 @@
     catppuccin-cursors
     catppuccin-gtk
     bibata-cursors
-    bibata-extra-cursors
     # catppuccin-gtk.override {
     #   accents = [ "pink" ]; # You can specify multiple accents here to output multiple themes
     #   size = "compact";
