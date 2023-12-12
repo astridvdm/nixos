@@ -12,7 +12,6 @@
         ./ssh
         ./star-citizen
         ./starship
-        ./system
         ./zsh
     ];
 }
