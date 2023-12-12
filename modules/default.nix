@@ -5,7 +5,6 @@
     imports = [
         #./obs-virtualcam
         ./packages
-        ./scripts
         ./ssh
         ./starship
         ./zsh
