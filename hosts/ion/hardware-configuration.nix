@@ -88,7 +88,8 @@
     iagno # go game
     hitori # sudoku game
     atomix # puzzle game
-  ])
+  ]);
+
   # Enable wayland flag for windows
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
