@@ -12,7 +12,6 @@
         # system
         #xdg.enable = true;
         packages.enable = true;
-        nvidia.enable = true;
 
     };
 }
