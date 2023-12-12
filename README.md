@@ -3,7 +3,7 @@
 *My configuration files for NixOS. Feel free to look around and copy!*
 
 # Special thanks to:
-- [Notusknot's dotfiles] (https://github.com/notusknot/dotfiles-nix/)
+- [Notusknot's dotfiles](https://github.com/notusknot/dotfiles-nix/)
 - [Sioodmy's dotfiles](https://github.com/sioodmy/dotfiles)
 - [Syndrizzle's dotfiles](https://github.com/syndrizzle/hotfiles)
 - [Javacafe01's dotfiles](https://github.com/javacafe01/dotfiles)
