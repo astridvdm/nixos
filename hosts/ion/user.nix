@@ -6,11 +6,14 @@
 
         #gnome = true;
         #obs-virtualcam = true;
-        packages = true;
         scripts = true;
         ssh = true;
         starship = true;
         zsh = true;
+
+        # system
+        #xdg.enable = true;
+        packages.enable = true;
 
     };
 }
