@@ -40,8 +40,6 @@ in {
       ]);
 
       # Nix settings, auto cleanup and enable flakes
-      boot.loader.systemd-boot.configurationLimit = 10;
-
       nix = {
           settings.auto-optimise-store = true;
           settings.allowed-users = [ "max" ];
@@ -66,8 +64,10 @@ in {
           loader = {
           systemd-boot.enable = true;
           systemd-boot.editor = false;
+          systemd-boot.configurationLimit = 10;
           efi.canTouchEfiVariables = true;
           timeout = 0;
+
           };
       };
 
