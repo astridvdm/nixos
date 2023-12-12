@@ -1,6 +1,0 @@
-...
-[upsuser]
-     password = 30hUq04qnytuB72s
-     upsmon primary
-     actions = SET
-     instcmds = ALL
