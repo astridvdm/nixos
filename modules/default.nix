@@ -5,7 +5,6 @@
     imports = [
         ./git
         ./gnome
-        ./obs-virtualcam
         ./packages
         ./ssh
         ./starship

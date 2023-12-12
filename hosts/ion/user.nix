@@ -5,7 +5,6 @@
     config.modules = {
 
         gnome.enable = true;
-        obs-virtualcam.enable = true;
         scripts.enable = true;
         ssh.enable = true;
         starship.enable = true;
