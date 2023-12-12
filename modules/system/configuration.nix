@@ -100,7 +100,7 @@
         NIXOS_CONFIG = "$HOME/.config/nixos/configuration.nix";
         NIXOS_CONFIG_DIR = "$HOME/.config/nixos/";
         EDITOR = "code";
-        sessionVariables.NIXOS_OZONE_WL = "1";
+        #sessionVariables.NIXOS_OZONE_WL = "1";
     };
     # Enable sound with pipewire.
     sound.enable = true;
