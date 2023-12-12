@@ -4,7 +4,6 @@
     imports = [ ../../modules/default.nix ];
     config.modules = {
 
-        gnome.enable = true;
         scripts.enable = true;
         ssh.enable = true;
         starship.enable = true;
