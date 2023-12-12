@@ -8,6 +8,16 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  # Choose kernel package
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  # Increase vm count for Star Citizen
+  boot.kernel.sysctl = {
+  "vm.max_map_count" = 16777216;
+  "fs.file-max" = 524288;
+  };
+
+  # Default kernel
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
@@ -19,6 +29,7 @@
     };
 
   boot.initrd.luks.devices."luks-108caa0b-bb3d-4fbc-8eca-e3ecc276ddfb".device = "/dev/disk/by-uuid/108caa0b-bb3d-4fbc-8eca-e3ecc276ddfb";
+  boot.initrd.luks.devices."luks-d9af0e43-edbf-4177-8dd8-1d9a57fff777".device = "/dev/disk/by-uuid/d9af0e43-edbf-4177-8dd8-1d9a57fff777";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/F97C-BCCA";
@@ -28,6 +39,9 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/05946c4e-a445-40fa-bb16-93598b7b2a3a"; }
     ];
+
+
+
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

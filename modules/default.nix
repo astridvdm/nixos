@@ -3,18 +3,11 @@
 {
     home.stateVersion = "23.11";
     imports = [
-        # gui
-
-        # cli
-        ./ssh
-        ./zsh
         ./git
+        ./packages
+        ./ssh
         ./starship
-        ./
-
-        # system
-	    ./packages
-        ./nvidia
-        ./asus
+        ./system
+        ./zsh
     ];
 }
