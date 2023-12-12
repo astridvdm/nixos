@@ -1,13 +1,13 @@
 { pkgs, lib, config, ... }:
 
 with lib;
-let 
+let
     cfg = config.modules.scripts;
 in {
     options.modules.scripts = { enable = mkEnableOption "scripts"; };
     config = mkIf cfg.enable {
         home.packages = [
-            screen bandw maintenance
+            #screen bandw maintenance
         ];
     };
 }

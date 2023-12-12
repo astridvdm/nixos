@@ -7,45 +7,76 @@
 
     programs.zsh.enable = true;
 
-    # Laptop-specific packages (the other ones are installed in `packages.nix`)
+
+    # System Packages
+
+    # List packages installed in system profile. To search, run:
+    # $ nix search wget
     environment.systemPackages = with pkgs; [
-        acpi tlp git
+      wget
+      git
+      zsh
+      unzip
+      sshfs
+      screen # Allow terminal tasks to run in background
+      tailscale # Remote wireguard based p2p vpn
     ];
 
-    # Install fonts
-    fonts = {
-        fonts = with pkgs; [
-            jetbrains-mono
-            roboto
-            openmoji-color
-            (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-        ];
+    environment.gnome.excludePackages = (with pkgs; [
+      #gnome-photos
+      gnome-tour
+    ]) ++ (with pkgs.gnome; [
+      cheese # webcam tool
+      gnome-music
+      #gnome-terminal
+      gedit # text editor
+      epiphany # web browser
+      geary # email reader
+      evince # document viewer
+      gnome-characters
+      totem # video player
+      tali # poker game
+      iagno # go game
+      hitori # sudoku game
+      atomix # puzzle game
+    ]);
 
-        fontconfig = {
-            hinting.autohint = true;
-            defaultFonts = {
-              emoji = [ "OpenMoji Color" ];
-            };
-        };
-    };
+    # # Install fonts
+    # fonts = {
+    #     fonts = with pkgs; [
+    #         jetbrains-mono
+    #         roboto
+    #         openmoji-color
+    #         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    #     ];
+
+    #     fontconfig = {
+    #         hinting.autohint = true;
+    #         defaultFonts = {
+    #           emoji = [ "OpenMoji Color" ];
+    #         };
+    #     };
+    # };
 
 
-    # Wayland stuff: enable XDG integration, allow sway to use brillo
-    xdg = {
-        portal = {
-            enable = true;
-            extraPortals = with pkgs; [
-                xdg-desktop-portal-wlr
-                xdg-desktop-portal-gtk
-            ];
-            gtkUsePortal = true;
-        };
-    };
+    # # Wayland stuff: enable XDG integration, allow sway to use brillo
+    # xdg = {
+    #     portal = {
+    #         enable = true;
+    #         extraPortals = with pkgs; [
+    #             xdg-desktop-portal-wlr
+    #             xdg-desktop-portal-gtk
+    #         ];
+    #         gtkUsePortal = true;
+    #     };
+    # };
 
     # Nix settings, auto cleanup and enable flakes
+    boot.loader.systemd-boot.configurationLimit = 10;
+
     nix = {
         settings.auto-optimise-store = true;
-        settings.allowed-users = [ "notus" ];
+        settings.allowed-users = [ "max" ];
         gc = {
             automatic = true;
             dates = "weekly";
@@ -70,87 +101,64 @@
     };
 
     # Set up locales (timezone and keyboard layout)
-    time.timeZone = "America/Los_Angeles";
-    i18n.defaultLocale = "en_US.UTF-8";
+    time.timeZone = "Africa/Johannesburg";
+    i18n.defaultLocale = "en_ZA.UTF-8";
+    i18n.extraLocaleSettings = {
+      LC_ADDRESS = "en_ZA.UTF-8";
+      LC_IDENTIFICATION = "en_ZA.UTF-8";
+      LC_MEASUREMENT = "en_ZA.UTF-8";
+      LC_MONETARY = "en_ZA.UTF-8";
+      LC_NAME = "en_ZA.UTF-8";
+      LC_NUMERIC = "en_ZA.UTF-8";
+      LC_PAPER = "en_ZA.UTF-8";
+      LC_TELEPHONE = "en_ZA.UTF-8";
+      LC_TIME = "en_ZA.UTF-8";
+    };
+
     console = {
         font = "Lat2-Terminus16";
         keyMap = "us";
     };
 
     # Set up user and enable sudo
-    users.users.notus = {
+    users.users.max = {
         isNormalUser = true;
-        extraGroups = [ "input" "wheel" ];
+        description = "Max";
+        extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvrt" "input" ];
         shell = pkgs.zsh;
     };
 
     # Set up networking and secure it
     networking = {
-        wireless.iwd.enable = true;
-        firewall = {
-            enable = true;
-            allowedTCPPorts = [ 443 80 ];
-            allowedUDPPorts = [ 443 80 44857 ];
-            allowPing = false;
-        };
+      networkmanager.enable = true;
     };
 
     # Set environment variables
     environment.variables = {
         NIXOS_CONFIG = "$HOME/.config/nixos/configuration.nix";
         NIXOS_CONFIG_DIR = "$HOME/.config/nixos/";
-        XDG_DATA_HOME = "$HOME/.local/share";
-        PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-        GTK_RC_FILES = "$HOME/.local/share/gtk-1.0/gtkrc";
-        GTK2_RC_FILES = "$HOME/.local/share/gtk-2.0/gtkrc";
-        MOZ_ENABLE_WAYLAND = "1";
-        ZK_NOTEBOOK_DIR = "$HOME/stuff/notes/";
-        EDITOR = "nvim";
-        DIRENV_LOG_FORMAT = "";
-        ANKI_WAYLAND = "1";
-        DISABLE_QT5_COMPAT = "0";
+        EDITOR = "code";;
+        sessionVariables.NIXOS_OZONE_WL = "1";
     };
 
-    # Security 
-    security = {
-        sudo.enable = false;
-        doas = {
-            enable = true;
-            extraRules = [{
-                users = [ "notus" ];
-                keepEnv = true;
-                persist = true;
-            }];
-        };
 
-        # Extra security
-        protectKernelImage = true;
-    };
-
-    # Sound
-    sound = {
-        enable = true;
-    };
-
-    hardware.pulseaudio.enable = true;
+    # Enable sound with pipewire.
+    sound.enable = true;
+    hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
-
     services.pipewire = {
-        enable = false;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-    };
-    
-    # Disable bluetooth, enable pulseaudio, enable opengl (for Wayland)
-    hardware = {
-        bluetooth.enable = false;
-        opengl = {
-            enable = true;
-            driSupport = true;
-        };
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
     };
 
     # Do not touch
-    system.stateVersion = "20.09";
+    system.stateVersion = "23.11";
 }
