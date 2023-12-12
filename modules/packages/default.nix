@@ -12,139 +12,139 @@ in {
     config = mkIf cfg.enable {
     	home.packages = with pkgs; [
 
-          #### Web ####
-          ungoogled-chromium
+            #### Web ####
+            ungoogled-chromium
 
-          #### Mail #####
-          mailspring
+            #### Mail #####
+            mailspring
 
-          #### Media ####
-          vlc
-          filebot
+            #### Media ####
+            vlc
+            filebot
 
-          #### Discord ####
-          (pkgs.discord.override {
-           # remove any overrides that you don't want
-            withOpenASAR = true;
-            withVencord = true;
-          })
+            #### Discord ####
+            (pkgs.discord.override {
+             # remove any overrides that you don't want
+              withOpenASAR = true;
+              withVencord = true;
+            })
 
-          #### Spotify ####
-          #spotify-unwrapped
-          spicetify-cli
+            #### Spotify ####
+            #spotify-unwrapped
+            spicetify-cli
 
-          #### Telegram ####
-          telegram-desktop
+            #### Telegram ####
+            telegram-desktop
 
-          #### Signal ####
-          signal-desktop
+            #### Signal ####
+            signal-desktop
 
-          # SimpleX
-          simplex-chat-desktop
+            # SimpleX
+            simplex-chat-desktop
 
-          #### Matrix ####
-          #fluffychat
-          # #fractal-next
+            #### Matrix ####
+            #fluffychat
+            # #fractal-next
 
-          #### VSCode ####
-          vscode
+            #### VSCode ####
+            vscode
 
-          #### Networking ####
-          winbox # Mikrotik manager
-          mtr # A network diagnostic tool
-          iperf3 # tool to test network throughput with matching server/client
-          dnsutils  # `dig` + `nslookup`
-          #ipcalc  # it is a calculator for the IPv4/v6 addresses
-          dig
+            #### Networking ####
+            winbox # Mikrotik manager
+            mtr # A network diagnostic tool
+            iperf3 # tool to test network throughput with matching server/client
+            dnsutils  # `dig` + `nslookup`
+            #ipcalc  # it is a calculator for the IPv4/v6 addresses
+            dig
 
-          #### Rclone ####
-          rclone
-          rclone-browser
+            #### Rclone ####
+            rclone
+            rclone-browser
 
-          #### Emulation ####
-          # ryujinx
-          yuzu-mainline # Nintendo Switch Emulator
+            #### Emulation ####
+            # ryujinx
+            yuzu-mainline # Nintendo Switch Emulator
 
-          #### Minecraft ####
-          prismlauncher
+            #### Minecraft ####
+            prismlauncher
 
-          #### Backup ####
-          pika-backup
-          borgbackup
+            #### Backup ####
+            pika-backup
+            borgbackup
 
-          #### RGB ####
-          ckb-next # Logitech keyboard and mouse RGB and macro control
+            #### RGB ####
+            ckb-next # Logitech keyboard and mouse RGB and macro control
 
-          #### Ledger Crypto Hardware Wallet ####
-          ledger-live-desktop
+            #### Ledger Crypto Hardware Wallet ####
+            ledger-live-desktop
 
-          #### Web Dev ####
-          hugo # Static site generator
+            #### Web Dev ####
+            hugo # Static site generator
 
-          #### RPI ####
-          #rpi-imager
+            #### RPI ####
+            #rpi-imager
 
-          # OBS Studio
-          obs-studio
+            # OBS Studio
+            obs-studio
 
-          # Davinci Resolve non liner video editing
-          davinci-resolve
+            # Davinci Resolve non liner video editing
+            davinci-resolve
 
-          #### Teamviewer ####
-          #teamviewer
+            #### Teamviewer ####
+            #teamviewer
 
-          #### Proton manager ####
-          lutris
+            #### Proton manager ####
+            lutris
 
-          #### Archive management ####
-          #p7zip
-          #zstd
+            #### Archive management ####
+            #p7zip
+            #zstd
 
-          #### Magic wormhole P2P file transfer ####
-          magic-wormhole-rs
+            #### Magic wormhole P2P file transfer ####
+            magic-wormhole-rs
 
-          #### System ####
-          pciutils # lspci
-          usbutils # lsusb
-          #fio # IO Benchmark
-          #gnumake # Compiler
-          # gccgo13 # C Compiler
-          xwayland # allow x.org programs to run under wayland
-          starship # theme for zsh
-          nerdfonts # fonts required for starship
-          #protonup-ng # downloader for proton-ge runners
-          # python3
-          #docker-compose # declarative manager for docker OCI containers
-          btrfs-progs # Utilities for the btrfs filesystem
-          wineWowPackages.full # wine packages for running windows software/games
-          # wineWowPackages.waylandFull # same as above for wayland
-          #winetricks # wine manager
-          #protontricks # steam game based wine manager
-          protonup-qt
-          zip
-          lm_sensors
+            #### System ####
+            pciutils # lspci
+            usbutils # lsusb
+            #fio # IO Benchmark
+            #gnumake # Compiler
+            # gccgo13 # C Compiler
+            xwayland # allow x.org programs to run under wayland
+            starship # theme for zsh
+            nerdfonts # fonts required for starship
+            #protonup-ng # downloader for proton-ge runners
+            # python3
+            #docker-compose # declarative manager for docker OCI containers
+            btrfs-progs # Utilities for the btrfs filesystem
+            wineWowPackages.full # wine packages for running windows software/games
+            # wineWowPackages.waylandFull # same as above for wayland
+            #winetricks # wine manager
+            #protontricks # steam game based wine manager
+            protonup-qt
+            zip
+            lm_sensors
 
-          # iOS
-          libimobiledevice
-          ifuse
-          usbmuxd
+            # iOS
+            libimobiledevice
+            ifuse
+            usbmuxd
 
-          #### Virtualization ####
-          qemu
-          OVMF
-          libguestfs
-          dmg2img
-          virt-manager
+            #### Virtualization ####
+            qemu
+            OVMF
+            libguestfs
+            dmg2img
+            virt-manager
 
-          #### Neofetch ####
-          neofetch
+            #### Neofetch ####
+            neofetch
 
-          #### Gnome ####
-          gnome-extension-manager
-          gnome.gnome-tweaks
-          catppuccin
-          catppuccin-cursors
-          bibata-cursors
+            #### Gnome ####
+            gnome-extension-manager
+            gnome.gnome-tweaks
+            catppuccin
+            catppuccin-cursors
+            bibata-cursors
         ];
     };
 }
