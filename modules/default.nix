@@ -3,7 +3,6 @@
 {
     home.stateVersion = "23.11";
     imports = [
-        ./git
         ./gnome
         ./obs-virtualcam
         ./packages
