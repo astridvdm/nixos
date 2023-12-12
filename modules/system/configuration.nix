@@ -7,15 +7,7 @@ in {
     options.modules.system = { enable = mkEnableOption "system"; };
     config = mkIf cfg.enable {
 
-      # Remove unecessary preinstalled packages
-      environment.defaultPackages = [ ];
-      services.xserver.desktopManager.xterm.enable = false;
-
-      programs.zsh.enable = true;
-
-
       # System Packages
-
       # List packages installed in system profile. To search, run:
       # $ nix search wget
       environment.systemPackages = with pkgs; [
@@ -46,36 +38,6 @@ in {
         hitori # sudoku game
         atomix # puzzle game
       ]);
-
-      # # Install fonts
-      # fonts = {
-      #     fonts = with pkgs; [
-      #         jetbrains-mono
-      #         roboto
-      #         openmoji-color
-      #         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      #     ];
-
-      #     fontconfig = {
-      #         hinting.autohint = true;
-      #         defaultFonts = {
-      #           emoji = [ "OpenMoji Color" ];
-      #         };
-      #     };
-      # };
-
-
-      # # Wayland stuff: enable XDG integration, allow sway to use brillo
-      # xdg = {
-      #     portal = {
-      #         enable = true;
-      #         extraPortals = with pkgs; [
-      #             xdg-desktop-portal-wlr
-      #             xdg-desktop-portal-gtk
-      #         ];
-      #         gtkUsePortal = true;
-      #     };
-      # };
 
       # Nix settings, auto cleanup and enable flakes
       boot.loader.systemd-boot.configurationLimit = 10;
@@ -195,6 +157,10 @@ in {
       enable = true;
       enableNvidia = true;
       };
+
+      # ZSH
+      programs.zsh.enable = true;
+
 
 
       # Do not touch
