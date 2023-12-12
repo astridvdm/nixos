@@ -3,7 +3,9 @@
 {
     home.stateVersion = "23.11";
     imports = [
-        #./obs-virtualcam
+        ./git
+        ./gnome
+        ./obs-virtualcam
         ./packages
         ./ssh
         ./starship

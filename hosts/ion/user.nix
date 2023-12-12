@@ -4,12 +4,12 @@
     imports = [ ../../modules/default.nix ];
     config.modules = {
 
-        #gnome = true;
-        #obs-virtualcam = true;
-        scripts = true;
-        ssh = true;
-        starship = true;
-        zsh = true;
+        gnome.enable = true;
+        obs-virtualcam.enable = true;
+        scripts.enable = true;
+        ssh.enable = true;
+        starship.enable = true;
+        zsh.enable = true;
 
         # system
         #xdg.enable = true;
