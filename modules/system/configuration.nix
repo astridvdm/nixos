@@ -165,6 +165,38 @@ in {
         #media-session.enable = true;
       };
 
+
+      # List services that you want to enable:
+
+      # Tailscale
+      services.tailscale.enable = true;
+      networking.firewall.checkReversePath = "loose";
+
+      # Enable CUPS to print documents.
+      services.printing.enable = true;
+
+      # Corsair keyboard control
+      hardware.ckb-next.enable = true;
+
+      # Hardware crypto wallet manager
+      hardware.ledger.enable = true;
+
+      # Flatpak
+      services.flatpak.enable = true;
+
+      # KVM Virtual machines
+      virtualisation.libvirtd.enable = true;
+
+      # Steam
+      programs.steam.enable = true;
+
+      # Docker
+      virtualisation.docker = {
+      enable = true;
+      enableNvidia = true;
+      };
+
+
       # Do not touch
       system.stateVersion = "23.11";
     };
