@@ -4,7 +4,7 @@
     imports = [ ../../modules/default.nix ];
     config.modules = {
 
-        gnome = false;
+        gnome = true;
         obs-virtualcam = true;
         packages = true;
         scripts = true;
