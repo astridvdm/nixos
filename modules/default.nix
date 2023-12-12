@@ -6,6 +6,7 @@
         ./chrome-widevine
         ./git
         ./gnome
+        ./obs-virtualcam
         ./packages
         ./scripts
         ./ssh
