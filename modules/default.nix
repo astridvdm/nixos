@@ -3,7 +3,6 @@
 {
     home.stateVersion = "23.11";
     imports = [
-        ./chrome-widevine
         ./git
         ./gnome
         ./obs-virtualcam

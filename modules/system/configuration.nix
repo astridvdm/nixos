@@ -46,8 +46,14 @@
             keep-derivations = true
         '';
     };
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
+
+
+      nixpkgs.config = {
+        allowUnfree = true;
+        ungoogled.enableWideVine = true;
+        chromium.enableWideVine = true;
+      };
+
     # Boot settings: clean /tmp/, latest kernel and enable bootloader
     boot = {
         cleanTmpDir = true;

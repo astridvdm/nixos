@@ -4,7 +4,6 @@
     imports = [ ../../modules/default.nix ];
     config.modules = {
 
-        chrome-widevine = true;
         git = true;
         gnome = true;
         obs-virtualcam = true;
