@@ -10,14 +10,14 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        nur = {
-            url = "github:nix-community/NUR";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
+        # nur = {
+        #     url = "github:nix-community/NUR";
+        #     inputs.nixpkgs.follows = "nixpkgs";
+        # };
     };
 
     # All outputs for the system (configs)
-    outputs = { home-manager, nixpkgs, nur, ... }@inputs:
+    outputs = { home-manager, nixpkgs, ... }@inputs:
         let
             system = "x86_64-linux"; #current system
             pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
