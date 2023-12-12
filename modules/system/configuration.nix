@@ -1,9 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-    options.modules.system = { enable = mkEnableOption "system"; };
-    config = mkIf cfg.enable {
-
       # System Packages
       # List packages installed in system profile. To search, run:
       # $ nix search wget
