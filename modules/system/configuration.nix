@@ -56,7 +56,7 @@
 
     # Boot settings: clean /tmp/, latest kernel and enable bootloader
     boot = {
-        cleanTmpDir = true;
+        tmp.cleanOnBoot = true;
         loader = {
         systemd-boot.enable = true;
         systemd-boot.editor = false;
