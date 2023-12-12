@@ -1,13 +1,12 @@
 { pkgs, lib, config, ... }:
 
 with lib;
-let cfg =
-    config.modules.gnome;
-    maintenance = pkgs.writeShellScriptBin "maintenance" ''${builtins.readFile ./maintenance}'';
+let cfg = config.modules.gnome;
 
 in {
     options.modules.gnome = { enable = mkEnableOption "gnome"; };
     config = mkIf cfg.enable {
+
       # Enable the X11/Wayland windowing system.
       services.xserver.enable = true;
 
