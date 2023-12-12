@@ -108,7 +108,7 @@ in {
       environment.variables = {
           NIXOS_CONFIG = "$HOME/.config/nixos/configuration.nix";
           NIXOS_CONFIG_DIR = "$HOME/.config/nixos/";
-          EDITOR = "code";;
+          EDITOR = "code";
           sessionVariables.NIXOS_OZONE_WL = "1";
       };
 
