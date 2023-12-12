@@ -40,8 +40,20 @@
     [ { device = "/dev/disk/by-uuid/05946c4e-a445-40fa-bb16-93598b7b2a3a"; }
     ];
 
+  # Internel HDD WD Blue 2TB
+  fileSystems."/mnt/hdd" =
+    { device = "/dev/disk/by-uuid/a91a69e4-9131-49e4-83fa-dc0fcd5240a9";
+      fsType = "btrfs";
+      options = [ "acl" "autodefrag" "defaults" "nofail" "nossd" "compress=zstd:5" "noatime"
+      ];
+    };
 
-
+  # SSHFS mount for Terra's BTRFS Array
+  fileSystems."/mnt/terra" =
+    { device = "max@10.0.0.3:/mnt/terra";
+      fsType = "fuse.sshfs";
+      options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
+    };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
