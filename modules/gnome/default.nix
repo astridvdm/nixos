@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ inputs, pkgs, lib, config, ... }:
 
 with lib;
 let cfg = config.modules.gnome;
@@ -6,6 +6,7 @@ let cfg = config.modules.gnome;
 in {
     options.modules.gnome = { enable = mkEnableOption "gnome"; };
     config = mkIf cfg.enable {
+	home.packages = with pkgs; [ ];
 
       # Enable the X11/Wayland windowing system.
       services.xserver.enable = true;
