@@ -47,8 +47,8 @@
                             };
                             nixpkgs.overlays = [
                                 # Add nur overlay for Firefox addons
-                                nur.overlay
-                                (import ./overlays)
+                                #nur.overlay
+                                #(import ./overlays)
                             ];
                         }
                     ];
