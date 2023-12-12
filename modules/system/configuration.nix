@@ -57,6 +57,9 @@ in {
           '';
       };
 
+      # Allow unfree packages
+      nixpkgs.config.allowUnfree = true;
+
       # Boot settings: clean /tmp/, latest kernel and enable bootloader
       boot = {
           cleanTmpDir = true;
