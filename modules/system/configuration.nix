@@ -1,9 +1,6 @@
-{ pkgs, lib, config, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
-with lib;
-let cfg = config.modules.system;
-
-in {
+{
     options.modules.system = { enable = mkEnableOption "system"; };
     config = mkIf cfg.enable {
 
