@@ -93,6 +93,11 @@
   # Enable wayland flag for windows
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "mailspring-1.12.0"
+  ];
+
+
   # Nvidia Configuration
 
   # Enable OpenGL
