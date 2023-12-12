@@ -10,7 +10,6 @@
         ./packages
         ./scripts
         ./ssh
-        ./star-citizen
         ./starship
         ./zsh
     ];

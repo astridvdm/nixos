@@ -3,13 +3,16 @@
 {
     imports = [ ../../modules/default.nix ];
     config.modules = {
-        # gui
 
-        # cli
-        zsh.enable = true;
-        git.enable = true;
+        chrome-widevine = true;
+        git = true;
+        gnome = true;
+        obs-virtualcam = true;
+        packages = true;
+        scripts = true;
+        ssh = true;
+        starship = true;
+        zsh = true;
 
-        # system
-        packages.enable = true;
     };
 }

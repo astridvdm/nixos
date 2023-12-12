@@ -58,6 +58,7 @@
         efi.canTouchEfiVariables = true;
         timeout = 0;
         };
+
     };
     # Set up locales (timezone and keyboard layout)
     time.timeZone = "Africa/Johannesburg";
