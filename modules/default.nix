@@ -1,25 +1,20 @@
 { inputs, pkgs, config, ... }:
 
 {
-    home.stateVersion = "21.03";
+    home.stateVersion = "23.11";
     imports = [
         # gui
-        ./firefox
-        ./foot
-        ./eww
-        ./dunst
-        ./hyprland
-        ./wofi
 
         # cli
-        ./nvim
+        ./ssh
         ./zsh
         ./git
-        ./gpg
-        ./direnv
+        ./starship
+        ./
 
         # system
-        ./xdg
 	    ./packages
+        ./nvidia
+        ./asus
     ];
 }
