@@ -8,5 +8,6 @@
         ./ssh
         ./starship
         ./zsh
+        ./nvidia
     ];
 }
