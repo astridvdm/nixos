@@ -199,16 +199,16 @@
       user = "max";
       identityFile = "/home/max/.ssh/max-a17-lux";
       };
-      # "hera" = {
-      # hostname = "10.0.0.21";
-      # user = "max";
-      # identityFile = "/home/max/.ssh/max-a17-lux";
-      # };
-      # "orion" = {
-      # hostname = "100.112.75.88";
-      # user = "max";
-      # identityFile = "/home/max/.ssh/max-a17-lux";
-      # };
+      "hera" = {
+      hostname = "10.0.0.21";
+      user = "max";
+      identityFile = "/home/max/.ssh/max-a17-lux";
+      };
+      "orion" = {
+      hostname = "100.112.75.88";
+      user = "max";
+      identityFile = "/home/max/.ssh/max-a17-lux";
+      };
       "lux" = {
       hostname = "172.16.0.212";
       proxyJump = "100.96.163.55";
