@@ -3,7 +3,7 @@
 
     # All inputs for the system
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
         home-manager = {
             url = "github:nix-community/home-manager";
@@ -59,8 +59,7 @@
             nixosConfigurations = {
                 # Now, defining a new system is can be done in one line
                 #                                Architecture   Hostname
-                laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
-                desktop = mkSystem inputs.nixpkgs "x86_64-linux" "desktop";
+                ion = mkSystem inputs.nixpkgs "x86_64-linux" "ion";
             };
     };
 }
