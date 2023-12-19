@@ -16,7 +16,7 @@
   };
 
   # Unlock encrypted boot nvme ssd
-  boot.initrd.luks.devices."luks-d9af0e43-edbf-4177-8dd8-1d9a57fff777".device = "/dev/disk/by-uuid/d9af0e43-edbf-4177-8dd8-1d9a57fff777";
+  boot.initrd.luks.devices."luks-64991651-7ba5-4643-8907-8744860f9e2b".device = "/dev/disk/by-uuid/64991651-7ba5-4643-8907-8744860f9e2b";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
 
