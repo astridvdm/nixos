@@ -65,7 +65,7 @@
     })
 
     #### Spotify ####
-    #spotify-unwrapped
+    spotify-unwrapped
     spicetify-cli
 
     #### Telegram ####
