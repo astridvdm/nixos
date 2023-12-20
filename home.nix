@@ -183,6 +183,11 @@
     enable = true;
     compression = true;
     matchBlocks = {
+      "ceres" = {
+      hostname = "10.0.0.242";
+      user = "max";
+      identityFile = "/home/max/.ssh/max-a17-lux";
+      };
       "ares" = {
       hostname = "10.0.0.2";
       user = "max";
