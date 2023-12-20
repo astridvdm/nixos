@@ -34,7 +34,7 @@
   # Name
   users.users.max.description = "Max";
   # Groups
-  users.users.max.extraGroups = [ "wheel" "docker" ];
+  users.users.max.extraGroups = [ "wheel" "docker" "libvirtd" ];
   # Set user ID
   users.users.max.uid = 1000;
   # SSH public keys allowed to connect to the ssh server for user.
@@ -144,6 +144,17 @@
   # Tailscale
   services.tailscale.enable = true;
   networking.firewall.checkReversePath = "loose";
+
+
+  # KVM Virtualization
+
+  # Adapted from /var/lib/libvirt/qemu.conf
+  # Note that AAVMF and OVMF are for Aarch64 and x86 respectively
+  nvram = [ "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd", "/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd" ]
+
+  virtualisation.libvirtd = {
+    enable = true;
+  };
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;
