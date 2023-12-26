@@ -75,7 +75,7 @@
     telegram-desktop
 
     #### Signal ####
-    signal-desktop
+    unstable.signal-desktop
 
     #### Matrix ####
     #fluffychat
