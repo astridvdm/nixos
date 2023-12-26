@@ -13,13 +13,13 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
 
     # Unstable
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     #home-manager.url = "github:nix-community/home-manager/master";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, unstable, home-manager, ... }: {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       hera = nixpkgs.lib.nixosSystem {
