@@ -18,11 +18,11 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # SSHFS mount for Terra's BTRFS Array
-  fileSystems."/mnt/terra" =
-    { device = "max@10.0.0.3:/mnt/terra";
-      fsType = "fuse.sshfs";
-      options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
-    };
+  # fileSystems."/mnt/terra" =
+  #   { device = "max@10.0.0.3:/mnt/terra";
+  #     fsType = "fuse.sshfs";
+  #     options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
+  #   };
 
   # Networking
 
