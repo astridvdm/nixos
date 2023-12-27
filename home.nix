@@ -45,7 +45,7 @@
   home.packages = with pkgs; [
 
     #### Web ####
-    #firefox
+    firefox
     ungoogled-chromium
     # protonvpn-gui
 
