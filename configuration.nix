@@ -200,20 +200,20 @@
   services.openssh.settings.Macs = [
     "hmac-sha2-512-etm@openssh.com"
     "hmac-sha2-256-etm@openssh.com"
-    "umac-128-etm@openssh.com"
+    #"umac-128-etm@openssh.com"
     "hmac-sha2-256"
     "hmac-sha2-512"
     ];
-  services.openssh.hostKeys = [
-    { type = "rsa"; bits = 4096; path = "/etc/ssh/ssh_host_rsa_key"; }
-    { type = "ed25519"; bits = 256; path = "/etc/ssh/ssh_host_ed25519_key"; }
-  ];
+  # services.openssh.hostKeys = [
+  #   { type = "rsa"; bits = 4096; path = "/etc/ssh/ssh_host_rsa_key"; }
+  #   { type = "ed25519"; bits = 256; path = "/etc/ssh/ssh_host_ed25519_key"; }
+  # ];
 
-  programs.ssh.hostKeyAlgorithms = [
-    "ssh-rsa"
-    "ssh-ed25519"
-    "ssh-dss"
-  ];
+  # programs.ssh.hostKeyAlgorithms = [
+  #   "ssh-rsa"
+  #   "ssh-ed25519"
+  #   #"ssh-dss"
+  # ];
 
   # Docker
   virtualisation.docker = {
