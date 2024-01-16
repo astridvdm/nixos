@@ -21,17 +21,20 @@
   networking.hostName = "ceres";
 
 
-  networking.interfaces.enp0s31f6.ipv4.addresses = [ {
-    address = "10.0.0.2";
-    prefixLength = 24;
+  networking.interfaces.enp0s31f6 = [ {
+    ipv4.addresses = [ {
+      address = "10.0.0.2";
+      prefixLength = 24;
+    } ];
+    ipv6.addresses = [ {
+      address = "2c0f:f4c0:1185:9d99::2";
+      prefixLength = 64;
+    } ];
   } ];
   networking.defaultGateway = "10.0.0.1";
   networking.nameservers = [ "10.0.0.1" ];
 
-  networking.interfaces.enp0s31f6.ipv6.addresses = [ {
-    address = "2c0f:f4c0:1185:9d99::2";
-    prefixLength = 64;
-  } ];
+
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
