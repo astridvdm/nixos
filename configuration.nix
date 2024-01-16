@@ -29,7 +29,7 @@
   networking.nameservers = [ "10.0.0.1" ];
 
   networking.interfaces.enp0s31f6.ipv6.addresses = [ {
-    address = "2c0f:f4c0:1185:9d99::2";
+    address = "2c0f:f4c0:1185:9da4::2";
     prefixLength = 64;
   } ];
 
@@ -195,6 +195,25 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # Enable legacy macs for older sftp clients, ie VLC and Photosync
+  services.openssh.settings.Macs = [
+    "hmac-sha2-512-etm@openssh.com"
+    "hmac-sha2-256-etm@openssh.com"
+    "umac-128-etm@openssh.com"
+    "hmac-sha2-256"
+    "hmac-sha2-512"
+    ];
+  services.openssh.hostKeys = [
+    { type = "rsa"; bits = 4096; path = "/etc/ssh/ssh_host_rsa_key"; }
+    { type = "ed25519"; bits = 256; path = "/etc/ssh/ssh_host_ed25519_key"; }
+  ];
+
+  programs.ssh.hostKeyAlgorithms = [
+    "ssh-rsa"
+    "ssh-ed25519"
+    "ssh-dss"
+  ];
 
   # Docker
   virtualisation.docker = {
