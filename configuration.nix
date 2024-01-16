@@ -19,16 +19,19 @@
 
   # Define your hostname
   networking.hostName = "ceres";
-  networking.defaultGateway = "10.0.0.1";
-  networking.nameservers = [ "9.9.9.9" "1.1.1.1" "1.0.0.1" "2620:fe::fe" "2606:4700:4700::1111" "2606:4700:4700::1001" ];
-  networking.interfaces.eth0.ipv4.addresses = [ {
+
+
+  networking.interfaces.enp0s31f6.ipv4.addresses = [ {
     address = "10.0.0.2";
     prefixLength = 24;
   } ];
-  # networking.interfaces.eth0.ipv6.addresses = [ {
-  # address = "2c0f:f4c0:1185:8050:4ecc:6aff:fefc:2113";
-  # prefixLength = 64;
-  # } ];
+  networking.defaultGateway = "10.0.0.1";
+  networking.nameservers = [ "10.0.0.1" ];
+
+  networking.interfaces.enp0s31f6.ipv6.addresses = [ {
+    address = "2c0f:f4c0:1185:9d99::2";
+    prefixLength = 64;
+  } ];
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
