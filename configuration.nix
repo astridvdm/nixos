@@ -19,12 +19,70 @@
 
   # Define your hostname
   networking.hostName = "ceres";
-  networking.networkmanager.enable = true;
-
+  networking.defaultGateway = "10.0.0.1";
+  networking.nameservers = [ "9.9.9.9" "1.1.1.1" "1.0.0.1" "2620:fe::fe" "2606:4700:4700::1111" "2606:4700:4700::1001" ];
+  networking.interfaces.eth0.ipv4.addresses = [ {
+    address = "10.0.0.2";
+    prefixLength = 24;
+  } ];
+  # networking.interfaces.eth0.ipv6.addresses = [ {
+  # address = "2c0f:f4c0:1185:8050:4ecc:6aff:fefc:2113";
+  # prefixLength = 64;
+  # } ];
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
 
+  # # BTRFS Array
+  # fileSystems."/mnt/terra" =
+  #   { device = "/dev/disk/by-uuid/1bca9e27-fc20-4ed1-b84e-3db5a6486019";
+  #     fsType = "btrfs";
+  #     options = [
+  #       "acl"
+  #       "autodefrag"
+  #       "defaults"
+  #       "nofail"
+  #       "nossd"
+  #       "compress=zstd:3"
+  #       "noatime"
+  #     ];
+  #   };
+
+  # # Archival BTRFS Array
+  # fileSystems."/mnt/max-12tb" =
+  #   { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
+  #     fsType = "btrfs";
+  #     options = [
+  #     "acl"
+  #      "autodefrag"
+  #      "defaults"
+  #      "nofail"
+  #      "nossd"
+  #      "compress=zstd:5"
+  #      "noatime"
+  #     ];
+  #   };
+
+  # Printing
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+
+  # for a WiFi printer
+  services.avahi.openFirewall = true;
+  services.printing.drivers = [ pkgs.pantum-driver ];
+  services.avahi.publish.enable = true;
+  services.avahi.publish.userServices = true;
+  services.printing.browsing = true;
+  services.printing.listenAddresses = [ "*:631" ]; # Not 100% sure this is needed and you might want to restrict to the local network
+  services.printing.allowFrom = [ "all" ]; # this gives access to anyone on the interface you might want to limit it see the official documentation
+  services.printing.defaultShared = true; # If you want
+
+  # Firewall
+  networking.firewall.allowedUDPPorts = [ 631 ];
+  networking.firewall.allowedTCPPorts = [ 631 ];
 
   # Users
 
@@ -119,8 +177,18 @@
      screen
      tailscale
      git
+     pciutils
    ];
 
+  # # Enable cron service
+  # services.cron = {
+  #   enable = true;
+  #   systemCronJobs = [
+  #     "0 3 * * 1,3,6      max    sh /mnt/terra/media/cron-sj.sh >> /dev/null"
+  #     "0 2 * * 1,3,6      max    sh /home/max/terra-docker-compose/backup-terra-docker.sh >> /dev/null"
+  #     "0 1 * * 1,3,6      max    sh /mnt/terra/backups/photosync/photosync-backup.sh >> /dev/null"
+  #   ];
+  # };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
