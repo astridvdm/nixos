@@ -33,6 +33,14 @@
     prefixLength = 64;
   } ];
 
+
+  networking.interfaces.enp0s31f6.tempAddress = "disabled";
+
+  # networking.defaultGateway6 = {
+  # address = "fe80::9ab7:85ff:fe01:e7c4";
+  # interface = "enp0s31f6";
+  # };
+
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
 
