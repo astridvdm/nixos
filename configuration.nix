@@ -44,20 +44,20 @@
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
 
-  # # BTRFS Array
-  # fileSystems."/mnt/terra" =
-  #   { device = "/dev/disk/by-uuid/1bca9e27-fc20-4ed1-b84e-3db5a6486019";
-  #     fsType = "btrfs";
-  #     options = [
-  #       "acl"
-  #       "autodefrag"
-  #       "defaults"
-  #       "nofail"
-  #       "nossd"
-  #       "compress=zstd:3"
-  #       "noatime"
-  #     ];
-  #   };
+  # BTRFS Array
+  fileSystems."/mnt/terra" =
+    { device = "/dev/disk/by-uuid/1bca9e27-fc20-4ed1-b84e-3db5a6486019";
+      fsType = "btrfs";
+      options = [
+        "acl"
+        "autodefrag"
+        "defaults"
+        "nofail"
+        "nossd"
+        "compress=zstd:3"
+        "noatime"
+      ];
+    };
 
   # # Archival BTRFS Array
   # fileSystems."/mnt/max-12tb" =
