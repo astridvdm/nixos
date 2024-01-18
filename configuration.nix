@@ -45,7 +45,7 @@
   time.timeZone = "Africa/Johannesburg";
 
   # BTRFS Array
-  fileSystems."/mnt/terra" =
+  fileSystems."/mnt/ceres" =
     { device = "/dev/disk/by-uuid/1bca9e27-fc20-4ed1-b84e-3db5a6486019";
       fsType = "btrfs";
       options = [
