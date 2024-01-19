@@ -229,7 +229,7 @@
   };
 
   # Make sure docker starts after the storage array is mounted.
-  #systemd.services.docker.after = ["mnt-terra.mount"];
+  systemd.services.docker.after = ["mnt-ceres.mount"];
 
   # Services
 
