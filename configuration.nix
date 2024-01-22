@@ -33,6 +33,11 @@
     prefixLength = 64;
   } ];
 
+  networking.defaultGateway6 = {
+    address = "2c0f:f4c0:1185:9dc0::1";
+    interface = "enp0s31f6";
+  };
+
 
   networking.interfaces.enp0s31f6.tempAddress = "disabled";
 
@@ -226,6 +231,7 @@
   # Docker
   virtualisation.docker = {
     enable = true;
+    # extraOptions = "--ipv6 --fixed-cidr-v6 2c0f:f4c0:1185:9dc0::/64";
   };
 
   # Make sure docker starts after the storage array is mounted.
