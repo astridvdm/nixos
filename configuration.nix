@@ -26,7 +26,7 @@
     prefixLength = 24;
   } ];
   networking.defaultGateway = "10.0.0.1";
-  networking.nameservers = [ "10.0.0.1" ];
+  networking.nameservers = [ "10.0.0.1" "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
 
   networking.interfaces.enp0s31f6.ipv6.addresses = [ {
     address = "2c0f:f4c0:1185:9dc0::2";
