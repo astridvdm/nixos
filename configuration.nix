@@ -231,7 +231,14 @@
   # Docker
   virtualisation.docker = {
     enable = true;
-    # extraOptions = "--ipv6 --fixed-cidr-v6 2c0f:f4c0:1185:9dc0::/64";
+    daemon.settings = {
+      #userland-proxy = false;
+      ipv6 = true;
+      ip6tables = true;
+      fixed-cidr-v6 = "fd00:0::/64";
+      #fixed-cidr-v6 = "2c0f:f4c0:1185:9dc1::/64";
+      experimental = true;
+    };
   };
 
   # Make sure docker starts after the storage array is mounted.
