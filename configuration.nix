@@ -29,12 +29,12 @@
   networking.nameservers = [ "10.0.0.1" "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
 
   networking.interfaces.enp0s31f6.ipv6.addresses = [ {
-    address = "2c0f:f4c0:1185:801c::2";
+    address = "2c0f:f4c0:1185:8090::2";
     prefixLength = 64;
   } ];
 
   networking.defaultGateway6 = {
-    address = "2c0f:f4c0:1185:801c::1";
+    address = "2c0f:f4c0:1185:8090::1";
     interface = "enp0s31f6";
   };
 
@@ -63,6 +63,9 @@
         "noatime"
         #"ro"
         #"usebackuproot"
+        #"recovery"
+        #"nospace_cache"
+        #"clear_cache"
       ];
     };
 
@@ -196,6 +199,7 @@
      tailscale
      git
      pciutils
+     ncdu
    ];
 
   # Enable cron service
