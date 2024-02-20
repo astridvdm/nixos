@@ -185,7 +185,7 @@
     gnome.gnome-tweaks
     papirus-icon-theme
     catppuccin-cursors.mochaDark
-    catppuccin-papirus-folders
+    #catppuccin-papirus-folders
     bibata-cursors
 
 

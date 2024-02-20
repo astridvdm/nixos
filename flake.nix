@@ -17,18 +17,23 @@
     home-manager.url = "github:nix-community/home-manager/master";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Spicetify
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... } : {
+  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, ... } : {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       ion = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        #extraSpecialArgs = inputs;
+        specialArgs = {inherit spicetify-nix;};
         modules = [
           ./configuration.nix
           ./nvidia-config.nix
+          ./spicetify.nix # file where you configure spicetify
           ./hardware-configuration.nix
+
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
