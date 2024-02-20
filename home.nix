@@ -282,7 +282,7 @@
     theme = {
       name = "Catppuccin-Mocha-Standard-Blue-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" ];
+        accents = [ "lavender" ];
         size = "standard";
         tweaks = [ "rimless" ];
         variant = "mocha";
