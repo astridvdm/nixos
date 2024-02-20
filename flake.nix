@@ -31,7 +31,7 @@
         modules = [
           ./configuration.nix
           ./nvidia-config.nix
-          spicetify.nix
+          ./spicetify.nix
           ./hardware-configuration.nix
 
           # make home-manager as a module of nixos

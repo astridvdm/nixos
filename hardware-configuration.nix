@@ -27,7 +27,7 @@
     };
 
   swapDevices = [ {
-    device = "/dev/nvme0n1p2";
+    device = "/dev/disk/by-uuid/fdde802e-5d68-411a-874e-e00f7539ef40";
     #size = 34*1024;
     } ];
 
