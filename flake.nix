@@ -32,7 +32,6 @@
           ./configuration.nix
           ./nvidia-config.nix
           ./spicetify.nix # file where you configure spicetify
-          ./spicetify.nix
           ./hardware-configuration.nix
 
 
