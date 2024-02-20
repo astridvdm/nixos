@@ -238,7 +238,7 @@
       "github.com" = {
       hostname = "github.com";
       user = "git";
-      identityFile = "/home/max/.ssh/max-git-yk";
+      identityFile = "/home/max/.ssh/max-git";
       };
     };
   };
