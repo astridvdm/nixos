@@ -46,11 +46,11 @@
 
     #### Web ####
     firefox
-    ungoogled-chromium
+    #ungoogled-chromium
     # protonvpn-gui
 
     #### Mail #####
-    mailspring
+    #mailspring
     #evolution
 
     #### Media ####
@@ -58,11 +58,12 @@
     #filebot
 
     #### Discord ####
-    (pkgs.discord.override {
-     # remove any overrides that you don't want
-      withOpenASAR = true;
-      withVencord = true;
-    })
+    vesktop
+    # (pkgs.discord.override {
+    #  # remove any overrides that you don't want
+    #   withOpenASAR = true;
+    #   withVencord = true;
+    # })
 
     #### Spotify ####
     spotify-unwrapped
@@ -85,7 +86,7 @@
     vscode
 
     #### Networking ####
-    winbox # Mikrotik manager
+    #winbox # Mikrotik manager
     #trayscale # Tailscale gui manager
     mtr # A network diagnostic tool
     iperf3 # tool to test network throughput with matching server/client
@@ -103,6 +104,8 @@
 
     #### Minecraft ####
     prismlauncher
+
+    steamtinkerlaunch
 
     #### Backup ####
     pika-backup
@@ -152,10 +155,10 @@
     # python3
     #docker-compose # declarative manager for docker OCI containers
     btrfs-progs # Utilities for the btrfs filesystem
-    wineWowPackages.full # wine packages for running windows software/games
-    # wineWowPackages.waylandFull # same as above for wayland
+    #wineWowPackages.full # wine packages for running windows software/games
+    wineWowPackages.waylandFull # same as above for wayland
     #winetricks # wine manager
-    #protontricks # steam game based wine manager
+    protontricks # steam game based wine manager
     protonup-qt
     zip
     lm_sensors
@@ -180,9 +183,25 @@
     #### Gnome ####
     gnome-extension-manager
     gnome.gnome-tweaks
-    catppuccin
-    catppuccin-cursors
+    papirus-icon-theme
+    catppuccin-cursors.mochaDark
+    catppuccin-papirus-folders
     bibata-cursors
+
+
+    #### Gnome Extensions ####
+    gnomeExtensions.bluetooth-quick-connect
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.caffeine
+    gnomeExtensions.notification-timeout
+    gnomeExtensions.quick-settings-audio-panel
+    gnomeExtensions.tailscale-qs
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.trimmer
+    gnomeExtensions.user-avatar-in-quick-settings
+    gnomeExtensions.weather-or-not
+    gnomeExtensions.week-start-modifier
+    gnomeExtensions.pano
   ];
   # ssh remote host configs
   programs.ssh = {
@@ -190,17 +209,7 @@
     compression = true;
     matchBlocks = {
       "ceres" = {
-      hostname = "10.0.0.242";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
-      };
-      "ares" = {
       hostname = "10.0.0.2";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
-      };
-      "terra" = {
-      hostname = "10.0.0.3";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17-lux";
       };

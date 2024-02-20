@@ -7,6 +7,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Choose kernel package
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Increase vm count for Star Citizen
@@ -15,8 +16,8 @@
   "fs.file-max" = 524288;
   };
 
-  # Unlock encrypted boot nvme ssd
-  boot.initrd.luks.devices."luks-64991651-7ba5-4643-8907-8744860f9e2b".device = "/dev/disk/by-uuid/64991651-7ba5-4643-8907-8744860f9e2b";
+  ## Unlock encrypted boot nvme ssd
+  #boot.initrd.luks.devices."luks-64991651-7ba5-4643-8907-8744860f9e2b".device = "/dev/disk/by-uuid/64991651-7ba5-4643-8907-8744860f9e2b";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
 
@@ -28,12 +29,12 @@
       ];
     };
 
-  # SSHFS mount for Terra's BTRFS Array
-  fileSystems."/mnt/terra" =
-    { device = "max@10.0.0.3:/mnt/terra";
-      fsType = "fuse.sshfs";
-      options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
-    };
+  ## SSHFS mount for Terra's BTRFS Array
+  #fileSystems."/mnt/terra" =
+  #  { device = "max@10.0.0.3:/mnt/terra";
+  #    fsType = "fuse.sshfs";
+  #    options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
+  #  };
 
   # Networking
 
@@ -140,16 +141,18 @@
     sshfs
     screen # Allow terminal tasks to run in background
     tailscale # Remote wireguard based p2p vpn
+    # gsound
+    # libgda6
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
 #    gnome-photos
     gnome-tour
+    gedit
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
 #    gnome-terminal
-    gedit # text editor
     epiphany # web browser
     geary # email reader
     evince # document viewer
@@ -166,11 +169,6 @@
     ungoogled.enableWideVine = true;
     chromium.enableWideVine = true;
   };
-
-  # Allow Mailspring to be installed due to known CVE in webp
-  nixpkgs.config.permittedInsecurePackages = [
-    "mailspring-1.12.0"
-  ];
 
 
   # Some programs need SUID wrappers, can be configured further or are
