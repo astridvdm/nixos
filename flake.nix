@@ -31,8 +31,10 @@
         modules = [
           ./configuration.nix
           ./nvidia-config.nix
+          ./spicetify.nix # file where you configure spicetify
           ./spicetify.nix
           ./hardware-configuration.nix
+
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
