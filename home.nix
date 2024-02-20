@@ -185,7 +185,6 @@
     gnome.gnome-tweaks
     papirus-icon-theme
     catppuccin-cursors.mochaDark
-    #catppuccin-papirus-folders
     bibata-cursors
 
 
@@ -279,6 +278,13 @@
 
   gtk = {
     enable = true;
+    iconTheme = {
+        name = "Catppuccin-Macchiato-Blue-Icons";
+        package = pkgs.catppuccin-papirus-folders.override {
+          flavor = "mocha";
+          accent = "lavender";
+        };
+      };
     theme = {
       name = "Catppuccin-Mocha-Standard-Blue-Dark";
       package = pkgs.catppuccin-gtk.override {
@@ -289,6 +295,7 @@
       };
     };
   };
+
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

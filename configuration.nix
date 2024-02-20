@@ -75,8 +75,10 @@
 
   # Configure keymap
   services.xserver = {
-    layout = "za";
-    xkbVariant = "";
+    xkb = {
+      layout = "za";
+      Variant = "";
+    };
   };
 
   # Enable CUPS to print documents.
