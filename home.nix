@@ -67,7 +67,6 @@
     #### Web ####
     firefox
     #ungoogled-chromium
-    # protonvpn-gui
 
     #### Mail #####
     #mailspring
@@ -75,7 +74,7 @@
 
     #### Media ####
     vlc
-    #filebot
+    filebot
 
     #### Discord ####
     vesktop
@@ -100,7 +99,7 @@
     simplex-chat-desktop
 
     #### Matrix ####
-    #fluffychat
+    fluffychat
     # #fractal-next
 
     #### VSCode ####
@@ -121,7 +120,7 @@
 
     #### Emulation ####
     # ryujinx
-    # yuzu-mainline
+    yuzu-mainline
 
     #### Minecraft ####
     prismlauncher
