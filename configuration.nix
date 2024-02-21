@@ -74,11 +74,9 @@
   #services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap
-  services.xserver = {
-    xkb = {
-      layout = "za";
-      Variant = "";
-    };
+  services.xserver.xkb = {
+    variant = "za";
+    layout = "";
   };
 
   # Enable CUPS to print documents.

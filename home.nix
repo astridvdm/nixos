@@ -41,6 +41,26 @@
     };
   };
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Catppuccino-Mocha-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "lavender";
+      };
+    };
+    theme = {
+      name = "Catppuccin-Mocha-Standard-lavender-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "lavender" ];
+        size = "standard";
+        tweaks = [ "rimless" ];
+        variant = "mocha";
+      };
+    };
+  };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
 
@@ -68,6 +88,7 @@
     #### Spotify ####
     #spotify-unwrapped
     #spicetify-cli
+    #spotube
 
     #### Telegram ####
     telegram-desktop
@@ -183,8 +204,8 @@
     #### Gnome ####
     gnome-extension-manager
     gnome.gnome-tweaks
-    papirus-icon-theme
-    catppuccin-cursors.mochaDark
+    #papirus-icon-theme
+    #catppuccin-cursors.mochaDark
     bibata-cursors
 
 
@@ -276,25 +297,6 @@
           } + /palettes/${flavour}.toml));
     };
 
-  gtk = {
-    enable = true;
-    iconTheme = {
-        name = "Catppuccin-Macchiato-Blue-Icons";
-        package = pkgs.catppuccin-papirus-folders.override {
-          flavor = "mocha";
-          accent = "lavender";
-        };
-      };
-    theme = {
-      name = "Catppuccin-Mocha-Standard-Blue-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        size = "standard";
-        tweaks = [ "rimless" ];
-        variant = "mocha";
-      };
-    };
-  };
 
 
   # This value determines the home Manager release that your
