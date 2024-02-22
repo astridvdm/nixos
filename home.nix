@@ -221,6 +221,7 @@
     gnomeExtensions.weather-or-not
     gnomeExtensions.week-start-modifier
     gnomeExtensions.pano
+    gnomeExtensions.wallpaper-slideshow
   ];
   # ssh remote host configs
   programs.ssh = {
