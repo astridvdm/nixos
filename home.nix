@@ -222,6 +222,10 @@
     gnomeExtensions.week-start-modifier
     gnomeExtensions.pano
     gnomeExtensions.wallpaper-slideshow
+    gnomeExtensions.noannoyance
+    gnomeExtensions.spotify-tray
+    gnomeExtensions.fuzzy-app-search
+    gnomeExtensions.fullscreen-avoider
   ];
   # ssh remote host configs
   programs.ssh = {
