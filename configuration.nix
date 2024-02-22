@@ -7,7 +7,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Choose kernel package
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Increase vm count for Star Citizen
   boot.kernel.sysctl = {
@@ -15,14 +16,12 @@
   "fs.file-max" = 524288;
   };
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # SSHFS mount for Terra's BTRFS Array
-  # fileSystems."/mnt/terra" =
-  #   { device = "max@10.0.0.3:/mnt/terra";
-  #     fsType = "fuse.sshfs";
-  #     options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
-  #   };
+  ## SSHFS mount for Terra's BTRFS Array
+  #fileSystems."/mnt/terra" =
+  #  { device = "max@10.0.0.3:/mnt/terra";
+  #    fsType = "fuse.sshfs";
+  #    options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
+  #  };
 
   # Networking
 
@@ -62,9 +61,9 @@
   #services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap
-  services.xserver = {
-    layout = "za";
-    xkbVariant = "";
+  services.xserver.xkb = {
+    variant = "za";
+    layout = "";
   };
 
   # Enable CUPS to print documents.
@@ -115,6 +114,8 @@
   # enable Flakes and the new command line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  nixpkgs.config.spotify.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+
   # System Packages
 
   # List packages installed in system profile. To search, run:
@@ -127,36 +128,39 @@
     sshfs
     screen # Allow terminal tasks to run in background
     tailscale # Remote wireguard based p2p vpn
-    libimobiledevice
-    ifuse
-    usbmuxd
   ];
 
-  # Allow Mailspring to be installed due to known CVE in webp
-  nixpkgs.config.permittedInsecurePackages = [
-    "mailspring-1.12.0"
-  ];
-
-  # Enable WideVine for chromium
-  nixpkgs.config = {
-    #allowUnfree = true;
-    ungoogled.enableWideVine = true;
-    chromium.enableWideVine = true;
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  environment.gnome.excludePackages = (with pkgs; [
+#    gnome-photos
+    gnome-tour
+    gedit
+  ]) ++ (with pkgs.gnome; [
+    cheese # webcam tool
+    gnome-music
+#    gnome-terminal
+    epiphany # web browser
+    geary # email reader
+    evince # document viewer
+    gnome-characters
+    totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+  ]);
 
   # List services that you want to enable:
-
+  
+  # Asus
+  services.asusd.enable = true;
+  services.supergfxd.enable = true;
+ 
   # Tailscale
   services.tailscale.enable = true;
   networking.firewall.checkReversePath = "loose";
+
+  # Corsair keyboard control
+  hardware.ckb-next.enable = true;
 
   # Hardware crypto wallet manager
   hardware.ledger.enable = true;
@@ -170,21 +174,27 @@
   # Steam
   programs.steam.enable = true;
 
-  # Asus
-  services.asusd.enable = true;
-  services.supergfxd.enable = true;
-
-  # iOS documents in files
-  services.usbmuxd.enable = true;
-
   # Docker
   virtualisation.docker = {
   enable = true;
   enableNvidia = true;
   };
 
+  # iOS Documents
+  services.usbmuxd.enable = true;
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # OBS Virtual Cam
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  '';
+  security.polkit.enable = true;
+
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;

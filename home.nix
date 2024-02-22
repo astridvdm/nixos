@@ -41,16 +41,35 @@
     };
   };
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "lavender";
+      };
+    };
+    theme = {
+      name = "Catppuccin-Mocha-Standard-lavender-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "lavender" ];
+        size = "standard";
+        tweaks = [ "rimless" ];
+        variant = "mocha";
+      };
+    };
+  };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
 
     #### Web ####
     firefox
-    ungoogled-chromium
-    # protonvpn-gui
+    #ungoogled-chromium
 
     #### Mail #####
-    mailspring
+    #mailspring
     #evolution
 
     #### Media ####
@@ -58,34 +77,36 @@
     filebot
 
     #### Discord ####
-    #betterdiscordctl
-    #betterdiscord-installer
-    #discord
-    (pkgs.discord.override {
-    # remove any overrides that you don't want
-    withOpenASAR = true;
-    withVencord = true;
-    })
+    vesktop
+    # (pkgs.discord.override {
+    #  # remove any overrides that you don't want
+    #   withOpenASAR = true;
+    #   withVencord = true;
+    # })
 
     #### Spotify ####
-    #spotify
-    spicetify-cli
+    #spotify-unwrapped
+    #spicetify-cli
+    #spotube
 
     #### Telegram ####
     telegram-desktop
 
     #### Signal ####
-    unstable.signal-desktop
+    signal-desktop
+
+    # SimpleX
+    simplex-chat-desktop
 
     #### Matrix ####
-    #fluffychat
+    fluffychat
     # #fractal-next
 
     #### VSCode ####
     vscode
 
     #### Networking ####
-    winbox # Mikrotik manager
+    #winbox # Mikrotik manager
     #trayscale # Tailscale gui manager
     mtr # A network diagnostic tool
     iperf3 # tool to test network throughput with matching server/client
@@ -104,6 +125,8 @@
     #### Minecraft ####
     prismlauncher
 
+    steamtinkerlaunch
+
     #### Backup ####
     pika-backup
     borgbackup
@@ -120,6 +143,12 @@
     #### RPI ####
     #rpi-imager
 
+    # OBS Studio
+    obs-studio
+
+    # Davinci Resolve non liner video editing
+    davinci-resolve
+
     #### Teamviewer ####
     #teamviewer
 
@@ -131,10 +160,7 @@
     #zstd
 
     #### Magic wormhole P2P file transfer ####
-    #magic-wormhole-rs
-
-    #### Unifi Game Engine
-    #unityhub
+    magic-wormhole-rs
 
     #### System ####
     pciutils # lspci
@@ -149,16 +175,20 @@
     # python3
     #docker-compose # declarative manager for docker OCI containers
     btrfs-progs # Utilities for the btrfs filesystem
-    wineWowPackages.full # wine packages for running windows software/games
-    # wineWowPackages.waylandFull # same as above for wayland
+    #wineWowPackages.full # wine packages for running windows software/games
+    wineWowPackages.waylandFull # same as above for wayland
     #winetricks # wine manager
-    #protontricks # steam game bases wine manager
-    protonup-qt # Proton runtime manager
+    protontricks # steam game based wine manager
+    protonup-qt
     zip
     lm_sensors
-    supergfxctl
-    asusctl
-    gtop
+    thefuck
+
+    # iOS
+    libimobiledevice
+    #libimobiledevice-utils
+    ifuse
+    usbmuxd
 
     #### Virtualization ####
     qemu
@@ -173,10 +203,30 @@
     #### Gnome ####
     gnome-extension-manager
     gnome.gnome-tweaks
-    catppuccin
-    catppuccin-cursors
     bibata-cursors
 
+    #### Gnome Extensions ####
+    gnomeExtensions.bluetooth-quick-connect
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.caffeine
+    gnomeExtensions.notification-timeout
+    gnomeExtensions.quick-settings-audio-panel
+    gnomeExtensions.tailscale-qs
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.trimmer
+    gnomeExtensions.user-avatar-in-quick-settings
+    gnomeExtensions.weather-or-not
+    gnomeExtensions.week-start-modifier
+    gnomeExtensions.pano
+    gnomeExtensions.wallpaper-slideshow
+    gnomeExtensions.noannoyance
+    gnomeExtensions.spotify-tray
+    gnomeExtensions.fuzzy-app-search
+    gnomeExtensions.fullscreen-avoider
+    gnomeExtensions.supergfxctl-gex
+    gnomeExtensions.autohide-battery
+    gnomeExtensions.autohide-volume
+    gnomeExtensions.auto-power-profile
   ];
   # ssh remote host configs
   programs.ssh = {
@@ -184,17 +234,7 @@
     compression = true;
     matchBlocks = {
       "ceres" = {
-      hostname = "10.0.0.242";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
-      };
-      "ares" = {
       hostname = "10.0.0.2";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
-      };
-      "terra" = {
-      hostname = "10.0.0.3";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17-lux";
       };
@@ -223,13 +263,23 @@
       "github.com" = {
       hostname = "github.com";
       user = "git";
-      identityFile = "/home/max/.ssh/max-git-yk";
+      identityFile = "/home/max/.ssh/max-git";
       };
     };
   };
   programs.zsh = {
     enable = true;
+    history = {
+      extended = true;
+      size = 99999;
+      share = true;
+    };
     enableAutosuggestions = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];
+      #theme = "robbyrussell";
+    };
   };
   # starship - an customizable prompt for any shell
   programs.starship =
@@ -252,18 +302,6 @@
           } + /palettes/${flavour}.toml));
     };
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Catppuccin-Mocha-Standard-Blue-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" ];
-        size = "standard";
-        tweaks = [ "rimless" ];
-        variant = "mocha";
-      };
-    };
-  };
 
 
   # This value determines the home Manager release that your

@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration for ion";
+  description = "NixOS configuration for hera";
 
   # Select package channels
   inputs = {
@@ -9,25 +9,31 @@
     #home-manager.url = "github:nix-community/home-manager/release-23.05";
 
     # Stable 23.11
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    #home-manager.url = "github:nix-community/home-manager/release-23.11";
 
     # Unstable
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    #home-manager.url = "github:nix-community/home-manager/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/master";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Spicetify
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs = inputs@{ nixpkgs, unstable, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, ... } : {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       hera = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {inherit spicetify-nix;};
         modules = [
           ./configuration.nix
           ./nvidia-config.nix
+          /etc/nixos/spicetify.nix # file where you configure spicetify
           ./hardware-configuration.nix
+
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
@@ -39,6 +45,7 @@
 
             # import the home.nix config file
             home-manager.users.max = import ./home.nix;
+
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
