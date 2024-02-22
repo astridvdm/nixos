@@ -31,7 +31,7 @@
         modules = [
           ./configuration.nix
           ./nvidia-config.nix
-          /etc/nixos/spicetify.nix # file where you configure spicetify
+          ./spicetify.nix # file where you configure spicetify
           ./hardware-configuration.nix
 
 
