@@ -18,17 +18,21 @@
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # NixOS Hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # Spicetify
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, ... } : {
+  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nixos-hardware, ... } : {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       hera = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit spicetify-nix;};
         modules = [
+          nixos-hardware.nixosModules.asus-fa507rm
           ./configuration.nix
           ./nvidia-config.nix
           ./spicetify.nix # file where you configure spicetify

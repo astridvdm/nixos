@@ -150,11 +150,16 @@
   ]);
 
   # List services that you want to enable:
-  
+
   # Asus
-  services.asusd.enable = true;
+  services = {
+    asusd = {
+      enable = true;
+      enableUserService = true;
+    };
+  };
   services.supergfxd.enable = true;
- 
+
   # Tailscale
   services.tailscale.enable = true;
   networking.firewall.checkReversePath = "loose";
