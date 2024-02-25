@@ -96,7 +96,7 @@
     signal-desktop
 
     # SimpleX
-    simplex-chat-desktop
+    #simplex-chat-desktop
 
     #### Matrix ####
     fluffychat
@@ -228,6 +228,7 @@
     gnomeExtensions.autohide-battery
     gnomeExtensions.autohide-volume
     gnomeExtensions.auto-power-profile
+    gnomeExtensions.airpods-battery-status
   ];
   # ssh remote host configs
   programs.ssh = {
