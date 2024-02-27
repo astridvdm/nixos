@@ -102,6 +102,9 @@
     fluffychat
     # #fractal-next
 
+    # Mumble voice chat
+    mumble
+
     #### VSCode ####
     vscode
 
