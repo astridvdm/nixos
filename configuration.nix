@@ -7,8 +7,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Choose kernel package
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Increase vm count for Star Citizen
   boot.kernel.sysctl = {
@@ -68,6 +68,13 @@
   # Enable the Gnome Desktop
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
+
+  # Enable for unverified monitor(s)
+  services.xserver.screenSection =
+  ''
+    Option         "metamodes" "DP-2: nvidia-auto-select +1920+0 {AllowGSYNCCompatible=On}, DP-0: nvidia-auto-select +0+0 {AllowGSYNCCompatible=On}"
+  '';
 
   # Enable the KDE Plasma Desktop Environment.
   #services.xserver.displayManager.sddm.enable = true;
