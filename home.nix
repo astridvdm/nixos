@@ -43,6 +43,10 @@
 
   gtk = {
     enable = true;
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+    };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
@@ -132,7 +136,7 @@
     borgbackup
 
     #### RGB ####
-    ckb-next
+    #ckb-next
 
     #### Ledger Crypto Hardware Wallet ####
     ledger-live-desktop
@@ -204,7 +208,7 @@
     #### Gnome ####
     gnome-extension-manager
     gnome.gnome-tweaks
-    bibata-cursors
+    #bibata-cursors
 
     #### Gnome Extensions ####
     gnomeExtensions.bluetooth-quick-connect
