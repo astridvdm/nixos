@@ -43,8 +43,12 @@
 
   gtk = {
     enable = true;
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+    };
     iconTheme = {
-      name = "Catppuccino-Mocha-Dark";
+      name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
         flavor = "mocha";
         accent = "lavender";
@@ -208,7 +212,7 @@
     gnome.gnome-tweaks
     #papirus-icon-theme
     #catppuccin-cursors.mochaDark
-    bibata-cursors
+    #bibata-cursors
 
 
     #### Gnome Extensions ####
