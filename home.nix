@@ -129,7 +129,7 @@
     #### Minecraft ####
     prismlauncher
 
-    steamtinkerlaunch
+    #steamtinkerlaunch
 
     #### Backup ####
     pika-backup
