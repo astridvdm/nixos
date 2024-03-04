@@ -220,10 +220,10 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
-	[org.gnome.desktop.interface]
-	gtk-theme='Catppuccin-Mocha-Standard-lavender-Dark'
-  '';
+  # services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
+	# [org.gnome.desktop.interface]
+	# gtk-theme='Catppuccin-Mocha-Standard-lavender-Dark'
+  # '';
 
   # OBS Virtual Cam
   boot.extraModulePackages = with config.boot.kernelPackages; [
