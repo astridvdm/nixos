@@ -190,6 +190,7 @@
     zip
     lm_sensors
     thefuck
+    pavucontrol
 
     # iOS
     libimobiledevice

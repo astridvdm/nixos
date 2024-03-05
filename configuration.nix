@@ -106,6 +106,17 @@
     #media-session.enable = true;
   };
 
+
+  # Attempt to Fix Airpods volume
+  hardware.bluetooth.settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+      disabledPlugins = "avrcp";
+      ControllerMode = "duel";
+      Experimental = "true";
+    };
+  };
+
   # Users
 
   # Max
