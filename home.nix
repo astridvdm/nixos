@@ -100,7 +100,7 @@
     signal-desktop
 
     # SimpleX
-    simplex-chat-desktop
+    #simplex-chat-desktop
 
     #### Matrix ####
     fluffychat
@@ -126,13 +126,11 @@
     rclone-browser
 
     #### Emulation ####
-    # ryujinx
-    yuzu-mainline
+    ryujinx
+    #yuzu-mainline
 
     #### Minecraft ####
     prismlauncher
-
-    #steamtinkerlaunch
 
     #### Backup ####
     pika-backup
@@ -164,7 +162,15 @@
 
     #### Archive management ####
     #p7zip
-    #zstd
+    zstd
+
+    #### Gaming ####
+    #wineWowPackages.full # wine packages for running windows software/games
+    wineWowPackages.waylandFull # same as above for wayland
+    #winetricks # wine manager
+    protontricks # steam game based wine manager
+    protonup-qt
+    #steamtinkerlaunch
 
     #### Magic wormhole P2P file transfer ####
     magic-wormhole-rs
@@ -182,11 +188,7 @@
     # python3
     #docker-compose # declarative manager for docker OCI containers
     btrfs-progs # Utilities for the btrfs filesystem
-    #wineWowPackages.full # wine packages for running windows software/games
-    wineWowPackages.waylandFull # same as above for wayland
-    #winetricks # wine manager
-    protontricks # steam game based wine manager
-    protonup-qt
+
     zip
     lm_sensors
     thefuck
@@ -234,6 +236,8 @@
     gnomeExtensions.spotify-tray
     gnomeExtensions.fuzzy-app-search
     gnomeExtensions.fullscreen-avoider
+    gnomeExtensions.no-titlebar-when-maximized
+    gnomeExtensions.no-title-bar
   ];
   # ssh remote host configs
   programs.ssh = {
