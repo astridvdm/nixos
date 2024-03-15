@@ -19,7 +19,18 @@
       options = [ "subvol=@" ];
     };
 
+  # Unlock boot nvme drive
   boot.initrd.luks.devices."luks-86240298-42ca-4a32-a95a-455e417afab1".device = "/dev/disk/by-uuid/86240298-42ca-4a32-a95a-455e417afab1";
+
+
+  # Unlock second nvme drive
+  boot.initrd.luks.devices."luks-5d3dd232-e2a6-4589-b508-aa4e791b5517".device = "/dev/disk/by-uuid/5d3dd232-e2a6-4589-b508-aa4e791b5517";
+
+
+  # Fido 2 disk unlocking.
+  # boot.initrd.luks.fido2Support = true;
+  # boot.initrd.luks.devices.luks-86240298-42ca-4a32-a95a-455e417afab1.crypttabExtraOpts = ["fido2-device=auto"];
+  # boot.initrd.luks.devices."luks-86240298-42ca-4a32-a95a-455e417afab1".fido2.credential = "";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/551E-AC0C";

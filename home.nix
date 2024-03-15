@@ -123,8 +123,8 @@
     rclone-browser
 
     #### Emulation ####
-    # ryujinx
-    yuzu-mainline
+    ryujinx
+    #yuzu-mainline
 
     #### Minecraft ####
     prismlauncher
