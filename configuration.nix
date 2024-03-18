@@ -16,12 +16,12 @@
   "fs.file-max" = 524288;
   };
 
-  ## SSHFS mount for Terra's BTRFS Array
-  #fileSystems."/mnt/terra" =
-  #  { device = "max@10.0.0.3:/mnt/terra";
-  #    fsType = "fuse.sshfs";
-  #    options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
-  #  };
+  # SSHFS mount for Ceres's BTRFS Array
+  fileSystems."/mnt/ceres" =
+   { device = "max@10.0.0.2:/mnt/ceres";
+     fsType = "fuse.sshfs";
+     options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
+   };
 
   # Networking
 
@@ -185,6 +185,9 @@
   enableNvidia = true;
   };
 
+  # Jellyfin
+  #services.jellyfin.enable = true;
+
   # iOS Documents
   services.usbmuxd.enable = true;
 
@@ -196,14 +199,14 @@
 	gtk-theme='Catppuccin-Mocha-Standard-lavender-Dark'
   '';
 
-  # OBS Virtual Cam
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    v4l2loopback
-  ];
-  boot.extraModprobeConfig = ''
-    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-  '';
-  security.polkit.enable = true;
+  # # OBS Virtual Cam
+  # boot.extraModulePackages = with config.boot.kernelPackages; [
+  #   v4l2loopback
+  # ];
+  # boot.extraModprobeConfig = ''
+  #   options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  # '';
+  # security.polkit.enable = true;
 
 
   # NixOS Optimise

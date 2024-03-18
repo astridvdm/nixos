@@ -26,6 +26,12 @@
   # Unlock second nvme drive
   boot.initrd.luks.devices."luks-5d3dd232-e2a6-4589-b508-aa4e791b5517".device = "/dev/disk/by-uuid/5d3dd232-e2a6-4589-b508-aa4e791b5517";
 
+  # Mount second nvme drive
+  fileSystems."/mnt/ssd" =
+    { device = "/dev/disk/by-uuid/6f771f8f-3821-4b24-8f59-80df9c61efe8";
+      fsType = "btrfs";
+      options = [ "acl" "autodefrag" "defaults" "nofail" "nossd" "compress=zstd:5" "noatime" ];
+    };
 
   # Fido 2 disk unlocking.
   # boot.initrd.luks.fido2Support = true;

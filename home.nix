@@ -76,9 +76,17 @@
     #mailspring
     #evolution
 
+    # Meqdia
+    kodi
+    jellyfin-media-player
+    # jellyfin
+
     #### Media ####
     vlc
     filebot
+
+    # Deluge
+    deluge
 
     #### Discord ####
     vesktop
@@ -280,7 +288,7 @@
       size = 99999;
       share = true;
     };
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];
