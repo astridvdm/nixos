@@ -182,11 +182,22 @@
     atomix # puzzle game
   ]);
 
-  nixpkgs.config = {
-    #allowUnfree = true;
-    ungoogled.enableWideVine = true;
-    chromium.enableWideVine = true;
-  };
+  # Enable Widevine for Chrome
+  # nixpkgs.config = {
+  #   #allowUnfree = true;
+  #   ungoogled.enableWideVine = true;
+  #   chromium.enableWideVine = true;
+  # };
+
+
+  # Fix GTK 3 Theme
+  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
+    [Settings]
+    gtk-cursor-theme-name=Bibata-Modern-Classic
+    gtk-icon-theme-name=Papirus-Dark
+    gtk-theme-name=Catppuccin-Mocha-Standard-lavender-Dark
+    gtk-application-prefer-dark-theme=0
+  '';
 
 
   # Some programs need SUID wrappers, can be configured further or are
