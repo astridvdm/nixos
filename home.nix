@@ -188,6 +188,7 @@
     # python3
     #docker-compose # declarative manager for docker OCI containers
     btrfs-progs # Utilities for the btrfs filesystem
+    ncdu
 
     zip
     lm_sensors
