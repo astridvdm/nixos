@@ -151,6 +151,14 @@
 
   # List services that you want to enable:
 
+  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
+[Settings]
+gtk-cursor-theme-name=Bibata-Modern-Classic
+gtk-icon-theme-name=Papirus-Dark
+gtk-theme-name=Catppuccin-Mocha-Standard-lavender-Dark
+gtk-application-prefer-dark-theme=0
+  '';
+
   # Asus
   services = {
     asusd = {

@@ -65,6 +65,17 @@
     };
   };
 
+  # Gnome set GDK 3 Theme
+  dconf.settings = {
+    # "org/gnome/desktop/interface" = {
+    #   gtk-theme= "Catppuccin-Mocha-Standard-Lavender-Dark";
+    # };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      enable-hot-corners = false;
+    };
+  };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
 
