@@ -36,6 +36,26 @@
      options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
    };
 
+  # Archival array
+  fileSystems."/mnt/6tb" =
+    { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
+      fsType = "btrfs";
+      options = [
+        "acl"
+        "autodefrag"
+        "defaults"
+        "nofail"
+        "nossd"
+        "compress=zstd:3"
+        "noatime"
+        #"ro"
+        #"usebackuproot"
+        #"recovery"
+        #"nospace_cache"
+        #"clear_cache"
+      ];
+    };
+
   # Networking
 
   # Define your hostname
@@ -190,13 +210,19 @@
   # };
 
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
+
   # Fix GTK 3 Theme
   environment.etc."xdg/gtk-3.0/settings.ini".text = ''
-    [Settings]
-    gtk-cursor-theme-name=Bibata-Modern-Classic
-    gtk-icon-theme-name=Papirus-Dark
-    gtk-theme-name=Catppuccin-Mocha-Standard-lavender-Dark
-    gtk-application-prefer-dark-theme=0
+[Settings]
+gtk-cursor-theme-name=Bibata-Modern-Classic
+gtk-icon-theme-name=Papirus-Dark
+gtk-theme-name=Catppuccin-Mocha-Standard-lavender-Dark
+gtk-application-prefer-dark-theme=0
   '';
 
 

@@ -189,11 +189,11 @@
     #docker-compose # declarative manager for docker OCI containers
     btrfs-progs # Utilities for the btrfs filesystem
     ncdu
-
     zip
     lm_sensors
     thefuck
     pavucontrol
+    easyeffects
 
     # iOS
     libimobiledevice
@@ -286,7 +286,8 @@
       size = 99999;
       share = true;
     };
-    enableAutosuggestions = true;
+    #enableAutosuggestions = true;
+    autosuggestion.enable = true;
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];

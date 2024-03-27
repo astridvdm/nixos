@@ -9,26 +9,28 @@
     #home-manager.url = "github:nix-community/home-manager/release-23.05";
 
     # Stable 23.11
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    # home-manager.url = "github:nix-community/home-manager/release-23.11";
 
     # Stable 24.05
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     # home-manager.url = "github:nix-community/home-manager/release-24.05";
 
     # Unstable
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # home-manager.url = "github:nix-community/home-manager/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/master";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Nix User Repository (NUR)
+    nur.url = github:nix-community/NUR;
 
     # Spicetify
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, ... } : {
+  outputs = inputs@{ nixpkgs, home-manager, nur, spicetify-nix, ... } : {
     nixosConfigurations = {
-      # TODO please change the hostname to your own
       ion = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit spicetify-nix;};
@@ -37,7 +39,12 @@
           ./nvidia-config.nix
           ./spicetify.nix # file where you configure spicetify
           ./hardware-configuration.nix
-
+          nur.nixosModules.nur
+          # This adds a nur configuration option.
+          # Use `config.nur` for packages like this:
+            # ({ config, ... }: {
+            #   environment.systemPackages = [ config.nur.repos.c0deaddict.cameractrls ];
+            # })
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
