@@ -242,6 +242,7 @@
     gnomeExtensions.fullscreen-avoider
     gnomeExtensions.no-titlebar-when-maximized
     gnomeExtensions.no-title-bar
+    gnomeExtensions.forge
   ];
   # ssh remote host configs
   programs.ssh = {
