@@ -55,8 +55,10 @@
             home-manager.useUserPackages = true;
 
             # import the home.nix config file
-            home-manager.users.max = import ./home.nix;
-
+            home-manager.users.max.imports = [
+              ./home.nix
+              inputs.nur.hmModules.nur
+            ];
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }

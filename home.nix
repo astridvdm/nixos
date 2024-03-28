@@ -211,6 +211,9 @@
     #### Neofetch ####
     neofetch
 
+    # Webcam control
+    nur.repos.c0deaddict.cameractrls
+
     #### Gnome ####
     gnome-extension-manager
     gnome.gnome-tweaks
