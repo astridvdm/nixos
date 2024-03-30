@@ -132,6 +132,9 @@
     #### Minecraft ####
     prismlauncher
 
+    # Steam gtk Themeing
+    adwsteamgtk
+
     #### Backup ####
     pika-backup
     borgbackup
@@ -153,6 +156,10 @@
 
     # Davinci Resolve non liner video editing
     davinci-resolve
+
+    # Handbrake
+    handbrake
+
 
     #### Teamviewer ####
     #teamviewer
