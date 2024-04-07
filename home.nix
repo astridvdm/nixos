@@ -83,6 +83,9 @@
     firefox
     #ungoogled-chromium
 
+    # Mullvad VPN
+    mullvad-vpn
+
     #### Mail #####
     #mailspring
     #evolution
@@ -166,6 +169,10 @@
     #### RPI ####
     #rpi-imager
 
+    # Ebook Management
+    calibre
+
+
     # OBS Studio
     obs-studio
 
@@ -207,6 +214,7 @@
     lm_sensors
     thefuck
     pavucontrol
+    adwsteamgtk
 
     # iOS
     libimobiledevice
@@ -220,6 +228,9 @@
     libguestfs
     dmg2img
     virt-manager
+
+    # Webcam control
+    nur.repos.c0deaddict.cameractrls
 
     #### Neofetch ####
     neofetch
@@ -247,6 +258,9 @@
     gnomeExtensions.spotify-tray
     gnomeExtensions.fuzzy-app-search
     gnomeExtensions.fullscreen-avoider
+    gnomeExtensions.no-titlebar-when-maximized
+    gnomeExtensions.no-title-bar
+    gnomeExtensions.forge
     gnomeExtensions.supergfxctl-gex
     gnomeExtensions.autohide-battery
     gnomeExtensions.autohide-volume

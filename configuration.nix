@@ -7,8 +7,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Choose kernel package
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  #boot.kernelPackages = pkgs.linuxPackages_zen;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Increase vm count for Star Citizen
   boot.kernel.sysctl = {
@@ -16,12 +16,12 @@
   "fs.file-max" = 524288;
   };
 
-  # SSHFS mount for Ceres's BTRFS Array
-  fileSystems."/mnt/ceres" =
-   { device = "max@10.0.0.2:/mnt/ceres";
-     fsType = "fuse.sshfs";
-     options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
-   };
+  # # SSHFS mount for Ceres's BTRFS Array
+  # fileSystems."/mnt/ceres" =
+  #  { device = "max@10.0.0.2:/mnt/ceres";
+  #    fsType = "fuse.sshfs";
+  #    options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
+  #  };
 
   # Networking
 
@@ -114,8 +114,6 @@
   # enable Flakes and the new command line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.config.spotify.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
-
   # System Packages
 
   # List packages installed in system profile. To search, run:
@@ -151,6 +149,18 @@
 
   # List services that you want to enable:
 
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   nur = import (builtins.fetchTarball { url = "https://github.com/nix-community/NUR/archive/43bab0ae75bfaa39d64b0183c533b4cbe680d6af.tar.gz"; sha256 = "1l8g3953hgszcb6c5qqi46qr1n696m2q3rq6q9micl0sdlma9wbx"; } ) {
+  #     inherit pkgs;
+  #   };
+  # };
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
+
   environment.etc."xdg/gtk-3.0/settings.ini".text = ''
 [Settings]
 gtk-cursor-theme-name=Bibata-Modern-Classic
@@ -165,15 +175,12 @@ gtk-application-prefer-dark-theme=0
       enable = true;
       enableUserService = true;
     };
+    supergfxd.enable = true;
   };
-  services.supergfxd.enable = true;
 
   # Tailscale
   services.tailscale.enable = true;
   networking.firewall.checkReversePath = "loose";
-
-  # Corsair keyboard control
-  hardware.ckb-next.enable = true;
 
   # Hardware crypto wallet manager
   hardware.ledger.enable = true;
@@ -201,6 +208,9 @@ gtk-application-prefer-dark-theme=0
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  ## Mullvad
+  services.mullvad-vpn.enable = true;
 
   services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
 	[org.gnome.desktop.interface]
