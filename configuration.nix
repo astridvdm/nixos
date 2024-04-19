@@ -12,7 +12,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Choose kernel package
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
 
 
   # Networking
@@ -62,6 +62,7 @@
         "compress=zstd:3"
         "noatime"
         #"ro"
+        #"rescue=all"
         #"usebackuproot"
         #"recovery"
         #"nospace_cache"
@@ -69,12 +70,12 @@
       ];
     };
 
-  # # Archival BTRFS Array
-  # fileSystems."/mnt/max-12tb" =
+  # Archival BTRFS Array
+  # fileSystems."/mnt/6tb" =
   #   { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
   #     fsType = "btrfs";
   #     options = [
-  #     "acl"
+  #      "acl"
   #      "autodefrag"
   #      "defaults"
   #      "nofail"
@@ -143,6 +144,17 @@
          user = "git";
          identityFile = "/home/max/.ssh/max-git";
          };
+         "lux" = {
+         hostname = "172.16.0.212";
+         proxyJump = "duck";
+         user = "brock";
+         identityFile = "/home/max/.ssh/max-a17-lux";
+         };
+         "duck" = {
+         hostname = "100.96.163.55";
+         user = "max";
+         identityFile = "/home/max/.ssh/max-a17-lux";
+         };
        };
      };
      programs.zsh.enable = true;
@@ -200,6 +212,8 @@
      git
      pciutils
      ncdu
+     smartmontools
+     e2fsprogs
    ];
 
   # Enable cron service
