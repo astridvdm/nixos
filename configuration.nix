@@ -36,25 +36,25 @@
      options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
    };
 
-  # Archival array
-  fileSystems."/mnt/6tb" =
-    { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
-      fsType = "btrfs";
-      options = [
-        "acl"
-        "autodefrag"
-        "defaults"
-        "nofail"
-        "nossd"
-        "compress=zstd:3"
-        "noatime"
-        #"ro"
-        #"usebackuproot"
-        #"recovery"
-        #"nospace_cache"
-        #"clear_cache"
-      ];
-    };
+  # # Archival array
+  # fileSystems."/mnt/6tb" =
+  #   { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
+  #     fsType = "btrfs";
+  #     options = [
+  #       "acl"
+  #       "autodefrag"
+  #       "defaults"
+  #       "nofail"
+  #       "nossd"
+  #       "compress=zstd:3"
+  #       "noatime"
+  #       #"ro"
+  #       #"usebackuproot"
+  #       #"recovery"
+  #       #"nospace_cache"
+  #       #"clear_cache"
+  #     ];
+  #   };
 
   # Networking
 
@@ -128,14 +128,14 @@
 
 
   # Attempt to Fix Airpods volume
-  hardware.bluetooth.settings = {
-    General = {
-      Enable = "Source,Sink,Media,Socket";
-      disabledPlugins = "avrcp";
-      ControllerMode = "duel";
-      Experimental = "true";
-    };
-  };
+  # hardware.bluetooth.settings = {
+  #   General = {
+  #     Enable = "Source,Sink,Media,Socket";
+  #     disabledPlugins = "avrcp";
+  #     ControllerMode = "duel";
+  #     Experimental = "true";
+  #   };
+  # };
 
   # Users
 

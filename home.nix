@@ -243,7 +243,7 @@
     gnomeExtensions.week-start-modifier
     gnomeExtensions.pano
     gnomeExtensions.wallpaper-slideshow
-    gnomeExtensions.noannoyance
+    #gnomeExtensions.noannoyance
     gnomeExtensions.spotify-tray
     gnomeExtensions.fuzzy-app-search
     gnomeExtensions.fullscreen-avoider
