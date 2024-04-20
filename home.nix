@@ -63,6 +63,14 @@
         variant = "mocha";
       };
     };
+    gtk3.extraConfig = {
+      gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
+      gtk-application-prefer-dark-theme = "1";
+    };
+    gtk4.extraConfig = {
+      gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
+      gtk-application-prefer-dark-theme = "1";
+    };
   };
 
   # Set Gnome options using dconf.
