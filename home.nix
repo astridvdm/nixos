@@ -65,14 +65,14 @@
     };
   };
 
-  # Gnome set GDK 3 Theme
-  dconf.settings = {
-    # "org/gnome/desktop/interface" = {
-    #   gtk-theme= "Catppuccin-Mocha-Standard-Lavender-Dark";
-    # };
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      enable-hot-corners = false;
+  # Set Gnome options using dconf.
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        enable-hot-corners = false;
+      };
     };
   };
 
@@ -83,8 +83,11 @@
     firefox
     #ungoogled-chromium
 
-    # Mullvad VPN
-    mullvad-vpn
+    # Warp file transfer
+    warp
+
+    # warp terminal
+    warp-terminal
 
     #### Mail #####
     #mailspring
@@ -181,6 +184,9 @@
 
     #### Teamviewer ####
     #teamviewer
+
+    #### Invoice
+    invoice
 
     #### Proton manager ####
     lutris
@@ -313,7 +319,8 @@
       size = 99999;
       share = true;
     };
-    autosuggestion.enable = true;
+    enableAutosuggestions = true;
+    #autosuggestion.enable = true;
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];

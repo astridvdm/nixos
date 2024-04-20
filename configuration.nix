@@ -7,8 +7,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Choose kernel package
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Increase vm count for Star Citizen
   boot.kernel.sysctl = {
@@ -210,7 +210,7 @@ gtk-application-prefer-dark-theme=0
   services.openssh.enable = true;
 
   ## Mullvad
-  services.mullvad-vpn.enable = true;
+  #services.mullvad-vpn.enable = true;
 
   services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
 	[org.gnome.desktop.interface]
