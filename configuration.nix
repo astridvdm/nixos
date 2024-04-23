@@ -11,10 +11,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Choose kernel package
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
-
-
   # Networking
 
   # Define your hostname
@@ -48,6 +44,27 @@
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
+
+  #### ZFS ####
+
+  # Choose latest compatible kernel for ZFS
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+
+  # Automatic scrubbing
+  services.zfs.autoScrub.enable = true;
+
+
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = false;
+  networking.hostId = "feab067a";
+
+  # Ceres ZFS Mount
+  fileSystems."/mnt/ceres" =
+    { device = "ceres/data";
+      fsType = "zfs";
+    };
+
+
 
   # # BTRFS Array
   # fileSystems."/mnt/ceres" =
