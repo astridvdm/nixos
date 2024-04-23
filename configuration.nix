@@ -49,26 +49,26 @@
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
 
-  # BTRFS Array
-  fileSystems."/mnt/ceres" =
-    { device = "/dev/disk/by-uuid/1bca9e27-fc20-4ed1-b84e-3db5a6486019";
-      fsType = "btrfs";
-      options = [
-        "acl"
-        "autodefrag"
-        "defaults"
-        "nofail"
-        "nossd"
-        "compress=zstd:3"
-        "noatime"
-        #"ro"
-        #"rescue=all"
-        #"usebackuproot"
-        #"recovery"
-        #"nospace_cache"
-        #"clear_cache"
-      ];
-    };
+  # # BTRFS Array
+  # fileSystems."/mnt/ceres" =
+  #   { device = "/dev/disk/by-uuid/1bca9e27-fc20-4ed1-b84e-3db5a6486019";
+  #     fsType = "btrfs";
+  #     options = [
+  #       "acl"
+  #       "autodefrag"
+  #       "defaults"
+  #       "nofail"
+  #       "nossd"
+  #       "compress=zstd:3"
+  #       "noatime"
+  #       #"ro"
+  #       #"rescue=all"
+  #       #"usebackuproot"
+  #       #"recovery"
+  #       #"nospace_cache"
+  #       #"clear_cache"
+  #     ];
+  #   };
 
   # Archival BTRFS Array
   # fileSystems."/mnt/6tb" =
