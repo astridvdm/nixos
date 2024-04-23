@@ -63,6 +63,14 @@
         variant = "mocha";
       };
     };
+    gtk3.extraConfig = {
+      gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
+      gtk-application-prefer-dark-theme = "1";
+    };
+    gtk4.extraConfig = {
+      gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
+      gtk-application-prefer-dark-theme = "1";
+    };
   };
 
   # Packages that should be installed to the user profile.
@@ -71,6 +79,9 @@
     #### Web ####
     firefox
     #ungoogled-chromium
+
+    # Warp terminal
+    warp-terminal
 
     #### Mail #####
     #mailspring
@@ -243,7 +254,7 @@
     gnomeExtensions.week-start-modifier
     gnomeExtensions.pano
     gnomeExtensions.wallpaper-slideshow
-    #gnomeExtensions.noannoyance
+    #gnomeExtensions.noannoyance-2
     gnomeExtensions.spotify-tray
     gnomeExtensions.fuzzy-app-search
     gnomeExtensions.fullscreen-avoider
@@ -257,7 +268,7 @@
     compression = true;
     matchBlocks = {
       "ceres" = {
-      hostname = "10.0.0.2";
+      hostname = "100.96.153.84";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17-lux";
       };
@@ -268,6 +279,11 @@
       };
       "orion" = {
       hostname = "100.112.75.88";
+      user = "max";
+      identityFile = "/home/max/.ssh/max-a17-lux";
+      };
+      "polaris" = {
+      hostname = "100.88.236.67";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17-lux";
       };
@@ -297,8 +313,8 @@
       size = 99999;
       share = true;
     };
-    #enableAutosuggestions = true;
-    autosuggestion.enable = true;
+    enableAutosuggestions = true;
+    #autosuggestion.enable = true;
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];

@@ -16,11 +16,6 @@
   "fs.file-max" = 524288;
   };
 
-  ## Unlock encrypted boot nvme ssd
-  #boot.initrd.luks.devices."luks-64991651-7ba5-4643-8907-8744860f9e2b".device = "/dev/disk/by-uuid/64991651-7ba5-4643-8907-8744860f9e2b";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-
   # Internel HDD WD Blue 2TB
   fileSystems."/mnt/hdd" =
     { device = "/dev/disk/by-uuid/a91a69e4-9131-49e4-83fa-dc0fcd5240a9";
@@ -36,25 +31,25 @@
      options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
    };
 
-  # # Archival array
-  # fileSystems."/mnt/6tb" =
-  #   { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
-  #     fsType = "btrfs";
-  #     options = [
-  #       "acl"
-  #       "autodefrag"
-  #       "defaults"
-  #       "nofail"
-  #       "nossd"
-  #       "compress=zstd:3"
-  #       "noatime"
-  #       #"ro"
-  #       #"usebackuproot"
-  #       #"recovery"
-  #       #"nospace_cache"
-  #       #"clear_cache"
-  #     ];
-  #   };
+  # Archival array
+  fileSystems."/mnt/6tb" =
+    { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
+      fsType = "btrfs";
+      options = [
+        "acl"
+        "autodefrag"
+        "defaults"
+        "nofail"
+        "nossd"
+        "compress=zstd:3"
+        "noatime"
+        #"ro"
+        #"usebackuproot"
+        #"recovery"
+        #"nospace_cache"
+        #"clear_cache"
+      ];
+    };
 
   # Networking
 
@@ -267,11 +262,6 @@ gtk-application-prefer-dark-theme=0
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
-	# [org.gnome.desktop.interface]
-	# gtk-theme='Catppuccin-Mocha-Standard-lavender-Dark'
-  # '';
 
   # # OBS Virtual Cam
   # boot.extraModulePackages = with config.boot.kernelPackages; [
