@@ -95,7 +95,7 @@
     warp
 
     # warp terminal
-    warp-terminal
+    #warp-terminal
 
     #### Mail #####
     #mailspring
@@ -202,6 +202,10 @@
     #### Archive management ####
     #p7zip
     #zstd
+
+
+    #### Zoom video calling.
+    zoom-us
 
     #### Magic wormhole P2P file transfer ####
     magic-wormhole-rs
