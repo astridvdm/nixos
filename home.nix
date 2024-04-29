@@ -73,6 +73,23 @@
     };
   };
 
+  dconf.settings = {
+    "/org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      clock-show-weekday = true;
+    };
+    "/org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-type = "nothing";
+    };
+    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Control>grave";
+      command = "kgx";
+    };
+    "/org/gnome/desktop/media-handling" = {
+      autorun-never = true;
+    };
+  };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
 
