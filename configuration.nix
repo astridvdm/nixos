@@ -58,11 +58,13 @@
   boot.zfs.forceImportRoot = false;
   networking.hostId = "feab067a";
 
-  # Ceres ZFS Mount
-  fileSystems."/mnt/ceres" =
-    { device = "ceres/data";
-      fsType = "zfs";
-    };
+  boot.zfs.extraPools = [ "ceres" ];
+  boot.kernelParams = [ "zfs.zfs_arc_max=32000000000" ];
+ # # Ceres ZFS Mount
+ # fileSystems."/mnt/ceres" =
+ #   { device = "ceres/data";
+ #     fsType = "zfs";
+ #   };
 
 
 
@@ -254,15 +256,25 @@
     "hmac-sha2-256"
     "hmac-sha2-512"
     ];
-  # services.openssh.hostKeys = [
-  #   { type = "rsa"; bits = 4096; path = "/etc/ssh/ssh_host_rsa_key"; }
-  #   { type = "ed25519"; bits = 256; path = "/etc/ssh/ssh_host_ed25519_key"; }
-  # ];
 
-  # programs.ssh.hostKeyAlgorithms = [
-  #   "ssh-rsa"
-  #   "ssh-ed25519"
-  #   #"ssh-dss"
+  services.openssh.hostKeys = [
+    { type = "rsa"; bits = 4096; path = "/etc/ssh/ssh_host_rsa_key"; }
+    { type = "ed25519"; path = "/etc/ssh/ssh_host_ed25519_key"; }
+    #{ type = "dsa"; bits = 1048; path = "/etc/ssh/ssh_host_dsa_key"; }
+  ];
+
+  programs.ssh.hostKeyAlgorithms = [
+    "ssh-ed25519"
+    "ssh-rsa"
+    #"ssh-dss"
+  ];
+
+
+  # services.openssh.settings.KexAlgorithms = [
+  # "sntrup761x25519-sha512@openssh.com"
+  # "curve25519-sha256"
+  # "curve25519-sha256@libssh.org"
+  # "diffie-hellman-group-exchange-sha256"
   # ];
 
   # Docker
