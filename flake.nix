@@ -22,13 +22,13 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # Nix User Repository (NUR)
-    nur.url = github:nix-community/NUR;
+    #nur.url = github:nix-community/NUR;
 
     # Spicetify
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nur, spicetify-nix, nixos-hardware, ... } : {
+  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nixos-hardware, ... } : {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       hera = nixpkgs.lib.nixosSystem {
@@ -40,7 +40,7 @@
           #./nvidia-config.nix
           ./spicetify.nix # file where you configure spicetify
           nixos-hardware.nixosModules.asus-fa507rm
-          nur.nixosModules.nur
+          # nur.nixosModules.nur
           # This adds a nur configuration option.
           # Use `config.nur` for packages like this:
             # ({ config, ... }: {
@@ -59,7 +59,7 @@
             # import the home.nix config file
             home-manager.users.max.imports = [
               ./home.nix
-              inputs.nur.hmModules.nur
+              #inputs.nur.hmModules.nur
             ];
 
 

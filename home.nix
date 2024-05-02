@@ -248,7 +248,7 @@
     virt-manager
 
     # Webcam control
-    nur.repos.c0deaddict.cameractrls
+    #nur.repos.c0deaddict.cameractrls
 
     #### Neofetch ####
     neofetch
