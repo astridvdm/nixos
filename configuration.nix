@@ -16,12 +16,12 @@
   "fs.file-max" = 524288;
   };
 
-  # # SSHFS mount for Ceres's BTRFS Array
-  # fileSystems."/mnt/ceres" =
-  #  { device = "max@10.0.0.2:/mnt/ceres";
-  #    fsType = "fuse.sshfs";
-  #    options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
-  #  };
+  # SSHFS mount for Ceres's ZFS Array
+  fileSystems."/mnt/ceres" =
+   { device = "max@10.0.0.2:/mnt/ceres";
+     fsType = "fuse.sshfs";
+     options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
+   };
 
   # Networking
 
