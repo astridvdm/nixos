@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-vscode-extensions, ... }:
 
 {
   # TODO please change the username & home direcotry to your own
@@ -152,7 +152,8 @@
     # #fractal-next
 
     #### VSCode ####
-    vscode
+    #vscode-fhs
+    #vscodium
 
     #### Networking ####
     #winbox # Mikrotik manager
@@ -371,6 +372,36 @@
             sha256 = "sha256-nsRuxQFKbQkyEI4TXgvAjcroVdG+heKX5Pauq/4Ota0=";
           } + /palettes/${flavour}.toml));
     };
+
+    programs.vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      extensions = with pkgs.vscode-extensions; [
+        catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc-icons
+        pkief.material-product-icons
+        tailscale.vscode-tailscale
+        ms-azuretools.vscode-docker
+        jnoortheen.nix-ide
+        #bbenoist.Nix
+        #ionutvmi.path-autocomplete
+        #zaaack.markdown-editor
+        # redhat.vscode-yaml
+        # ms-vscode.wordcount
+        # tomoki1207.pdf
+        # yzhang.markdown-all-in-one
+        # ecmel.vscode-html-css
+        #ms-vscode-remote.remote-ssh
+        #redhat.vscode-yaml
+      ];
+    };
+
+  # vscode = {
+  #   enable = true;
+  #   extensions = with nix-vscode-extensions.extensions.${pkgs.system}.open-vsx; [
+  #     jeanp413.open-remote-ssh
+  #   ];
+  # };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

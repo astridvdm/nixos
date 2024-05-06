@@ -29,9 +29,12 @@
 
     # Flatpaks
     nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
+
+    # vscode
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nix-flatpak, nixos-hardware, ... } : {
+  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nix-vscode-extensions, nix-flatpak, nixos-hardware, ... } : {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       hera = nixpkgs.lib.nixosSystem {
@@ -40,17 +43,9 @@
         modules = [
           ./configuration.nix
           ./hardware-configuration.nix
-          #./nvidia-config.nix
           ./spicetify.nix # file where you configure spicetify
           nix-flatpak.nixosModules.nix-flatpak
           nixos-hardware.nixosModules.asus-fa507rm
-          # nur.nixosModules.nur
-          # This adds a nur configuration option.
-          # Use `config.nur` for packages like this:
-            # ({ config, ... }: {
-            #   environment.systemPackages = [ config.nur.repos.c0deaddict.cameractrls ];
-            # })
-
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
@@ -63,10 +58,7 @@
             # import the home.nix config file
             home-manager.users.max.imports = [
               ./home.nix
-              #inputs.nur.hmModules.nur
             ];
-
-
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
         ];
