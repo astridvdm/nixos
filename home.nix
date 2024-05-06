@@ -65,11 +65,15 @@
     };
     gtk3.extraConfig = {
       gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
-      gtk-application-prefer-dark-theme = "1";
+      gtk-application-prefer-dark-theme = "0";
+      gtk-cursor-theme-name = "Bibata-Modern-Classic";
+      gtk-icon-theme-name = "Papirus-Dark";
     };
     gtk4.extraConfig = {
       gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
-      gtk-application-prefer-dark-theme = "1";
+      gtk-application-prefer-dark-theme = "0";
+      gtk-cursor-theme-name = "Bibata-Modern-Classic";
+      gtk-icon-theme-name = "Papirus-Dark";
     };
   };
 
