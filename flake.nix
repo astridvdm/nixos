@@ -26,9 +26,12 @@
 
     # Spicetify
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+
+    # Flatpaks
+    nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nixos-hardware, ... } : {
+  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nix-flatpak, nixos-hardware, ... } : {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       hera = nixpkgs.lib.nixosSystem {
@@ -39,6 +42,7 @@
           ./hardware-configuration.nix
           #./nvidia-config.nix
           ./spicetify.nix # file where you configure spicetify
+          nix-flatpak.nixosModules.nix-flatpak
           nixos-hardware.nixosModules.asus-fa507rm
           # nur.nixosModules.nur
           # This adds a nur configuration option.
