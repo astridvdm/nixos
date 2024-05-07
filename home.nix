@@ -46,6 +46,7 @@
         accent = "lavender";
       };
     };
+    theme = { name = "Catppuccin-Mocha-Standard-Lavender-dark"; };
   };
 
   xdg.enable = true;
