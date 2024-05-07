@@ -46,7 +46,6 @@
         accent = "lavender";
       };
     };
-    theme = { name = "Catppuccin-Mocha-Standard-Lavender-dark"; };
   };
 
   xdg.enable = true;
@@ -407,10 +406,15 @@
       tailscale.vscode-tailscale
       ms-azuretools.vscode-docker
       jnoortheen.nix-ide
+      eamodio.gitlens
+      usernamehw.errorlens
+      christian-kohler.path-intellisense
+      tomoki1207.pdf
+      mhutchie.git-graph
     ];
   };
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
