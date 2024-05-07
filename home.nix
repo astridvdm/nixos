@@ -141,6 +141,9 @@
     #### VSCode ####
     vscode
 
+    #### Jellyfin Media server client ###
+    jellyfin-media-player
+
     #### Networking ####
     #winbox # Mikrotik manager
     #trayscale # Tailscale gui manager
