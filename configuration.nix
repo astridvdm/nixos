@@ -174,8 +174,8 @@
     sshfs
     screen # Allow terminal tasks to run in background
     tailscale # Remote wireguard based p2p vpn
-    # gsound
-    # libgda6
+    gsound
+    libgda6
   ];
 
   environment.gnome.excludePackages = (with pkgs; [

@@ -122,6 +122,7 @@
     };
     "org/gnome/mutter/experimental-features" = {
       scale-monitor-framebuffer = true;
+      variable-refresh-rate = true;
     };
     "org/gnome/shell" = {
       favorite-apps = [
