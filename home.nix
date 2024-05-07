@@ -41,42 +41,67 @@
     };
   };
 
+  catppuccin = {
+    enable = true;
+    accent = "lavender";
+    flavour = "mocha";
+  };
+
   gtk = {
     enable = true;
-    cursorTheme = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "lavender";
+    # cursorTheme = {
+    #   name = "Bibata-Modern-Classic";
+    #   package = pkgs.bibata-cursors;
+    # };
+    # iconTheme = {
+    #   name = "Papirus-Dark";
+    #   package = pkgs.catppuccin-papirus-folders.override {
+    #     flavor = "mocha";
+    #     accent = "lavender";
+    #   };
+    # };
+    catppuccin = {
+      enable = true;
+      size = "standard";
+      accent = "lavender";
+      tweaks = [ "rimless" ];
+      cursor = {
+        enable = true;
+        accent = "dark";
       };
     };
-    theme = {
-      name = "Catppuccin-Mocha-Standard-lavender-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        size = "standard";
-        tweaks = [ "rimless" ];
-        variant = "mocha";
-      };
-    };
-    gtk3.extraConfig = {
-      gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
-      gtk-application-prefer-dark-theme = "0";
-    };
-    gtk4.extraConfig = {
-      gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
-      gtk-application-prefer-dark-theme = "0";
-    };
+    # theme = {
+    #   name = "catppuccin-mocha-standard-lavender-dark";
+    #   package = pkgs.catppuccin-gtk.override {
+    #     accents = [ "lavender" ];
+    #     size = "standard";
+    #     tweaks = [ "rimless" ];
+    #     variant = "mocha";
+    #   };
+    # };
+    # gtk3.extraConfig = {
+    #   gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
+    #   gtk-application-prefer-dark-theme = "1";
+    # };
+    # gtk4.extraConfig = {
+    #   gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
+    #   gtk-application-prefer-dark-theme = "1";
+    # };
   };
+
+  xdg.enable = true;
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
+      clock-show-date = true;
       clock-show-weekday = true;
+      color-scheme = "prefer-dark";
+      #gtk-theme = "Catppuccin-Mocha-Standard-Lavender-Dark";
+      # font-name = "Red Hat Text 10";
+      # monospace-font-name = "Red Hat Mono 10";
+    };
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Catppuccin-Mocha-Standard-Lavender-Dark";
     };
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
@@ -89,6 +114,62 @@
     "org/gnome/desktop/media-handling" = {
       autorun-never = true;
     };
+    "org/gnome/mutter" = {
+      dynamic-workspaces = false;
+      edge-tiling = true;
+      num-workspaces = 1;
+      workspaces-only-on-primary = false;
+    };
+    "org/gnome/mutter/experimental-features" = {
+      scale-monitor-framebuffer = true;
+    };
+    "org/gnome/shell" = {
+      favorite-apps = [
+        "firefox.desktop"
+        "spotify.desktop"
+        "signal-desktop.desktop"
+        "telegramdesktop.desktop"
+        "org.gnome.Nautilus.desktop"
+        "vesktop.desktop"
+        "com.vscodium.codium.desktop"
+      ];
+      # disable-user-extensions = false;
+      #     enabled-extensions = [
+      #       "blur-my-shell@aunetx"
+      #       "gnome-bluetooth-quick-connect@gnome-shell-extensions.bjarosze.gmail.com.github.com"
+      #     ];
+    };
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system" "qemu+ssh://max@ceres/system"];
+      uris = ["qemu:///system" "qemu+ssh://max@ceres/system"];
+    };
+    # "org/gnome/nautilus/icon-view" = {
+    #   default-zoom-level = "standard";
+    # };
+    # "org/gnome/nautilus/preferences" = {
+    #   default-folder-viewer = "icon-view";
+    #   default-sort-order = "type";
+    #   migrated-gtk-settings = true;
+    #   search-filter-time-type = "last_modified";
+    #   search-view = "list-view";
+    # };
+    # "org/gtk/gtk4/settings/file-chooser" = {
+    #   date-format = "regular";
+    #   location-mode = "path-bar";
+    #   show-hidden = false;
+    #   show-size-column = true;
+    #   show-type-column = true;
+    #   sidebar-width = 263;
+    #   sort-column = "name";
+    #   sort-directories-first = true;
+    #   sort-order = "ascending";
+    #   type-format = "category";
+    #   # window-size = mkTuple [ 100 100 ];
+    # };
+    # "org/gtk/settings/file-chooser" = {
+    #   window-position = mkTuple [ (-1) (-1) ];
+    #   window-size = mkTuple [ 300 100 ];
+    # };
   };
 
   # Packages that should be installed to the user profile.
@@ -258,7 +339,7 @@
     #bibata-cursors
 
 
-    #### Gnome Extensions ####
+    ### Gnome Extensions ####
     gnomeExtensions.bluetooth-quick-connect
     gnomeExtensions.blur-my-shell
     gnomeExtensions.caffeine
@@ -331,8 +412,8 @@
       size = 99999;
       share = true;
     };
-    enableAutosuggestions = true;
-    #autosuggestion.enable = true;
+    #enableAutosuggestions = true;
+    autosuggestion.enable = true;
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];
@@ -373,7 +454,6 @@
         jnoortheen.nix-ide
       ];
     };
-
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

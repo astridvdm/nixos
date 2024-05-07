@@ -205,20 +205,14 @@
   # };
 
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
-  };
-
-  # Fix GTK 3 Theme
-  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
-[Settings]
-gtk-cursor-theme-name=Bibata-Modern-Classic
-gtk-icon-theme-name=Papirus-Dark
-gtk-theme-name=Catppuccin-Mocha-Standard-lavender-Dark
-gtk-application-prefer-dark-theme=0
-  '';
+#   # Fix GTK 3 Theme
+#   environment.etc."xdg/gtk-3.0/settings.ini".text = ''
+# [Settings]
+# gtk-cursor-theme-name=Bibata-Modern-Classic
+# gtk-icon-theme-name=Papirus-Dark
+# gtk-theme-name=Catppuccin-Mocha-Standard-lavender-Dark
+# gtk-application-prefer-dark-theme=0
+#   '';
 
 
   # Some programs need SUID wrappers, can be configured further or are
