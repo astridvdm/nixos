@@ -56,10 +56,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  #services.xserver.displayManager.sddm.enable = true;
-  #services.xserver.desktopManager.plasma5.enable = true;
-
   # Configure keymap
   services.xserver.xkb = {
     variant = "za";
@@ -78,12 +74,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Users
@@ -149,18 +139,6 @@
 
   # List services that you want to enable:
 
-  # nixpkgs.config.packageOverrides = pkgs: {
-  #   nur = import (builtins.fetchTarball { url = "https://github.com/nix-community/NUR/archive/43bab0ae75bfaa39d64b0183c533b4cbe680d6af.tar.gz"; sha256 = "1l8g3953hgszcb6c5qqi46qr1n696m2q3rq6q9micl0sdlma9wbx"; } ) {
-  #     inherit pkgs;
-  #   };
-  # };
-
-  # nixpkgs.config.packageOverrides = pkgs: {
-  #   nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-  #     inherit pkgs;
-  #   };
-  # };
-
 #   environment.etc."xdg/gtk-3.0/settings.ini".text = ''
 # [Settings]
 # gtk-cursor-theme-name=Bibata-Modern-Classic
@@ -207,9 +185,6 @@
     packages = [ "hu.irl.cameractrls" ];
   };
 
-  # Jellyfin
-  #services.jellyfin.enable = true;
-
   # iOS Documents
   services.usbmuxd.enable = true;
 
@@ -218,11 +193,6 @@
 
   ## Mullvad
   #services.mullvad-vpn.enable = true;
-
-  # services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
-	# [org.gnome.desktop.interface]
-	# gtk-theme='Catppuccin-Mocha-Standard-lavender-Dark'
-  # '';
 
   # # OBS Virtual Cam
   # boot.extraModulePackages = with config.boot.kernelPackages; [
