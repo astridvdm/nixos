@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-vscode-extensions, ... }:
 
 {
   # TODO please change the username & home direcotry to your own
@@ -65,11 +65,11 @@
     };
     gtk3.extraConfig = {
       gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
-      gtk-application-prefer-dark-theme = "1";
+      gtk-application-prefer-dark-theme = "0";
     };
     gtk4.extraConfig = {
       gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
-      gtk-application-prefer-dark-theme = "1";
+      gtk-application-prefer-dark-theme = "0";
     };
   };
 
@@ -139,7 +139,7 @@
     mumble
 
     #### VSCode ####
-    vscode
+    #vscode
 
     #### Jellyfin Media server client ###
     jellyfin-media-player
@@ -249,9 +249,6 @@
 
     #### Neofetch ####
     neofetch
-
-    # Webcam control
-    nur.repos.c0deaddict.cameractrls
 
     #### Gnome ####
     gnome-extension-manager
@@ -363,6 +360,19 @@
           } + /palettes/${flavour}.toml));
     };
 
+  programs.vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      extensions = with nix-vscode-extensions.extensions.x86_64-linux.open-vsx; [
+        jeanp413.open-remote-ssh
+        catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc-icons
+        pkief.material-product-icons
+        tailscale.vscode-tailscale
+        ms-azuretools.vscode-docker
+        jnoortheen.nix-ide
+      ];
+    };
 
 
   # This value determines the home Manager release that your

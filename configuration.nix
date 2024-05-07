@@ -242,7 +242,14 @@ gtk-application-prefer-dark-theme=0
   hardware.ledger.enable = true;
 
   # Flatpak
-  services.flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+    update.auto = {
+      enable = true;
+      onCalendar = "weekly"; # Default value
+    };
+    packages = [ "hu.irl.cameractrls" ];
+  };
 
   # KVM Virtual machines
   virtualisation.libvirtd.enable = true;
