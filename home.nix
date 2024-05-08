@@ -5,27 +5,6 @@
   home.username = "max";
   home.homeDirectory = "/home/max";
 
-  # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
-
-  # set cursor size and dpi for 4k monitor
-#   xresources.properties = {
-#     "Xcursor.size" = 16;
-#     "Xft.dpi" = 172;
-#   };
-
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
@@ -47,19 +26,9 @@
     flavour = "mocha";
   };
 
+
   gtk = {
     enable = true;
-    # cursorTheme = {
-    #   name = "Bibata-Modern-Classic";
-    #   package = pkgs.bibata-cursors;
-    # };
-    # iconTheme = {
-    #   name = "Papirus-Dark";
-    #   package = pkgs.catppuccin-papirus-folders.override {
-    #     flavor = "mocha";
-    #     accent = "lavender";
-    #   };
-    # };
     catppuccin = {
       enable = true;
       size = "standard";
@@ -70,27 +39,18 @@
         accent = "dark";
       };
     };
-    # theme = {
-    #   name = "catppuccin-mocha-standard-lavender-dark";
-    #   package = pkgs.catppuccin-gtk.override {
-    #     accents = [ "lavender" ];
-    #     size = "standard";
-    #     tweaks = [ "rimless" ];
-    #     variant = "mocha";
-    #   };
-    # };
-    # gtk3.extraConfig = {
-    #   gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
-    #   gtk-application-prefer-dark-theme = "1";
-    # };
-    # gtk4.extraConfig = {
-    #   gtk-theme-name = "Catppuccin-Mocha-Standard-lavender-Dark";
-    #   gtk-application-prefer-dark-theme = "1";
-    # };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "lavender";
+      };
+    };
   };
 
   xdg.enable = true;
 
+  # Set Gnome options using dconf.
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       clock-show-date = true;
@@ -100,9 +60,9 @@
       # font-name = "Red Hat Text 10";
       # monospace-font-name = "Red Hat Mono 10";
     };
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "Catppuccin-Mocha-Standard-Lavender-Dark";
-    };
+    # "org/gnome/shell/extensions/user-theme" = {
+    #   name = "Catppuccin-Mocha-Standard-Lavender-Dark";
+    # };
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
     };
@@ -180,16 +140,27 @@
     firefox
     #ungoogled-chromium
 
-    # Warp terminal
-    warp-terminal
+    # Warp file transfer
+    warp
+
+    # warp terminal
+    #warp-terminal
 
     #### Mail #####
     #mailspring
     #evolution
 
+    # Meqdia
+    kodi
+    jellyfin-media-player
+    # jellyfin
+
     #### Media ####
     vlc
     filebot
+
+    # Deluge
+    deluge
 
     #### Discord ####
     vesktop
@@ -216,9 +187,6 @@
     #### Matrix ####
     fluffychat
     # #fractal-next
-
-    # Mumble voice chat
-    mumble
 
     #### VSCode ####
     #vscode
@@ -265,15 +233,15 @@
     #### RPI ####
     #rpi-imager
 
+    # Ebook Management
+    calibre
+
+
     # OBS Studio
     obs-studio
 
     # Davinci Resolve non liner video editing
     davinci-resolve
-
-    # Handbrake
-    handbrake
-
 
     #### Teamviewer ####
     #teamviewer
@@ -314,7 +282,7 @@
     lm_sensors
     thefuck
     pavucontrol
-    easyeffects
+    adwsteamgtk
 
     # iOS
     libimobiledevice
@@ -329,18 +297,18 @@
     dmg2img
     virt-manager
 
+    # Webcam control
+    #nur.repos.c0deaddict.cameractrls
+
     #### Neofetch ####
     neofetch
 
     #### Gnome ####
     gnome-extension-manager
     gnome.gnome-tweaks
-    #papirus-icon-theme
-    #catppuccin-cursors.mochaDark
     #bibata-cursors
 
-
-    ### Gnome Extensions ####
+    #### Gnome Extensions ####
     gnomeExtensions.bluetooth-quick-connect
     gnomeExtensions.blur-my-shell
     gnomeExtensions.caffeine
@@ -354,7 +322,7 @@
     gnomeExtensions.week-start-modifier
     gnomeExtensions.pano
     gnomeExtensions.wallpaper-slideshow
-    #gnomeExtensions.noannoyance-2
+    #gnomeExtensions.noannoyance
     gnomeExtensions.spotify-tray
     gnomeExtensions.fuzzy-app-search
     gnomeExtensions.fullscreen-avoider
@@ -368,7 +336,7 @@
     compression = true;
     matchBlocks = {
       "ceres" = {
-      hostname = "100.96.153.84";
+      hostname = "10.0.0.2";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17-lux";
       };
@@ -422,49 +390,31 @@
     };
   };
   # starship - an customizable prompt for any shell
-  programs.starship =
-    let
-      flavour = "mocha"; # One of `latte`, `frappe`, `macchiato`, or `mocha`
-    in
-    {
-      enable = true;
-      settings = {
-        # Other config here
-        format = "$all"; # Remove this line to disable the default prompt format
-        palette = "catppuccin_${flavour}";
-      } // builtins.fromTOML (builtins.readFile
-        (pkgs.fetchFromGitHub
-          {
-            owner = "catppuccin";
-            repo = "starship";
-            rev = "5629d2356f62a9f2f8efad3ff37476c19969bd4f"; # Replace with the latest commit hash
-            sha256 = "sha256-nsRuxQFKbQkyEI4TXgvAjcroVdG+heKX5Pauq/4Ota0=";
-          } + /palettes/${flavour}.toml));
-    };
+  programs.starship = {
+    enable = true;
+    catppuccin.enable = true;
+  };
 
   programs.vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-      extensions = with nix-vscode-extensions.extensions.x86_64-linux.open-vsx; [
-        jeanp413.open-remote-ssh
-        catppuccin.catppuccin-vsc
-        catppuccin.catppuccin-vsc-icons
-        pkief.material-product-icons
-        tailscale.vscode-tailscale
-        ms-azuretools.vscode-docker
-        jnoortheen.nix-ide
-      ];
-    };
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with nix-vscode-extensions.extensions.x86_64-linux.open-vsx; [
+      jeanp413.open-remote-ssh
+      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
+      pkief.material-product-icons
+      tailscale.vscode-tailscale
+      ms-azuretools.vscode-docker
+      jnoortheen.nix-ide
+      eamodio.gitlens
+      usernamehw.errorlens
+      christian-kohler.path-intellisense
+      tomoki1207.pdf
+      mhutchie.git-graph
+    ];
+  };
 
-  # This value determines the home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update home Manager without changing this value. See
-  # the home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -31,25 +31,25 @@
      options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
    };
 
-  # Archival array
-  fileSystems."/mnt/6tb" =
-    { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
-      fsType = "btrfs";
-      options = [
-        "acl"
-        "autodefrag"
-        "defaults"
-        "nofail"
-        "nossd"
-        "compress=zstd:3"
-        "noatime"
-        #"ro"
-        #"usebackuproot"
-        #"recovery"
-        #"nospace_cache"
-        #"clear_cache"
-      ];
-    };
+  # # Archival array
+  # fileSystems."/mnt/6tb" =
+  #   { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
+  #     fsType = "btrfs";
+  #     options = [
+  #       "acl"
+  #       "autodefrag"
+  #       "defaults"
+  #       "nofail"
+  #       "nossd"
+  #       "compress=zstd:3"
+  #       "noatime"
+  #       #"ro"
+  #       #"usebackuproot"
+  #       #"recovery"
+  #       #"nospace_cache"
+  #       #"clear_cache"
+  #     ];
+  #   };
 
   # Networking
 
@@ -113,24 +113,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
-
-
-  # Attempt to Fix Airpods volume
-  # hardware.bluetooth.settings = {
-  #   General = {
-  #     Enable = "Source,Sink,Media,Socket";
-  #     disabledPlugins = "avrcp";
-  #     ControllerMode = "duel";
-  #     Experimental = "true";
-  #   };
-  # };
 
   # Users
 
@@ -174,8 +157,6 @@
     sshfs
     screen # Allow terminal tasks to run in background
     tailscale # Remote wireguard based p2p vpn
-    gsound
-    libgda6
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
@@ -204,24 +185,6 @@
   #   chromium.enableWideVine = true;
   # };
 
-
-#   # Fix GTK 3 Theme
-#   environment.etc."xdg/gtk-3.0/settings.ini".text = ''
-# [Settings]
-# gtk-cursor-theme-name=Bibata-Modern-Classic
-# gtk-icon-theme-name=Papirus-Dark
-# gtk-theme-name=Catppuccin-Mocha-Standard-lavender-Dark
-# gtk-application-prefer-dark-theme=0
-#   '';
-
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
@@ -298,5 +261,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
