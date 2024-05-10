@@ -76,7 +76,7 @@
     };
     "org/gnome/mutter" = {
       dynamic-workspaces = false;
-      edge-tiling = true;
+      edge-tiling = false;
       num-workspaces = 1;
       workspaces-only-on-primary = false;
     };
@@ -89,7 +89,7 @@
         "firefox.desktop"
         "spotify.desktop"
         "signal-desktop.desktop"
-        "telegramdesktop.desktop"
+        "org.telegram.desktop.desktop"
         "org.gnome.Nautilus.desktop"
         "vesktop.desktop"
         "com.vscodium.codium.desktop"
