@@ -94,11 +94,6 @@
         "vesktop.desktop"
         "com.vscodium.codium.desktop"
       ];
-      # disable-user-extensions = false;
-      #     enabled-extensions = [
-      #       "blur-my-shell@aunetx"
-      #       "gnome-bluetooth-quick-connect@gnome-shell-extensions.bjarosze.gmail.com.github.com"
-      #     ];
     };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system" "qemu+ssh://max@ceres/system"];
@@ -140,40 +135,8 @@
     firefox
     #ungoogled-chromium
 
-    # Warp file transfer
-    warp
-
-    # warp terminal
-    #warp-terminal
-
-    #### Mail #####
-    #mailspring
-    #evolution
-
-    # Meqdia
-    kodi
-    jellyfin-media-player
-    # jellyfin
-
-    #### Media ####
-    vlc
-    filebot
-
-    # Deluge
-    deluge
-
     #### Discord ####
     vesktop
-    # (pkgs.discord.override {
-    #  # remove any overrides that you don't want
-    #   withOpenASAR = true;
-    #   withVencord = true;
-    # })
-
-    #### Spotify ####
-    #spotify-unwrapped
-    #spicetify-cli
-    #spotube
 
     #### Telegram ####
     telegram-desktop
@@ -188,31 +151,20 @@
     fluffychat
     # #fractal-next
 
-    #### VSCode ####
-    #vscode-fhs
-    #vscodium
+    #### Zoom video calling.
+    zoom-us
 
-    #### Networking ####
-    #winbox # Mikrotik manager
-    #trayscale # Tailscale gui manager
-    mtr # A network diagnostic tool
-    iperf3 # tool to test network throughput with matching server/client
-    dnsutils  # `dig` + `nslookup`
-    #ipcalc  # it is a calculator for the IPv4/v6 addresses
-    dig
+    #### Media ####
+    vlc
+    filebot
+    jellyfin-media-player
+
+    # Deluge
+    deluge
 
     #### Rclone ####
     rclone
     rclone-browser
-
-    #### Emulation ####
-    ryujinx
-    #yuzu-mainline
-
-    #### Minecraft ####
-    prismlauncher
-
-    #steamtinkerlaunch
 
     #### Backup ####
     pika-backup
@@ -233,32 +185,34 @@
     # Ebook Management
     calibre
 
-
     # OBS Studio
     obs-studio
 
     # Davinci Resolve non liner video editing
     davinci-resolve
 
-    #### Teamviewer ####
-    #teamviewer
-
     #### Invoice
     invoice
-
-    #### Proton manager ####
-    lutris
 
     #### Archive management ####
     #p7zip
     #zstd
 
-
-    #### Zoom video calling.
-    zoom-us
-
     #### Magic wormhole P2P file transfer ####
     magic-wormhole-rs
+    warp # Gui
+
+    #### Gaming ####
+    adwsteamgtk
+    protontricks # steam game based wine manager
+    protonup-qt
+    lutris
+
+    #### Minecraft ####
+    prismlauncher
+
+    #### Emulation ####
+    ryujinx
 
     #### System ####
     pciutils # lspci
@@ -269,20 +223,19 @@
     xwayland # allow x.org programs to run under wayland
     starship # theme for zsh
     nerdfonts # fonts required for starship
-    #protonup-ng # downloader for proton-ge runners
-    # python3
-    #docker-compose # declarative manager for docker OCI containers
     btrfs-progs # Utilities for the btrfs filesystem
     #wineWowPackages.full # wine packages for running windows software/games
     wineWowPackages.waylandFull # same as above for wayland
-    #winetricks # wine manager
-    protontricks # steam game based wine manager
-    protonup-qt
     zip
     lm_sensors
     thefuck
     pavucontrol
-    adwsteamgtk
+
+    #### Networking ####
+    mtr # A network diagnostic tool
+    iperf3 # tool to test network throughput with matching server/client
+    dnsutils  # `dig` + `nslookup`
+    dig
 
     # iOS
     libimobiledevice
@@ -296,9 +249,6 @@
     libguestfs
     dmg2img
     virt-manager
-
-    # Webcam control
-    #nur.repos.c0deaddict.cameractrls
 
     #### Neofetch ####
     neofetch
@@ -342,11 +292,6 @@
     matchBlocks = {
       "ceres" = {
       hostname = "10.0.0.2";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
-      };
-      "hera" = {
-      hostname = "10.0.0.21";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17-lux";
       };
