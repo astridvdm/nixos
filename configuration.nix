@@ -31,6 +31,13 @@
      options = [ "x-systemd.automount" "_netdev" "users" "idmap=user" "IdentityFile=/home/max/.ssh/max-a17-lux" "allow_other" "reconnect"];
    };
 
+
+  # Fido2 Luks
+  boot.initrd.luks.fido2Support = true;
+  boot.initrd.luks.yubikeySupport = true;
+  boot.initrd.luks.devices."/dev/nvme0n1p3".fido2.credential = "24a327c81b67c0055c6b254183b88548394df0e1916c28e62136de0686ec9278a6be8c67004e10e0272f24ba63754afa";
+
+
   # # Archival array
   # fileSystems."/mnt/6tb" =
   #   { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
