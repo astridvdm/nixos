@@ -140,40 +140,8 @@
     firefox
     #ungoogled-chromium
 
-    # Warp file transfer
-    warp
-
-    # warp terminal
-    #warp-terminal
-
-    #### Mail #####
-    #mailspring
-    #evolution
-
-    # Meqdia
-    kodi
-    jellyfin-media-player
-    # jellyfin
-
-    #### Media ####
-    vlc
-    filebot
-
-    # Deluge
-    deluge
-
     #### Discord ####
     vesktop
-    # (pkgs.discord.override {
-    #  # remove any overrides that you don't want
-    #   withOpenASAR = true;
-    #   withVencord = true;
-    # })
-
-    #### Spotify ####
-    #spotify-unwrapped
-    #spicetify-cli
-    #spotube
 
     #### Telegram ####
     telegram-desktop
@@ -187,35 +155,21 @@
     #### Matrix ####
     fluffychat
     # #fractal-next
+  
+  #### Zoom video calling.
+    zoom-us
 
-    #### VSCode ####
-    #vscode
-
-    #### Jellyfin Media server client ###
+    #### Media ####
+    vlc
+    filebot
     jellyfin-media-player
 
-    #### Networking ####
-    #winbox # Mikrotik manager
-    #trayscale # Tailscale gui manager
-    mtr # A network diagnostic tool
-    iperf3 # tool to test network throughput with matching server/client
-    dnsutils  # `dig` + `nslookup`
-    #ipcalc  # it is a calculator for the IPv4/v6 addresses
-    dig
-
+    # Deluge
+    deluge
+    
     #### Rclone ####
     rclone
     rclone-browser
-
-    #### Emulation ####
-    ryujinx
-    #yuzu-mainline
-
-    #### Minecraft ####
-    prismlauncher
-
-    # Steam gtk Themeing
-    adwsteamgtk
 
     #### Backup ####
     pika-backup
@@ -236,33 +190,34 @@
     # Ebook Management
     calibre
 
-
     # OBS Studio
     obs-studio
 
     # Davinci Resolve non liner video editing
     davinci-resolve
 
-    #### Teamviewer ####
-    #teamviewer
-
-    #### Proton manager ####
-    lutris
+    #### Invoice
+    invoice
 
     #### Archive management ####
     #p7zip
-    zstd
-
-    #### Gaming ####
-    #wineWowPackages.full # wine packages for running windows software/games
-    wineWowPackages.waylandFull # same as above for wayland
-    #winetricks # wine manager
-    protontricks # steam game based wine manager
-    protonup-qt
-    #steamtinkerlaunch
+    #zstd
 
     #### Magic wormhole P2P file transfer ####
     magic-wormhole-rs
+    warp # Gui
+
+    #### Gaming ####
+    adwsteamgtk
+    protontricks # steam game based wine manager
+    protonup-qt
+    lutris
+
+    #### Minecraft ####
+    prismlauncher
+
+    #### Emulation ####
+    ryujinx
 
     #### System ####
     pciutils # lspci
@@ -273,16 +228,20 @@
     xwayland # allow x.org programs to run under wayland
     starship # theme for zsh
     nerdfonts # fonts required for starship
-    #protonup-ng # downloader for proton-ge runners
-    # python3
-    #docker-compose # declarative manager for docker OCI containers
     btrfs-progs # Utilities for the btrfs filesystem
-    ncdu
+    #wineWowPackages.full # wine packages for running windows software/games
+    wineWowPackages.waylandFull # same as above for wayland
     zip
     lm_sensors
     thefuck
     pavucontrol
-    adwsteamgtk
+    ncdu
+
+    #### Networking ####
+    mtr # A network diagnostic tool
+    iperf3 # tool to test network throughput with matching server/client
+    dnsutils  # `dig` + `nslookup`
+    dig
 
     # iOS
     libimobiledevice
@@ -296,9 +255,6 @@
     libguestfs
     dmg2img
     virt-manager
-
-    # Webcam control
-    #nur.repos.c0deaddict.cameractrls
 
     #### Neofetch ####
     neofetch
@@ -411,6 +367,13 @@
       christian-kohler.path-intellisense
       tomoki1207.pdf
       mhutchie.git-graph
+      cschleiden.vscode-github-actions
+      ziyasal.vscode-open-in-github
+      ms-vscode.live-server
+      mtxr.sqltools
+      mtxr.sqltools-driver-sqlite
+      mtxr.sqltools-driver-mysql
+      mblode.pretty-formatter
     ];
   };
 
