@@ -158,26 +158,30 @@
     sshfs
     screen # Allow terminal tasks to run in background
     tailscale # Remote wireguard based p2p vpn
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+    #docker-compose # start group of containers for dev
+    podman-compose # start group of containers for dev
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
-#    gnome-photos
+    gnome-photos
     gnome-tour
-    gedit
+    gedit # text editor
   ]) ++ (with pkgs.gnome; [
-    cheese # webcam tool
-    gnome-music
-#    gnome-terminal
-    epiphany # web browser
-    geary # email reader
-    evince # document viewer
-    gnome-characters
-    totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-  ]);
+      cheese # webcam tool
+      gnome-music
+      epiphany # web browser
+      geary # email reader
+      gnome-characters
+      tali # poker game
+      iagno # go game
+      hitori # sudoku game
+      atomix # puzzle game
+      yelp # Help view
+      gnome-contacts
+      gnome-initial-setup
+    ]);
 
   # Enable Widevine for Chrome
   # nixpkgs.config = {
@@ -204,11 +208,20 @@
   # Steam
   programs.steam.enable = true;
 
-  # Docker
-  virtualisation.docker.rootless = {
-  enable = true;
-  enableNvidia = true;
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
+  hardware.nvidia-container-toolkit.enable = true;
 
   # Flatpak
   services.flatpak = {
