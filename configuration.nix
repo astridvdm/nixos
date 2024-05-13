@@ -1,19 +1,20 @@
 { config, pkgs, ... }:
 
 {
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Choose kernel package
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Increase vm count for Star Citizen
   boot.kernel.sysctl = {
   "vm.max_map_count" = 16777216;
   "fs.file-max" = 524288;
+  # Fix large workspaces for vscode
+  "fs.inotify.max_user_watches" = "1048576"; # 128 times the default 8192
   };
 
   # Internel HDD WD Blue 2TB
@@ -33,9 +34,9 @@
 
 
   # Fido2 Luks
-  boot.initrd.luks.fido2Support = true;
-  boot.initrd.luks.yubikeySupport = true;
-  boot.initrd.luks.devices."/dev/nvme0n1p3".fido2.credential = "24a327c81b67c0055c6b254183b88548394df0e1916c28e62136de0686ec9278a6be8c67004e10e0272f24ba63754afa";
+  # boot.initrd.luks.fido2Support = true;
+  # boot.initrd.luks.yubikeySupport = true;
+  # boot.initrd.luks.devices."/dev/nvme0n1p3".fido2.credential = "24a327c81b67c0055c6b254183b88548394df0e1916c28e62136de0686ec9278a6be8c67004e10e0272f24ba63754afa";
 
 
   # # Archival array
@@ -84,23 +85,16 @@
     LC_TIME = "en_ZA.UTF-8";
   };
 
-  # Enable the X11/Wayland windowing system.
-  services.xserver.enable = true;
-
   # Enable the Gnome Desktop
+  services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-
-  # Enable for unverified monitor(s)
+  # Enable gsync for unverified monitor(s)
   services.xserver.screenSection =
   ''
     Option         "metamodes" "DP-2: nvidia-auto-select +1920+0 {AllowGSYNCCompatible=On}, DP-0: nvidia-auto-select +0+0 {AllowGSYNCCompatible=On}"
   '';
-
-  # Enable the KDE Plasma Desktop Environment.
-  #services.xserver.displayManager.sddm.enable = true;
-  #services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap
   services.xserver.xkb = {
@@ -150,7 +144,7 @@
   # enable Flakes and the new command line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.config.spotify.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+  #nixpkgs.config.spotify.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
 
   # System Packages
 
@@ -192,7 +186,6 @@
   #   chromium.enableWideVine = true;
   # };
 
-
   # List services that you want to enable:
 
   # Tailscale
@@ -205,6 +198,24 @@
   # Hardware crypto wallet manager
   hardware.ledger.enable = true;
 
+  # KVM Virtual machines
+  virtualisation.libvirtd.enable = true;
+
+  # Steam
+  programs.steam.enable = true;
+
+  # Docker
+  virtualisation.docker.rootless = {
+  enable = true;
+  enableNvidia = true;
+  };
+
+  # iOS Documents
+  services.usbmuxd.enable = true;
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
   # Flatpak
   services.flatpak = {
     enable = true;
@@ -214,25 +225,6 @@
     };
     packages = [ "hu.irl.cameractrls" ];
   };
-
-  # KVM Virtual machines
-  virtualisation.libvirtd.enable = true;
-
-  # Steam
-  programs.steam.enable = true;
-
-  # Docker
-  virtualisation.docker = {
-  enable = true;
-  enableNvidia = true;
-  };
-
-  # iOS Documents
-  services.usbmuxd.enable = true;
-
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # # OBS Virtual Cam
   # boot.extraModulePackages = with config.boot.kernelPackages; [
