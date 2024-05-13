@@ -210,12 +210,6 @@
   enableNvidia = true;
   };
 
-  # iOS Documents
-  services.usbmuxd.enable = true;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
   # Flatpak
   services.flatpak = {
     enable = true;
@@ -225,6 +219,15 @@
     };
     packages = [ "hu.irl.cameractrls" ];
   };
+
+  # iOS Documents
+  services.usbmuxd.enable = true;
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
+  ## Mullvad
+  #services.mullvad-vpn.enable = true;
 
   # # OBS Virtual Cam
   # boot.extraModulePackages = with config.boot.kernelPackages; [

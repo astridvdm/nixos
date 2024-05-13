@@ -76,7 +76,7 @@
     };
     "org/gnome/mutter" = {
       dynamic-workspaces = false;
-      edge-tiling = true;
+      edge-tiling = false;
       num-workspaces = 1;
       workspaces-only-on-primary = false;
     };
@@ -292,7 +292,7 @@
     compression = true;
     matchBlocks = {
       "ceres" = {
-      hostname = "10.0.0.2";
+      hostname = "100.96.153.84";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17-lux";
       };
