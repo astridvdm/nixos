@@ -239,9 +239,9 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      #"0 3 * * 1,3,6      max    sh /mnt/ceres/media/yt-dlp.sh >> /dev/null"
-      #"0 2 * * 1,3,6      max    sh /home/max/docker-compose/backup-docker.sh >> /dev/null"
-      #"0 1 * * 1,3,6      max    sh /mnt/ceres/backups/photosync/photosync-backup.sh >> /dev/null"
+      "0 3 * * 1,3,6      max    sh /mnt/ceres/media/yt-dlp.sh >> /dev/null"
+      "0 2 * * 1,3,6      max    sh /home/max/docker-compose/backup-docker.sh >> /dev/null"
+      "0 1 * * 1,3,6      max    sh /mnt/ceres/backups/photosync/photosync-backup.sh >> /dev/null"
     ];
   };
 
