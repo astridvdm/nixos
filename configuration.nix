@@ -6,8 +6,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Choose kernel package
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Increase vm count for Star Citizen
   boot.kernel.sysctl = {
@@ -196,8 +196,11 @@
   services.tailscale.enable = true;
   networking.firewall.checkReversePath = "loose";
 
-  # Corsair keyboard control
-  hardware.ckb-next.enable = true;
+  # # Corsair keyboard control
+  # hardware.ckb-next.enable = true;
+
+  # RGB Control for system
+  services.hardware.openrgb.enable = true;
 
   # Hardware crypto wallet manager
   hardware.ledger.enable = true;
@@ -208,20 +211,26 @@
   # Steam
   programs.steam.enable = true;
 
-  # Enable common container config files in /etc/containers
-  virtualisation.containers.enable = true;
-  virtualisation = {
-    podman = {
-      enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
+  # Docker
+  virtualisation.docker = {
+  enable = true;
+  enableNvidia = true;
   };
-  hardware.nvidia-container-toolkit.enable = true;
+
+  # # Enable common container config files in /etc/containers
+  # virtualisation.containers.enable = true;
+  # virtualisation = {
+  #   podman = {
+  #     enable = true;
+
+  #     # Create a `docker` alias for podman, to use it as a drop-in replacement
+  #     dockerCompat = true;
+
+  #     # Required for containers under podman-compose to be able to talk to each other.
+  #     defaultNetwork.settings.dns_enabled = true;
+  #   };
+  # };
+  # hardware.nvidia-container-toolkit.enable = true;
 
   # Flatpak
   services.flatpak = {

@@ -39,13 +39,13 @@
         accent = "dark";
       };
     };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "lavender";
-      };
-    };
+    # iconTheme = {
+    #   name = "Papirus-Dark";
+    #   package = pkgs.catppuccin-papirus-folders.override {
+    #     flavor = "mocha";
+    #     accent = "lavender";
+    #   };
+    # };
   };
 
   xdg.enable = true;
@@ -67,7 +67,7 @@
       sleep-inactive-ac-type = "nothing";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Control>grave";
+      binding = "<Control>Escape";
       command = "kgx";
       name = "open terminal";
     };
@@ -176,7 +176,7 @@
     borgbackup
 
     #### RGB ####
-    ckb-next
+    # ckb-next
 
     #### Ledger Crypto Hardware Wallet ####
     ledger-live-desktop
