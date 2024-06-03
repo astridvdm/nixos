@@ -20,25 +20,32 @@
     };
   };
 
-  catppuccin = {
-    enable = true;
-    accent = "lavender";
-    flavour = "mocha";
-  };
+ catppuccin = {
+   enable = true;
+   accent = "lavender";
+   flavor = "mocha";
+ };
 
+ xdg.enable = true;
 
-  gtk = {
-    enable = true;
-    catppuccin = {
+ gtk = {
+   enable = true;
+   catppuccin = {
+     enable = true;
+     size = "standard";
+     accent = "lavender";
+     cursor = {
+       enable = true;
+       accent = "dark";
+       flavor = "mocha";
+     };
+     gnomeShellTheme = true;
+     icon = { 
       enable = true;
-      size = "standard";
       accent = "lavender";
-      tweaks = [ "rimless" ];
-      cursor = {
-        enable = true;
-        accent = "dark";
-      };
-    };
+      flavor = "mocha";
+     };
+   };
     # iconTheme = {
     #   name = "Papirus-Dark";
     #   package = pkgs.catppuccin-papirus-folders.override {
@@ -46,9 +53,7 @@
     #     accent = "lavender";
     #   };
     # };
-  };
-
-  xdg.enable = true;
+ };
 
   # Set Gnome options using dconf.
   dconf.settings = {
@@ -56,20 +61,26 @@
       clock-show-date = true;
       clock-show-weekday = true;
       color-scheme = "prefer-dark";
+      show-battery-percentage = "true";
+      enable-hot-corners = "false";
       #gtk-theme = "Catppuccin-Mocha-Standard-Lavender-Dark";
       # font-name = "Red Hat Text 10";
       # monospace-font-name = "Red Hat Mono 10";
+    };
+    "org/gnome/desktop/peripherals/touchpad" = {  
+      natural-scroll = "false";
     };
     # "org/gnome/shell/extensions/user-theme" = {
     #   name = "Catppuccin-Mocha-Standard-Lavender-Dark";
     # };
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
+      sleep-inactive-battery-type = "suspend";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Control>Escape";
+      binding = "<Control>grave";
       command = "kgx";
-      name = "open terminal";
+      name = "Open Terminal";
     };
     "org/gnome/desktop/media-handling" = {
       autorun-never = true;
@@ -89,16 +100,11 @@
         "firefox.desktop"
         "spotify.desktop"
         "signal-desktop.desktop"
-        "telegramdesktop.desktop"
+        "org.telegram.desktop.desktop"
         "org.gnome.Nautilus.desktop"
         "vesktop.desktop"
         "com.vscodium.codium.desktop"
       ];
-      # disable-user-extensions = false;
-      #     enabled-extensions = [
-      #       "blur-my-shell@aunetx"
-      #       "gnome-bluetooth-quick-connect@gnome-shell-extensions.bjarosze.gmail.com.github.com"
-      #     ];
     };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system" "qemu+ssh://max@ceres/system"];
@@ -156,7 +162,7 @@
     fluffychat
     # #fractal-next
   
-  #### Zoom video calling.
+    #### Zoom video calling.
     zoom-us
 
     #### Media ####
@@ -282,9 +288,6 @@
     gnomeExtensions.spotify-tray
     gnomeExtensions.fuzzy-app-search
     gnomeExtensions.fullscreen-avoider
-    gnomeExtensions.no-titlebar-when-maximized
-    gnomeExtensions.no-title-bar
-    gnomeExtensions.forge
   ];
   # ssh remote host configs
   programs.ssh = {
@@ -294,17 +297,7 @@
       "ceres" = {
       hostname = "100.96.153.84";
       user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
-      };
-      "hera" = {
-      hostname = "10.0.0.21";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
-      };
-      "orion" = {
-      hostname = "100.112.75.88";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
+      identityFile = "/home/max/.ssh/max-a17";
       };
       "polaris" = {
       hostname = "100.88.236.67";
@@ -314,8 +307,8 @@
       "lux" = {
       hostname = "172.16.0.212";
       proxyJump = "100.96.163.55";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
+      user = "brock";
+      identityFile = "/home/max/.ssh/max-a17";
       };
       "u334582.your-storagebox.de" = {
       hostname = "u334582.your-storagebox.de";

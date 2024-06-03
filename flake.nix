@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration for hera";
+  description = "NixOS configuration";
 
   # Select package channels
   inputs = {
@@ -63,6 +63,37 @@
             # import the home.nix config file
             home-manager.users.max.imports = [
               ./machines/hera/home.nix
+              catppuccin.homeManagerModules.catppuccin
+            ];
+            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+          }
+        ];
+      };
+      ion = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit spicetify-nix nix-vscode-extensions;};
+        modules = [
+          ./machines/ion/configuration.nix
+          ./machines/ion/hardware-configuration.nix
+          ./machines/ion/nvidia-config.nix
+          ./machines/ion/spicetify.nix # file where you configure spicetify
+          nix-flatpak.nixosModules.nix-flatpak
+          catppuccin.nixosModules.catppuccin
+
+          # make home-manager as a module of nixos
+          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+          home-manager.nixosModules.home-manager
+          {
+            # allow home-manager to follow allow unfree
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            # Special Args
+            home-manager.extraSpecialArgs = { inherit inputs nix-vscode-extensions; };
+
+            # import the home.nix config file
+            home-manager.users.max.imports = [
+              ./machines/ion/home.nix
               catppuccin.homeManagerModules.catppuccin
             ];
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix

@@ -14,6 +14,8 @@
   boot.kernel.sysctl = {
   "vm.max_map_count" = 16777216;
   "fs.file-max" = 524288;
+   # Fix large workspaces for vscode
+  "fs.inotify.max_user_watches" = "1048576"; # 128 times the default 8192
   };
 
   # SSHFS mount for Ceres's ZFS Array
@@ -116,26 +118,27 @@
     sshfs
     screen # Allow terminal tasks to run in background
     tailscale # Remote wireguard based p2p vpn
+    dive # look into docker image layers
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
-#    gnome-photos
+    gnome-photos
     gnome-tour
-    gedit
+    gedit # text editor
   ]) ++ (with pkgs.gnome; [
-    cheese # webcam tool
-    gnome-music
-#    gnome-terminal
-    epiphany # web browser
-    geary # email reader
-    evince # document viewer
-    gnome-characters
-    totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-  ]);
+      cheese # webcam tool
+      gnome-music
+      epiphany # web browser
+      geary # email reader
+      gnome-characters
+      tali # poker game
+      iagno # go game
+      hitori # sudoku game
+      atomix # puzzle game
+      yelp # Help view
+      gnome-contacts
+      gnome-initial-setup
+    ]);
 
   # List services that you want to enable:
 

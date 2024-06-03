@@ -18,18 +18,7 @@ in
       theme = spicePkgs.themes.catppuccin;
       colorScheme = "mocha";
 
-      enabledExtensions = with spicePkgs.extensions; [
-        #fullAppDisplay
-        shuffle # shuffle+ (special characters are sanitized out of ext names)
-        hidePodcasts
-        lastfm
-        #genre
-      ];
-      enabledCustomApps = with spicePkgs.apps; [
-      #new-releases
-      #lyrics-plus
-      #localFiles
-      marketplace
-      ];
+      enabledExtensions = with spicePkgs.extensions; [ ];
+      enabledCustomApps = with spicePkgs.apps; [ marketplace ];
     };
 }
