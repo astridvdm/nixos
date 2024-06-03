@@ -23,7 +23,7 @@
  catppuccin = {
    enable = true;
    accent = "lavender";
-   flavour = "mocha";
+   flavor = "mocha";
  };
 
  xdg.enable = true;
