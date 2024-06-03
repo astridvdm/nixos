@@ -1,12 +1,5 @@
 # Max van der Merwe's [NixOS] configuration using [flakes] and [Home Manager].
 
-
-
-I plan to create a unified flake in the future, work in progress being done in the unified branch.
-
-For the time being I'm using separate branches for each machine.
-
-
 **Machines**
 
 |   Hostname  |            Board            |               CPU              |  RAM  |         Primary GPU         | Role | OS  | State |
