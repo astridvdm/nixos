@@ -65,7 +65,7 @@
          user.signingkey = "~/.ssh/max-git.pub";
        };
      };
-     home.stateVersion = "23.11";
+     home.stateVersion = "24.05";
      nixpkgs.config = import ./nixpkgs-config.nix;
     };
 
