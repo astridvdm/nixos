@@ -50,7 +50,7 @@ Of course a thank you to the wonderful project [NixOS] along with [Home Manager]
 [Nvidia RTX 3070]:https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3070-3070ti/
 [Intel HD Graphics 630]: https://ark.intel.com/content/www/us/en/ark/products/97121/intel-core-i5-7500t-processor-6m-cache-up-to-3-30-ghz.html
 
-* [Martin Wimpress]: https://github.com/wimpysworld
-* [Alex Kretzschmar]: https://github.com/ironicbadge
-* [nix-starter-configs]: https://github.com/Misterio77/nix-starter-configs
-* [Declarative GNOME configuration with NixOS]: https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos
+[Martin Wimpress]: https://github.com/wimpysworld
+[Alex Kretzschmar]: https://github.com/ironicbadge
+[nix-starter-configs]: https://github.com/Misterio77/nix-starter-configs
+[Declarative GNOME configuration with NixOS]: https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos
