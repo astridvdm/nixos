@@ -267,31 +267,26 @@
     #bibata-cursors
 
     #### Gnome Extensions ####
-    #gnomeExtensions.bluetooth-quick-connect
-    #gnomeExtensions.blur-my-shell
-    #gnomeExtensions.caffeine
-    #gnomeExtensions.notification-timeout
-    #gnomeExtensions.quick-settings-audio-panel
-    #gnomeExtensions.tailscale-qs
-    #gnomeExtensions.tiling-assistant
-    #gnomeExtensions.trimmer
-    #gnomeExtensions.user-avatar-in-quick-settings
-    #gnomeExtensions.weather-or-not
-    #gnomeExtensions.week-start-modifier
-    #gnomeExtensions.pano
-    #gnomeExtensions.wallpaper-slideshow
-    #gnomeExtensions.noannoyance
-    #gnomeExtensions.spotify-tray
-    #gnomeExtensions.fuzzy-app-search
-    #gnomeExtensions.fullscreen-avoider
-    #gnomeExtensions.no-titlebar-when-maximized
-    #gnomeExtensions.no-title-bar
-    #gnomeExtensions.forge
+    gnomeExtensions.bluetooth-quick-connect
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.caffeine
+    gnomeExtensions.notification-timeout
+    gnomeExtensions.quick-settings-audio-panel
+    gnomeExtensions.tailscale-qs
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.trimmer
+    gnomeExtensions.user-avatar-in-quick-settings
+    gnomeExtensions.weather-or-not
+    gnomeExtensions.week-start-modifier
+    gnomeExtensions.pano
+    gnomeExtensions.wallpaper-slideshow
+    gnomeExtensions.noannoyance
+    gnomeExtensions.spotify-tray
+    gnomeExtensions.fuzzy-app-search
+    gnomeExtensions.fullscreen-avoider
     gnomeExtensions.supergfxctl-gex
-    #gnomeExtensions.autohide-battery
-    #gnomeExtensions.autohide-volume
-    #gnomeExtensions.auto-power-profile
-    #gnomeExtensions.airpods-battery-status
+    gnomeExtensions.autohide-battery
+    gnomeExtensions.autohide-volume
   ];
   # ssh remote host configs
   programs.ssh = {
