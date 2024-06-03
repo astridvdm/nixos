@@ -100,6 +100,27 @@
           }
         ];
       };
+      ceres = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./machines/ceres/configuration.nix
+          ./machines/ceres/hardware-configuration.nix
+          # make home-manager as a module of nixos
+          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+          home-manager.nixosModules.home-manager
+          {
+            # allow home-manager to follow allow unfree
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            # import the home.nix config file
+            home-manager.users.max.imports = [
+              ./machines/ceres/home.nix
+            ];
+            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+          }
+        ];
+      };
     };
   };
 }

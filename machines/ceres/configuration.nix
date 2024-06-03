@@ -1,12 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      <home-manager/nixos>
-    ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -137,75 +131,7 @@
   users.users.max.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIGaeHs7LX8API5+OH4brfqe31b8WMSIZnJ2PIdHsD65 max-pc-lux" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFFi3dbVfeHJBHYqbx2UD1JkMofbWGdG9kWpu+QqesEN max-a17-lux" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBItfYtTxsE7xl6BgH3LtAoHnFureihclIkoIIyp0HSvdWXz8lyHAYTNm5fRqdb8Wl7ApDn4okCoOajsnyQmLQ/A= max@iphone" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC93Pzn2DxRZK3naV+TCa3FhSKUj+c30GXndAiNiJ0Ksb+KM/fKoxD4tndbF8fSI9e5Kgtneem/1y3ARJrQqiDM= max@ipad" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMsnW2eSbP4juFbmLpaEc0E5zROGWoU6Qx3V9n73yl9M max-iphone"];
   # Specify user shell
   users.users.max.shell = "/home/max/.nix-profile/bin/zsh";
-  # User packages
-  home-manager.users.max = { pkgs, ... }: {
-    home.packages = with pkgs; [
-    ];
-     # Config SSH
-     programs.ssh = {
-       enable = true;
-       compression = true;
-
-       # Server conigs
-       matchBlocks = {
-         # Hetzer storage
-         "u334582.your-storagebox.de" = {
-         hostname = "u334582.your-storagebox.de";
-         user = "u334582";
-         port = 23;
-         identityFile = "/home/max/.ssh/hetzner-borg";
-         };
-         "github.com" = {
-         hostname = "github.com";
-         user = "git";
-         identityFile = "/home/max/.ssh/max-git";
-         };
-         "lux" = {
-         hostname = "172.16.0.212";
-         proxyJump = "duck";
-         user = "brock";
-         identityFile = "/home/max/.ssh/max-a17-lux";
-         };
-         "duck" = {
-         hostname = "100.96.163.55";
-         user = "max";
-         identityFile = "/home/max/.ssh/max-a17-lux";
-         };
-       };
-     };
-     programs.zsh.enable = true;
-     programs.starship = {
-       enable = true;
-       # Configuration written to ~/.config/starship.toml
-       settings = {
-       # add_newline = false;
-
-       # character = {
-       #   success_symbol = "[➜](bold green)";
-       #   error_symbol = "[➜](bold red)";
-       # };
-
-       # package.disabled = true;
-       };
-     };
-     # Configure git
-     programs.git = {
-       enable = true;
-       userName  = "Max van der Merwe";
-       userEmail = "git@maxvdm.com";
-
-       extraConfig = {
-         # Sign all commits using ssh key
-         commit.gpgsign = true;
-         gpg.format = "ssh";
-         gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-         user.signingkey = "~/.ssh/max-git.pub";
-       };
-     };
-     home.stateVersion = "23.11";
-     nixpkgs.config = import ./nixpkgs-config.nix;
-    };
-
+ 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
 
