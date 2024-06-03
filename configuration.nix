@@ -11,6 +11,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # "vm.swappiness"
+  boot.kernel.sysctl = { "vm.swappiness" = 100; }; 
+
   # Networking
 
   # Define your hostname
@@ -25,12 +28,12 @@
   networking.nameservers = [ "10.0.0.1" "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
 
   networking.interfaces.enp0s31f6.ipv6.addresses = [ {
-    address = "2c0f:f4c0:1185:80c8::2";
+    address = "2c0f:f4c0:1185:8100::2";
     prefixLength = 64;
   } ];
 
   networking.defaultGateway6 = {
-    address = "2c0f:f4c0:1185:80c8::1";
+    address = "2c0f:f4c0:1185:8100::1";
     interface = "enp0s31f6";
   };
 
@@ -60,13 +63,7 @@
 
   boot.zfs.extraPools = [ "ceres" ];
   boot.kernelParams = [ "zfs.zfs_arc_max=32000000000" ];
- # # Ceres ZFS Mount
- # fileSystems."/mnt/ceres" =
- #   { device = "ceres/data";
- #     fsType = "zfs";
- #   };
-
-
+  
 
   # # BTRFS Array
   # fileSystems."/mnt/ceres" =
@@ -221,7 +218,6 @@
      zip
      unzip
      rclone
-     docker-compose
      yt-dlp
      ffmpeg
      aria
@@ -233,6 +229,11 @@
      ncdu
      smartmontools
      e2fsprogs
+     dive # look into docker image layers
+     #podman-tui # status of containers in the terminal
+     #podman-compose # start group of containers for dev
+     docker-compose # start group of containers for dev
+     ctop
    ];
 
   # Enable cron service
@@ -277,16 +278,51 @@
   # "diffie-hellman-group-exchange-sha256"
   # ];
 
+
+  # # Enable common container config files in /etc/containers
+  # virtualisation.containers.enable = true;
+  # virtualisation.containers.registries.search = [ "docker.io" "quay.io"  "ghcr.io" "lscr.io" ];
+  # virtualisation = {
+  #   podman = {
+  #     enable = true;
+
+  #     # Create a `docker` alias for podman, to use it as a drop-in replacement
+  #     dockerCompat = true;
+
+  #     # Required for containers under podman-compose to be able to talk to each other.
+  #     defaultNetwork.settings = {
+	#       dns_enabled = true;
+	#       ipv6_enabled = true;
+  #     };
+          
+  #     # Automaticly prune old images.
+  #     autoPrune.enable = true;
+  #   };
+  # };
+
+
+  # networking.firewall.interfaces."podman[0-9]+".allowedUDPPorts = [ 
+  #   53 
+  #   80 
+  #   443 
+  # ];
+  # networking.firewall.interfaces."podman[0-9]+".allowedTCPPorts = [ 
+  #   53 
+  #   80 
+  #   443 
+  # ];
+
   # Docker
   virtualisation.docker = {
     enable = true;
+    #setSocketVariable = true;
     daemon.settings = {
       #userland-proxy = false;
       ipv6 = true;
       ip6tables = true;
       fixed-cidr-v6 = "fd00:0::/64";
-      #fixed-cidr-v6 = "2c0f:f4c0:1185:9dc1::/64";
       experimental = true;
+      #autoPrune = true;
     };
   };
 
