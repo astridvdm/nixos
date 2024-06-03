@@ -245,6 +245,7 @@
     iperf3 # tool to test network throughput with matching server/client
     dnsutils  # `dig` + `nslookup`
     dig
+    winbox # Mikrotik client
 
     # iOS
     libimobiledevice
