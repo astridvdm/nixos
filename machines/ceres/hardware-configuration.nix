@@ -15,20 +15,18 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b22c1588-7366-442c-8b91-df5c47e84901";
+    { device = "/dev/disk/by-uuid/db937996-a9dc-4cb1-80c7-f04792596ce4";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/C1C3-1C19";
+    { device = "/dev/disk/by-uuid/19A2-C88A";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [ {
-    device = "/var/lib/swapfile";
-    size = 16*1024;
-  } ];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -38,6 +36,5 @@
   # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

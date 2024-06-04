@@ -1,64 +1,72 @@
- { config, pkgs, ... }:
+{ config, pkgs, nix-vscode-extensions, ... }:
 
 {
   # TODO please change the username & home direcotry to your own
   home.username = "max";
   home.homeDirectory = "/home/max";
- 
- # User packages
+
+  # basic configuration of git, please change to your own
+  programs.git = {
+    enable = true;
+    userName  = "Max van der Merwe";
+    userEmail = "git@maxvdm.com";
+
+    extraConfig = {
+      # Sign all commits using ssh key
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+      user.signingkey = "~/.ssh/max-git.pub";
+    };
+  };
+
+  # Packages that should be installed to the user profile.
   home.packages = with pkgs; [ ];
-    # Config SSH
-    programs.ssh = {
-      enable = true;
-      compression = true;
-      # Server conigs
-      matchBlocks = {
-        # Hetzer storage
-        "u334582.your-storagebox.de" = {
-        hostname = "u334582.your-storagebox.de";
-        user = "u334582";
-        port = 23;
-        identityFile = "/home/max/.ssh/hetzner-borg";
-        };
-        "github.com" = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "/home/max/.ssh/max-git";
-        };
-        "lux" = {
-        hostname = "172.16.0.212";
-        proxyJump = "100.96.163.55";
-        user = "brock";
-        identityFile = "/home/max/.ssh/max-a17";
-        };
+  # ssh remote host configs
+  programs.ssh = {
+    enable = true;
+    compression = true;
+    matchBlocks = {
+      "lux" = {
+      hostname = "172.16.0.212";
+      proxyJump = "100.96.163.55";
+      user = "brock";
+      identityFile = "/home/max/.ssh/max-a17";
+      };
+      "u334582.your-storagebox.de" = {
+      hostname = "u334582.your-storagebox.de";
+      user = "u334582";
+      port = 23;
+      identityFile = "/home/max/.ssh/hetzner-borg";
+      };
+      "github.com" = {
+      hostname = "github.com";
+      user = "git";
+      identityFile = "/home/max/.ssh/max-git";
       };
     };
-    programs.zsh.enable = true;
-    programs.starship = {
-      enable = true;
-      # Configuration written to ~/.config/starship.toml
-      settings = {
-      # add_newline = false;
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
-      # package.disabled = true;
-      };
+  };
+  programs.zsh = {
+    enable = true;
+    history = {
+      extended = true;
+      size = 99999;
+      share = true;
     };
-    # Configure git
-    programs.git = {
+    #enableAutosuggestions = true;
+    autosuggestion.enable = true;
+    oh-my-zsh = {
       enable = true;
-      userName  = "Max van der Merwe";
-      userEmail = "git@maxvdm.com";
-      extraConfig = {
-        # Sign all commits using ssh key
-        commit.gpgsign = true;
-        gpg.format = "ssh";
-        gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-        user.signingkey = "~/.ssh/max-git.pub";
-      };
+      plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];
+      #theme = "robbyrussell";
     };
+  };
+  # starship - an customizable prompt for any shell
+  programs.starship = {
+    enable = true;
+#    catppuccin.enable = true;
+  };
+
   home.stateVersion = "24.05";
 
   # Let home Manager install and manage itself.
