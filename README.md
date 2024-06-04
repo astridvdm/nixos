@@ -26,6 +26,7 @@ cd nixos
 ```
 sudo nixos-rebuild boot --flake .#hostname
 ```
+Then reboot your syste
 ## Inspirations 🧑‍🏫
 
 Before prepping and during the creation of my NixOS and Home Manager config I looked at what other Nix users are doing.
