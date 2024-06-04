@@ -24,7 +24,7 @@ cd nixos
 ```
 ### Please see the above table to select a hostname.
 ```
-sudo nixos-rebuild boot --flake .#$hostname
+sudo nixos-rebuild boot --flake .#hostname
 ```
 ## Inspirations 🧑‍🏫
 
@@ -32,7 +32,7 @@ Before prepping and during the creation of my NixOS and Home Manager config I lo
 
 Inpiration included [nix-starter-configs], [Alex Kretzschmar], Ana Hoverbear's [Declarative GNOME configuration with NixOS] blog post which I plan to use extensively and wish I knew about sooner.
 
-A big thank you to [Martin Wimpress] for the format of this readme file and insiration for NixOS configuration, as well as the continued entertainment and knowledge provided by them in their various podcasts.
+A big thank you to [Martin Wimpress] for the format of this readme file and inspiration for NixOS configurations, as well as the continued entertainment and knowledge provided by them in their various podcasts.
 
 Of course a thank you to the wonderful project [NixOS] along with [Home Manager].
 
