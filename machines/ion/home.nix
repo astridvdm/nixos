@@ -303,7 +303,7 @@
       "polaris" = {
       hostname = "100.88.236.67";
       user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
+      identityFile = "/home/max/.ssh/max-a17";
       };
       "lux" = {
       hostname = "172.16.0.212";
