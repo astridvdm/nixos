@@ -67,9 +67,6 @@
       # font-name = "Red Hat Text 10";
       # monospace-font-name = "Red Hat Mono 10";
     };
-    "org/gnome/desktop/peripherals/touchpad" = {  
-      natural-scroll = "false";
-    };
     # "org/gnome/shell/extensions/user-theme" = {
     #   name = "Catppuccin-Mocha-Standard-Lavender-Dark";
     # };
@@ -78,7 +75,7 @@
       sleep-inactive-battery-type = "suspend";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Control>grave";
+      binding = "<Control>Escape";
       command = "kgx";
       name = "Open Terminal";
     };
@@ -262,6 +259,7 @@
     libguestfs
     dmg2img
     virt-manager
+    quickemu
 
     #### Neofetch ####
     neofetch
