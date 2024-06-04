@@ -34,7 +34,7 @@ Inpiration included [nix-starter-configs], [Alex Kretzschmar], Ana Hoverbear's [
 
 A big thank you to [Martin Wimpress] for the format of this readme file and inspiration for NixOS configurations, as well as the continued entertainment and knowledge provided by them in their various podcasts.
 
-Of course a thank you to the wonderful project [NixOS] along with [Home Manager].
+Of course a thank you to the wonderful [NixOS] project along with [Home Manager].
 
 [NixOS]: https://nixos.org
 [Home Manager]: https://github.com/nix-community/home-manager
