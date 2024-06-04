@@ -105,6 +105,7 @@
         "vesktop.desktop"
         "com.vscodium.codium.desktop"
       ];
+      disable-user-extensions = false;
       enabled-extensions = [ 
         "user-theme@gnome-shell-extensions.gcampax.github.com" 
         "bluetooth-quick-connect@bjarosze.gmail.com" 
@@ -122,6 +123,10 @@
         "weatherornot@somepaulo.github.io"
         "azwallpaper@azwallpaper.gitlab.com"
         "weekstartmodifier@saccuzm.gmail.com"
+        "autohide-battery@sitnik.ru" 
+        "autohide-volume@unboiled.info" 
+        "supergfxctl-gex@asus-linux.org" 
+        "notification-timeout@chlumskyvaclav.gmail.com"
       ];
     };
     "org/virt-manager/virt-manager/connections" = {
