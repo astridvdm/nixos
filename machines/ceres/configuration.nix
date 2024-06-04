@@ -13,6 +13,8 @@
   # Define your hostname
   networking.hostName = "ceres";
 
+  # enable Flakes and the new command line tool
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.interfaces.enp0s31f6.ipv4.addresses = [ {
     address = "10.0.0.2";

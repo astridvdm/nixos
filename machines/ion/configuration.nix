@@ -5,6 +5,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # enable Flakes and the new command line tool
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Choose kernel package
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -140,9 +143,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # enable Flakes and the new command line tool
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   #nixpkgs.config.spotify.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
 
