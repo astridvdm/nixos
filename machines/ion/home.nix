@@ -184,6 +184,7 @@
     vlc
     filebot
     jellyfin-media-player
+    delfin
 
     # Deluge
     deluge
