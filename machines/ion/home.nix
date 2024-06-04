@@ -102,6 +102,24 @@
         "vesktop.desktop"
         "com.vscodium.codium.desktop"
       ];
+      enabled-extensions = [ 
+        "user-theme@gnome-shell-extensions.gcampax.github.com" 
+        "bluetooth-quick-connect@bjarosze.gmail.com" 
+        "blur-my-shell@aunetx"
+        "caffeine@patapon.info"
+        "fullscreen-avoider@noobsai.github.com"
+        "gnome-fuzzy-app-search@gnome-shell-extensions.Czarlie.gitlab.com"
+        "pano@elhan.io"
+        "quick-settings-audio-panel@rayzeq.github.io"
+        "sp-tray@sp-tray.esenliyim.github.com"
+        "tailscale@joaophi.github.com"
+        "tiling-assistant@leleat-on-github"
+        "trimmer@hedgie.tech"
+        "quick-settings-avatar@d-go"
+        "weatherornot@somepaulo.github.io"
+        "azwallpaper@azwallpaper.gitlab.com"
+        "weekstartmodifier@saccuzm.gmail.com"
+      ];
     };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system" "qemu+ssh://max@ceres/system"];
