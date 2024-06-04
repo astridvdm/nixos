@@ -312,7 +312,7 @@
     compression = true;
     matchBlocks = {
       "ceres" = {
-      hostname = "100.96.153.84";
+      hostname = "100.97.224.36";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17";
       };
