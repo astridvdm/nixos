@@ -127,6 +127,38 @@
         "weekstartmodifier@saccuzm.gmail.com"
       ];
     };
+    # Configure Extensions
+    # Configure Bluetooth Quick Connect
+    "org/gnome/shell/extensions/bluetooth-quick-connect" = {
+      bluetooth-auto-power-on = true;
+      bluetooth-auto-power-off = true;
+      keep-menu-on-toggle = true;
+      refresh-button-on = true;
+      show-battery-value-on = true; 
+      show-battery-icon-on = true;
+    };
+    "org/gnome/shell/extensions/mediacontrols" = {
+      show-control-icons-seek-backward = false;
+      show-control-icons-seek-forward = false;
+      extension-position = "Right";
+    };
+    "org/gnome/shell/extensions/quick-settings-audio-panel" = {
+      merge-panel = true;
+      always-show-input-slider = true;
+    };
+    "org/gnome/shell/extensions/quick-settings-avatar" = {
+      avatar-position = "0";
+    };
+    "org/gnome/shell/extensions/azwallpaper" = {
+      slideshow-directory = "/home/max/Pictures/wallpapers/sj";
+      slideshow-use-absolute-time-for-duration = true;
+    };
+    "org/gnome/shell/extensions/weatherornot" = {
+      position = "clock-right";
+    };
+    "org/gnome/shell/extensions/weekstartmodifier" = {
+      day = "1";
+    };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system" "qemu+ssh://max@ceres/system"];
       uris = ["qemu:///system" "qemu+ssh://max@ceres/system"];
