@@ -60,6 +60,8 @@
     "org/gnome/desktop/interface" = {
       clock-show-date = true;
       clock-show-weekday = true;
+      clock-format = "24h";
+      clock-show-seconds = true;
       color-scheme = "prefer-dark";
       show-battery-percentage = "true";
       enable-hot-corners = "false";
