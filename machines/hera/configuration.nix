@@ -177,7 +177,7 @@
       enable = true;
       onCalendar = "weekly"; # Default value
     };
-    packages = [ "hu.irl.cameractrls" ];
+    packages = [ "hu.irl.cameractrls" "org.signal.Signal" ];
   };
 
   # iOS Documents

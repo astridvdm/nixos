@@ -108,27 +108,30 @@
         "com.vscodium.codium.desktop"
       ];
       disable-user-extensions = false;
-      enabled-extensions = [ 
-        "user-theme@gnome-shell-extensions.gcampax.github.com" 
-        "bluetooth-quick-connect@bjarosze.gmail.com" 
+      enabled-extensions = [
+        "sp-tray@sp-tray.esenliyim.github.com"
+        "bluetooth-quick-connect@bjarosze.gmail.com"
         "blur-my-shell@aunetx"
         "caffeine@patapon.info"
         "fullscreen-avoider@noobsai.github.com"
         "gnome-fuzzy-app-search@gnome-shell-extensions.Czarlie.gitlab.com"
+        "grand-theft-focus@zalckos.github.com"
+        "gsconnect@andyholmes.github.io"
+        "mediacontrols@cliffniff.github.com"
+        "notification-timeout@chlumskyvaclav.gmail.com"
         "pano@elhan.io"
         "quick-settings-audio-panel@rayzeq.github.io"
-        "sp-tray@sp-tray.esenliyim.github.com"
         "tailscale@joaophi.github.com"
         "tiling-assistant@leleat-on-github"
         "trimmer@hedgie.tech"
         "quick-settings-avatar@d-go"
-        "weatherornot@somepaulo.github.io"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
         "azwallpaper@azwallpaper.gitlab.com"
+        "weatherornot@somepaulo.github.io"
         "weekstartmodifier@saccuzm.gmail.com"
-        "autohide-battery@sitnik.ru" 
-        "autohide-volume@unboiled.info" 
-        "supergfxctl-gex@asus-linux.org" 
-        "notification-timeout@chlumskyvaclav.gmail.com"
+        "autohide-battery@sitnik.ru"
+        "autohide-volume@unboiled.info"
+        "supergfxctl-gex@asus-linux.org"
       ];
     };
     "org/virt-manager/virt-manager/connections" = {
@@ -178,7 +181,7 @@
     telegram-desktop
 
     #### Signal ####
-    signal-desktop
+    #signal-desktop
 
     # SimpleX
     #simplex-chat-desktop
@@ -308,10 +311,11 @@
     gnomeExtensions.week-start-modifier
     gnomeExtensions.pano
     gnomeExtensions.wallpaper-slideshow
-    #gnomeExtensions.noannoyance
-    gnomeExtensions.spotify-tray
+    gnomeExtensions.media-controls
     gnomeExtensions.fuzzy-app-search
     gnomeExtensions.fullscreen-avoider
+    gnomeExtensions.grand-theft-focus
+    gnomeExtensions.gsconnect
     gnomeExtensions.supergfxctl-gex
     gnomeExtensions.autohide-battery
     gnomeExtensions.autohide-volume
