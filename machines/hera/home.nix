@@ -100,8 +100,8 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"
-        "spotify.desktop"
-        "signal-desktop.desktop"
+        "tidal-hifi.desktop"
+        "org.signal.Signal.desktop"
         "org.telegram.desktop.desktop"
         "org.gnome.Nautilus.desktop"
         "vesktop.desktop"
