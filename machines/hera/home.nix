@@ -230,6 +230,7 @@
     filebot
     jellyfin-media-player
     delfin
+    tidal-hifi
 
     # Deluge
     deluge
@@ -320,6 +321,8 @@
     libguestfs
     dmg2img
     virt-manager
+    quickemu
+    quickgui
 
     #### Neofetch ####
     neofetch

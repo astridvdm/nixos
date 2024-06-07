@@ -160,6 +160,7 @@
 
   # KVM Virtual machines
   virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
 
   # Steam
   programs.steam.enable = true;
