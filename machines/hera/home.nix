@@ -103,10 +103,9 @@
         "tidal-hifi.desktop"
         "org.signal.Signal.desktop"
         "org.telegram.desktop.desktop"
-        "org.gnome.Nautilus.desktop"
         "vesktop.desktop"
-        "com.vscodium.codium.desktop"
-      ];
+        "codium.desktop"
+        "org.gnome.Nautilus.desktop"     ];
       disable-user-extensions = false;
       enabled-extensions = [
         "sp-tray@sp-tray.esenliyim.github.com"
