@@ -420,7 +420,7 @@
       christian-kohler.path-intellisense
       tomoki1207.pdf
       mhutchie.git-graph
-      cschleiden.vscode-github-actions
+      #cschleiden.vscode-github-actions
       ziyasal.vscode-open-in-github
       ms-vscode.live-server
       mtxr.sqltools
