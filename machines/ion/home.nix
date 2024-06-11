@@ -90,9 +90,8 @@
       num-workspaces = 1;
       workspaces-only-on-primary = false;
     };
-    "org/gnome/mutter/experimental-features" = {
-      scale-monitor-framebuffer = true;
-      variable-refresh-rate = true;
+    "org/gnome/mutter" = {
+      experimental-features = ["variable-refresh-rate" "scale-monitor-framebuffer"];
     };
     "org/gnome/shell" = {
       favorite-apps = [
