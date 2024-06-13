@@ -295,6 +295,7 @@
     thefuck
     pavucontrol
     ncdu
+    pdfarranger
 
     #### Networking ####
     mtr # A network diagnostic tool
