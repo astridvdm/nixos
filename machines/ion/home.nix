@@ -315,7 +315,6 @@
     OVMF
     libguestfs
     dmg2img
-    virt-manager
     quickemu
     quickgui
 

@@ -128,7 +128,7 @@
     # Name
     description = "Max";
     # Groups
-    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvrt" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirtd" "input" ];
     # Specify user shell
     shell = "/run/current-system/sw/bin/zsh";
     # User packages
@@ -205,6 +205,7 @@
   # KVM Virtual machines
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
+  programs.virt-manager.enable = true;
 
   # Steam
   programs.steam.enable = true;

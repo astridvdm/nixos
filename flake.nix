@@ -44,7 +44,7 @@
         modules = [
           ./machines/hera/configuration.nix
           ./machines/hera/hardware-configuration.nix
-          #./machines/hera/spicetify.nix # file where you configure spicetify
+          ./machines/hera/spicetify.nix # file where you configure spicetify
           nix-flatpak.nixosModules.nix-flatpak
           catppuccin.nixosModules.catppuccin
           nixos-hardware.nixosModules.asus-fa507rm
@@ -76,7 +76,7 @@
           ./machines/ion/configuration.nix
           ./machines/ion/hardware-configuration.nix
           ./machines/ion/nvidia-config.nix
-          #./machines/ion/spicetify.nix # file where you configure spicetify
+          ./machines/ion/spicetify.nix # file where you configure spicetify
           nix-flatpak.nixosModules.nix-flatpak
           catppuccin.nixosModules.catppuccin
 
