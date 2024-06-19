@@ -181,11 +181,11 @@
     ]);
 
   # Enable Widevine for Chrome
-  # nixpkgs.config = {
-  #   #allowUnfree = true;
-  #   ungoogled.enableWideVine = true;
-  #   chromium.enableWideVine = true;
-  # };
+  nixpkgs.config = {
+    #allowUnfree = true;
+    ungoogled.enableWideVine = true;
+    chromium.enableWideVine = true;
+  };
 
   # List services that you want to enable:
 

@@ -194,8 +194,8 @@
   home.packages = with pkgs; [
 
     #### Web ####
-    firefox
-    #ungoogled-chromium
+    #firefox
+    ungoogled-chromium
 
     #### Discord ####
     vesktop
@@ -429,6 +429,31 @@
       mblode.pretty-formatter
     ];
   };
+
+  # Chromium extensions
+  
+# adblock|gighmmpiobklfepjocnamgkkbiglidom|
+# alby|iokeahhehimjnekafflcihljlcjccdbe|
+# betterttv|ajopnjidmegmdimjlfnijceegpefgped|
+# bitwarden|nngceckbapebfimnlniiiahkandclblb|
+# Chromium Web Store|ocaahdebbfolfmndjeplogmgcagdmblk|https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml|
+# downthemall|nljkibfhlpcnanjgbnlnbjecgicbjkge|
+# enhancer-for-youtube|ponfpcnoihfmfllpaingbgckeeldkhle|
+# honey|bmnlcjabgnpnenekpadlanbbkooimhnj|
+# nighttab|hdpcadigjkbcpnlcpbcohpafiaefanki|
+# previews-for-ttv-ytp|hpmbiinljekjjcjgijnlbmgcmoonclah|
+# pronoundb|nblkbiljcjfemkfjnhoobnojjgjdmknf|
+# reddit-enhancement-suite|kbmfpngjjgdllneeigpgjifpgocmfgmb|
+# refined-github|hlepfoohegkhhmjieoechaddaejaokhf|
+# reddit-insights|oehlhkdmigpcpcjkpfklbmnppiddhgfi|
+# shinigami-eyes|ijcpiojgefnkmcadacmacogglhjdjphj|
+# star-citizen-ccu-game|efkaeodcipbmkhbbfmiagjcnnlhdkdlf|
+# steamdb|kdbmhfkmnlmbkgbabkdealhhbfhlmmon|
+# stylus|clngdbkpkpeebahjckkjfobafhncgmne|
+# torrent-clipper|cmhdhpcfabppigjedlenkmleklplflhp|
+# twitch-chat-pronouns|agnfbjmjkdncblnkpkgoefbpogemfcii|
+# unwanted-twitch|egbpddkgpjmliolmpjenjomflclekjld|
+# youtube-refined-improves|nkffinnefpnefeeaclgcoehjceiheeam|
 
   home.stateVersion = "24.05";
 
