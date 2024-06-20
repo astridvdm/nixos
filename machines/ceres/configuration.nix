@@ -173,8 +173,8 @@
     enable = true;
     systemCronJobs = [
       "0 3 */2 * * max sh /home/max/containers/backup.sh >/dev/null 2>&1"
-      "0 3 */2 * * max sh /mnt/ceres/backups/photosync/photosync-backup.sh >/dev/null 2>&1"
-      "0 3 */2 * * max sh /mnt/ceres/media/yt-dlp.sh >/dev/null 2>&1"
+      "0 3 */2 * * max sh /ceres/backups/photosync/photosync-backup.sh >/dev/null 2>&1"
+      "0 3 */2 * * max sh /ceres/media/yt-dlp.sh >/dev/null 2>&1"
     ];
   };
 
