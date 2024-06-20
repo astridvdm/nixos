@@ -201,8 +201,8 @@
   home.packages = with pkgs; [
 
     #### Web ####
-    firefox
-    #ungoogled-chromium
+    #firefox
+    ungoogled-chromium
 
     #### Discord ####
     vesktop
