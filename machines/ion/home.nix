@@ -20,32 +20,55 @@
     };
   };
 
- catppuccin = {
-   enable = true;
-   accent = "lavender";
-   flavor = "mocha";
- };
+#  catppuccin = {
+#    enable = true;
+#    accent = "lavender";
+#    flavor = "mocha";
+#  };
 
  xdg.enable = true;
 
  gtk = {
    enable = true;
-   catppuccin = {
-     enable = true;
-     size = "standard";
-     accent = "lavender";
-     cursor = {
-       enable = true;
-       accent = "dark";
-       flavor = "mocha";
-     };
-     gnomeShellTheme = true;
-     icon = { 
-      enable = true;
-      accent = "lavender";
-      flavor = "mocha";
-     };
+   theme = {
+    name = "Nordic-darker";
+    package = pkgs.nordic;
    };
+   iconTheme = { 
+    name = "Nordic-darker";
+    package = pkgs.papirus-nord;
+    # accent = "polarnight1";
+   }; 
+   cursorTheme = {
+    name = "Nordic-cursors";
+    package = pkgs.nordic;
+   };
+   gtk3.extraConfig = {
+    Settings = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+   };
+   gtk4.extraConfig = {
+    Settings = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+   };
+  #  catppuccin = {
+  #    enable = true;
+  #    size = "standard";
+  #    accent = "lavender";
+  #    cursor = {
+  #      enable = true;
+  #      accent = "dark";
+  #      flavor = "mocha";
+  #    };
+  #    gnomeShellTheme = true;
+  #    icon = { 
+  #     enable = true;
+  #     accent = "lavender";
+  #     flavor = "mocha";
+  #    };
+  #  };
     # iconTheme = {
     #   name = "Papirus-Dark";
     #   package = pkgs.catppuccin-papirus-folders.override {
@@ -54,6 +77,8 @@
     #   };
     # };
  };
+
+
 
   # Set Gnome options using dconf.
   dconf.settings = {
@@ -65,13 +90,7 @@
       color-scheme = "prefer-dark";
       show-battery-percentage = "true";
       enable-hot-corners = "false";
-      #gtk-theme = "Catppuccin-Mocha-Standard-Lavender-Dark";
-      # font-name = "Red Hat Text 10";
-      # monospace-font-name = "Red Hat Mono 10";
     };
-    # "org/gnome/shell/extensions/user-theme" = {
-    #   name = "Catppuccin-Mocha-Standard-Lavender-Dark";
-    # };
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
       sleep-inactive-battery-type = "suspend";
@@ -410,8 +429,7 @@
     package = pkgs.vscodium;
     extensions = with nix-vscode-extensions.extensions.x86_64-linux.open-vsx; [
       jeanp413.open-remote-ssh
-      catppuccin.catppuccin-vsc
-      catppuccin.catppuccin-vsc-icons
+      arcticicestudio.nord-visual-studio-code
       pkief.material-product-icons
       tailscale.vscode-tailscale
       ms-azuretools.vscode-docker
@@ -421,7 +439,6 @@
       christian-kohler.path-intellisense
       tomoki1207.pdf
       mhutchie.git-graph
-      #cschleiden.vscode-github-actions
       ziyasal.vscode-open-in-github
       ms-vscode.live-server
       mtxr.sqltools

@@ -9,8 +9,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Choose kernel package
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Increase vm count for Star Citizen
   boot.kernel.sysctl = {
