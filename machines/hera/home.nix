@@ -29,31 +29,65 @@
  xdg.enable = true;
 
  gtk = {
-   enable = true;
-   catppuccin = {
-     enable = true;
-     size = "standard";
-     accent = "lavender";
-     cursor = {
-       enable = true;
-       accent = "dark";
-       flavor = "mocha";
-     };
-     gnomeShellTheme = true;
-     icon = { 
-      enable = true;
-      accent = "lavender";
+  enable = true;
+  theme = {
+    name = "catppuccin-mocha-blue-standard+default";
+    package =
+      (pkgs.catppuccin-gtk.overrideAttrs {
+        src = pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "gtk";
+          rev = "v1.0.3";
+          fetchSubmodules = true;
+          hash = "sha256-q5/VcFsm3vNEw55zq/vcM11eo456SYE5TQA3g2VQjGc=";
+        };
+
+        postUnpack = "";
+      }).override
+        {
+          accents = [ "lavender" ];
+          variant = "mocha";
+          #size = "compact";
+        };
+  };
+  iconTheme = {
+    name = "Papirus-Dark";
+    package = pkgs.catppuccin-papirus-folders.override {
       flavor = "mocha";
-     };
-   };
-    # iconTheme = {
-    #   name = "Papirus-Dark";
-    #   package = pkgs.catppuccin-papirus-folders.override {
-    #     flavor = "mocha";
-    #     accent = "lavender";
-    #   };
-    # };
- };
+      accent = "lavender";
+    };
+  };
+  cursorTheme = {
+    name = "catppuccin-cursors";
+    package = pkgs.catppuccin-cursors.mochaLavender;
+  };
+  gtk3.extraConfig = {
+    Settings = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
+  gtk4.extraConfig = {
+    Settings = ''
+     gtk-application-prefer-dark-theme=1
+    '';
+  };
+    #  catppuccin = {
+  #    enable = true;
+  #    size = "standard";
+  #    accent = "lavender";
+  #    cursor = {
+  #      enable = true;
+  #      accent = "dark";
+  #      flavor = "mocha";
+  #    };
+  #  gnomeShellTheme = true;
+    #  icon = { 
+    #   enable = true;
+    #   accent = "lavender";
+    #   flavor = "mocha";
+    #  };
+  };
+
 
   # Set Gnome options using dconf.
   dconf.settings = {
@@ -72,9 +106,9 @@
     "org/gnome/desktop/peripherals/touchpad" = {  
       natural-scroll = "false";
     };
-    # "org/gnome/shell/extensions/user-theme" = {
-    #   name = "Catppuccin-Mocha-Standard-Lavender-Dark";
-    # };
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "catppuccin-mocha-blue-standard+default";
+    };
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
       sleep-inactive-battery-type = "suspend";
@@ -98,13 +132,14 @@
     };
     "org/gnome/shell" = {
       favorite-apps = [
-        "firefox.desktop"
+        "chromium-browser.desktop"
         "tidal-hifi.desktop"
         "org.signal.Signal.desktop"
         "org.telegram.desktop.desktop"
         "vesktop.desktop"
         "codium.desktop"
-        "org.gnome.Nautilus.desktop"     ];
+        "org.gnome.Nautilus.desktop"     
+      ];
       disable-user-extensions = false;
       enabled-extensions = [
         "sp-tray@sp-tray.esenliyim.github.com"
