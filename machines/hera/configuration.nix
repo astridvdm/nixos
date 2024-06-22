@@ -119,6 +119,7 @@
     screen # Allow terminal tasks to run in background
     tailscale # Remote wireguard based p2p vpn
     dive # look into docker image layers
+    gparted # partition manager
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
