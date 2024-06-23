@@ -75,7 +75,7 @@
         modules = [
           ./machines/ion/configuration.nix
           ./machines/ion/hardware-configuration.nix
-          ./machines/ion/nvidia-config.nix
+          #./machines/ion/nvidia-config.nix
           ./machines/ion/spicetify.nix # file where you configure spicetify
           nix-flatpak.nixosModules.nix-flatpak
           catppuccin.nixosModules.catppuccin

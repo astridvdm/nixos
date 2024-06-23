@@ -20,18 +20,24 @@
     };
   };
 
- catppuccin = {
-   enable = true;
-   accent = "lavender";
-   flavor = "mocha";
- };
+#  catppuccin = {
+#    enable = true;
+#    accent = "lavender";
+#    flavor = "mocha";
+#  };
 
  xdg.enable = true;
+
+ xdg.configFile = {
+      "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+      "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+      "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+ };
 
  gtk = {
   enable = true;
   theme = {
-    name = "catppuccin-mocha-blue-standard+default";
+    name = "catppuccin-mocha-lavender-standard+default";
     package =
       (pkgs.catppuccin-gtk.overrideAttrs {
         src = pkgs.fetchFromGitHub {
@@ -61,16 +67,16 @@
     name = "catppuccin-cursors";
     package = pkgs.catppuccin-cursors.mochaLavender;
   };
-  gtk3.extraConfig = {
-    Settings = ''
-      gtk-application-prefer-dark-theme=1
-    '';
-  };
-  gtk4.extraConfig = {
-    Settings = ''
-     gtk-application-prefer-dark-theme=1
-    '';
-  };
+  # gtk3.extraConfig = {
+  #   Settings = ''
+  #     gtk-application-prefer-dark-theme=1
+  #   '';
+  # };
+  # gtk4.extraConfig = {
+  #   Settings = ''
+  #    gtk-application-prefer-dark-theme=1
+  #   '';
+  # };
     #  catppuccin = {
   #    enable = true;
   #    size = "standard";
@@ -107,7 +113,10 @@
       natural-scroll = "false";
     };
     "org/gnome/shell/extensions/user-theme" = {
-      name = "catppuccin-mocha-blue-standard+default";
+      name = "catppuccin-mocha-lavender-standard+default";
+    };
+    "org/gnome/desktop/interface/cursor-theme" = {
+      name = "catppuccin-mocha-lavender-cursors";
     };
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
@@ -133,6 +142,7 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "chromium-browser.desktop"
+        "spotify.desktop"
         "tidal-hifi.desktop"
         "org.signal.Signal.desktop"
         "org.telegram.desktop.desktop"

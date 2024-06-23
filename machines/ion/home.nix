@@ -26,34 +26,59 @@
 #    flavor = "mocha";
 #  };
 
- xdg.enable = true;
+xdg = {
+  enable = true;
+  configFile = {
+     "gtk-4.0/assets".source = "}${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+  };
+};
 
- gtk = {
-   enable = true;
-   theme = {
-    name = "Nordic-darker";
-    package = pkgs.nordic;
-   };
-   iconTheme = { 
-    name = "Nordic-darker";
-    package = pkgs.papirus-nord;
-    # accent = "polarnight1";
-   }; 
-   cursorTheme = {
-    name = "Nordic-cursors";
-    package = pkgs.nordic;
-   };
-   gtk3.extraConfig = {
-    Settings = ''
-      gtk-application-prefer-dark-theme=1
-    '';
-   };
-   gtk4.extraConfig = {
-    Settings = ''
-      gtk-application-prefer-dark-theme=1
-    '';
-   };
-  #  catppuccin = {
+gtk = {
+  enable = true;
+  theme = {
+    name = "catppuccin-mocha-lavender-standard+default";
+    package =
+      (pkgs.catppuccin-gtk.overrideAttrs {
+        src = pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "gtk";
+          rev = "v1.0.3";
+          fetchSubmodules = true;
+          hash = "sha256-q5/VcFsm3vNEw55zq/vcM11eo456SYE5TQA3g2VQjGc=";
+        };
+
+        postUnpack = "";
+      }).override
+        {
+          accents = [ "lavender" ];
+          variant = "mocha";
+          #size = "compact";
+        };
+  };
+  iconTheme = {
+    name = "Papirus-Dark";
+    package = pkgs.catppuccin-papirus-folders.override {
+      flavor = "mocha";
+      accent = "lavender";
+    };
+  };
+  cursorTheme = {
+    name = "catppuccin-cursors";
+    package = pkgs.catppuccin-cursors.mochaLavender;
+  };
+  # gtk3.extraConfig = {
+  #   Settings = ''
+  #     gtk-application-prefer-dark-theme=1
+  #   '';
+  # };
+  # gtk4.extraConfig = {
+  #   Settings = ''
+  #    gtk-application-prefer-dark-theme=1
+  #   '';
+  # };
+    #  catppuccin = {
   #    enable = true;
   #    size = "standard";
   #    accent = "lavender";
@@ -62,154 +87,161 @@
   #      accent = "dark";
   #      flavor = "mocha";
   #    };
-  #    gnomeShellTheme = true;
-  #    icon = { 
-  #     enable = true;
-  #     accent = "lavender";
-  #     flavor = "mocha";
-  #    };
-  #  };
-    # iconTheme = {
-    #   name = "Papirus-Dark";
-    #   package = pkgs.catppuccin-papirus-folders.override {
-    #     flavor = "mocha";
-    #     accent = "lavender";
-    #   };
-    # };
- };
+  #  gnomeShellTheme = true;
+    #  icon = { 
+    #   enable = true;
+    #   accent = "lavender";
+    #   flavor = "mocha";
+    #  };
+};
 
 
-
-  # Set Gnome options using dconf.
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      clock-show-date = true;
-      clock-show-weekday = true;
-      clock-format = "24h";
-      clock-show-seconds = true;
-      color-scheme = "prefer-dark";
-      show-battery-percentage = "true";
-      enable-hot-corners = "false";
-    };
-    "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-type = "nothing";
-      sleep-inactive-battery-type = "suspend";
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Control>Escape";
-      command = "kgx";
-      name = "Open Terminal";
-    };
-    "org/gnome/desktop/media-handling" = {
-      autorun-never = true;
-    };
-    "org/gnome/mutter" = {
-      dynamic-workspaces = false;
-      edge-tiling = false;
-      num-workspaces = 1;
-      workspaces-only-on-primary = false;
-    };
-    "org/gnome/mutter" = {
-      experimental-features = ["variable-refresh-rate" "scale-monitor-framebuffer"];
-    };
-    "org/gnome/shell" = {
-      favorite-apps = [
-        "chromium-browser.desktop"
-        "tidal-hifi.desktop"
-        "org.signal.Signal.desktop"
-        "org.telegram.desktop.desktop"
-        "vesktop.desktop"
-        "codium.desktop"
-        "org.gnome.Nautilus.desktop"     
-      ];
-      enabled-extensions = [ 
-        "sp-tray@sp-tray.esenliyim.github.com"
-        "bluetooth-quick-connect@bjarosze.gmail.com"
-        "blur-my-shell@aunetx"
-        "caffeine@patapon.info"
-        "fullscreen-avoider@noobsai.github.com"
-        "gnome-fuzzy-app-search@gnome-shell-extensions.Czarlie.gitlab.com"
-        "grand-theft-focus@zalckos.github.com"
-        "gsconnect@andyholmes.github.io"
-        "mediacontrols@cliffniff.github.com"
-        "notification-timeout@chlumskyvaclav.gmail.com"
-        "pano@elhan.io"
-        "quick-settings-audio-panel@rayzeq.github.io"
-        "tailscale@joaophi.github.com"
-        "tiling-assistant@leleat-on-github"
-        "trimmer@hedgie.tech"
-        "quick-settings-avatar@d-go"
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "azwallpaper@azwallpaper.gitlab.com"
-        "weatherornot@somepaulo.github.io"
-        "weekstartmodifier@saccuzm.gmail.com"
-      ];
-    };
-    # Configure Extensions
-    # Configure Bluetooth Quick Connect
-    "org/gnome/shell/extensions/bluetooth-quick-connect" = {
-      bluetooth-auto-power-on = true;
-      bluetooth-auto-power-off = true;
-      keep-menu-on-toggle = true;
-      refresh-button-on = true;
-      show-battery-value-on = true; 
-      show-battery-icon-on = true;
-    };
-    "org/gnome/shell/extensions/mediacontrols" = {
-      show-control-icons-seek-backward = false;
-      show-control-icons-seek-forward = false;
-      extension-position = "Right";
-    };
-    "org/gnome/shell/extensions/quick-settings-audio-panel" = {
-      merge-panel = true;
-      always-show-input-slider = true;
-    };
-    "org/gnome/shell/extensions/quick-settings-avatar" = {
-      avatar-position = "0";
-    };
-    "org/gnome/shell/extensions/azwallpaper" = {
-      slideshow-directory = "/home/max/Pictures/wallpapers/sj";
-      slideshow-use-absolute-time-for-duration = true;
-    };
-    "org/gnome/shell/extensions/weatherornot" = {
-      position = "clock-right";
-    };
-    "org/gnome/shell/extensions/weekstartmodifier" = {
-      day = "1";
-    };
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system" "qemu+ssh://max@ceres/system"];
-      uris = ["qemu:///system" "qemu+ssh://max@ceres/system"];
-    };
-    # "org/gnome/nautilus/icon-view" = {
-    #   default-zoom-level = "standard";
-    # };
-    # "org/gnome/nautilus/preferences" = {
-    #   default-folder-viewer = "icon-view";
-    #   default-sort-order = "type";
-    #   migrated-gtk-settings = true;
-    #   search-filter-time-type = "last_modified";
-    #   search-view = "list-view";
-    # };
-    # "org/gtk/gtk4/settings/file-chooser" = {
-    #   date-format = "regular";
-    #   location-mode = "path-bar";
-    #   show-hidden = false;
-    #   show-size-column = true;
-    #   show-type-column = true;
-    #   sidebar-width = 263;
-    #   sort-column = "name";
-    #   sort-directories-first = true;
-    #   sort-order = "ascending";
-    #   type-format = "category";
-    #   # window-size = mkTuple [ 100 100 ];
-    # };
-    # "org/gtk/settings/file-chooser" = {
-    #   window-position = mkTuple [ (-1) (-1) ];
-    #   window-size = mkTuple [ 300 100 ];
-    # };
+# Set Gnome options using dconf.
+dconf.settings = {
+  "org/gnome/desktop/interface" = {
+    clock-show-date = true;
+    clock-show-weekday = true;
+    clock-format = "24h";
+    clock-show-seconds = true;
+    color-scheme = "prefer-dark";
+    show-battery-percentage = "true";
+    enable-hot-corners = "false";
+    #gtk-theme = "Catppuccin-Mocha-Standard-Lavender-Dark";
+    # font-name = "Red Hat Text 10";
+    # monospace-font-name = "Red Hat Mono 10";
   };
-
+  "org/gnome/desktop/peripherals/touchpad" = {  
+    natural-scroll = "false";
+  };
+  "org/gnome/shell/extensions/user-theme" = {
+    name = "catppuccin-mocha-lavender-standard+default";
+  };
+  "org/gnome/desktop/interface/cursor-theme" = {
+    name = "catppuccin-mocha-lavender-cursors";
+  };
+  "org/gnome/settings-daemon/plugins/power" = {
+    sleep-inactive-ac-type = "nothing";
+    sleep-inactive-battery-type = "suspend";
+  };
+  "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+    binding = "<Control>grave";
+    command = "kgx";
+    name = "Open Terminal";
+  };
+  "org/gnome/desktop/media-handling" = {
+    autorun-never = true;
+  };
+  "org/gnome/mutter" = {
+    dynamic-workspaces = false;
+    edge-tiling = false;
+    num-workspaces = 1;
+    workspaces-only-on-primary = false;
+  };
+  "org/gnome/mutter" = {
+    experimental-features = ["variable-refresh-rate" "scale-monitor-framebuffer"];
+  };
+  "org/gnome/shell" = {
+    favorite-apps = [
+      "chromium-browser.desktop"
+      "spotify.desktop"
+      "tidal-hifi.desktop"
+      "org.signal.Signal.desktop"
+      "org.telegram.desktop.desktop"
+      "vesktop.desktop"
+      "codium.desktop"
+      "org.gnome.Nautilus.desktop"     
+    ];
+    disable-user-extensions = false;
+    enabled-extensions = [
+      "sp-tray@sp-tray.esenliyim.github.com"
+      "bluetooth-quick-connect@bjarosze.gmail.com"
+      "blur-my-shell@aunetx"
+      "caffeine@patapon.info"
+      "fullscreen-avoider@noobsai.github.com"
+      "gnome-fuzzy-app-search@gnome-shell-extensions.Czarlie.gitlab.com"
+      "grand-theft-focus@zalckos.github.com"
+      "gsconnect@andyholmes.github.io"
+      "mediacontrols@cliffniff.github.com"
+      "notification-timeout@chlumskyvaclav.gmail.com"
+      "pano@elhan.io"
+      "quick-settings-audio-panel@rayzeq.github.io"
+      "tailscale@joaophi.github.com"
+      "tiling-assistant@leleat-on-github"
+      "trimmer@hedgie.tech"
+      "quick-settings-avatar@d-go"
+      "user-theme@gnome-shell-extensions.gcampax.github.com"
+      "azwallpaper@azwallpaper.gitlab.com"
+      "weatherornot@somepaulo.github.io"
+      "weekstartmodifier@saccuzm.gmail.com"
+      "autohide-battery@sitnik.ru"
+      "autohide-volume@unboiled.info"
+      "supergfxctl-gex@asus-linux.org"
+    ];
+  };
+  # Configure Extensions
+  # Configure Bluetooth Quick Connect
+  "org/gnome/shell/extensions/bluetooth-quick-connect" = {
+    bluetooth-auto-power-on = true;
+    bluetooth-auto-power-off = true;
+    keep-menu-on-toggle = true;
+    refresh-button-on = true;
+    show-battery-value-on = true; 
+    show-battery-icon-on = true;
+  };
+  "org/gnome/shell/extensions/mediacontrols" = {
+    show-control-icons-seek-backward = false;
+    show-control-icons-seek-forward = false;
+    extension-position = "Right";
+  };
+  "org/gnome/shell/extensions/quick-settings-audio-panel" = {
+    merge-panel = true;
+    always-show-input-slider = true;
+  };
+  "org/gnome/shell/extensions/quick-settings-avatar" = {
+    avatar-position = "0";
+  };
+  "org/gnome/shell/extensions/azwallpaper" = {
+    slideshow-directory = "/home/max/Pictures/wallpapers/sj";
+    slideshow-use-absolute-time-for-duration = true;
+  };
+  "org/gnome/shell/extensions/weatherornot" = {
+    position = "clock-right";
+  };
+  "org/gnome/shell/extensions/weekstartmodifier" = {
+    day = "1";
+  };
+  "org/virt-manager/virt-manager/connections" = {
+    autoconnect = ["qemu:///system" "qemu+ssh://max@ceres/system"];
+    uris = ["qemu:///system" "qemu+ssh://max@ceres/system"];
+  };
+  # "org/gnome/nautilus/icon-view" = {
+  #   default-zoom-level = "standard";
+  # };
+  # "org/gnome/nautilus/preferences" = {
+  #   default-folder-viewer = "icon-view";
+  #   default-sort-order = "type";
+  #   migrated-gtk-settings = true;
+  #   search-filter-time-type = "last_modified";
+  #   search-view = "list-view";
+  # };
+  # "org/gtk/gtk4/settings/file-chooser" = {
+  #   date-format = "regular";
+  #   location-mode = "path-bar";
+  #   show-hidden = false;
+  #   show-size-column = true;
+  #   show-type-column = true;
+  #   sidebar-width = 263;
+  #   sort-column = "name";
+  #   sort-directories-first = true;
+  #   sort-order = "ascending";
+  #   type-format = "category";
+  #   # window-size = mkTuple [ 100 100 ];
+  # };
+  # "org/gtk/settings/file-chooser" = {
+  #   window-position = mkTuple [ (-1) (-1) ];
+  #   window-size = mkTuple [ 300 100 ];
+  # };
+};
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
 
