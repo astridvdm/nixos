@@ -68,9 +68,10 @@
       ];
     };
 
+
   # SSHFS mount for Ceres's ZFS Array
-  fileSystems."/mnt/ceres" =
-   { device = "max@ceres:/mnt/ceres";
+  fileSystems."/ceres" =
+   { device = "max@ceres:/ceres";
      fsType = "fuse.sshfs";
      options = [ "noauto" "x-systemd.automount" "_netdev" "user" "idmap=user" "follow_symlinks" "identityfile=/home/max/.ssh/max-a17" "allow_other" "default_permissions" "uid=1000" "gid=1000" ];
    };
