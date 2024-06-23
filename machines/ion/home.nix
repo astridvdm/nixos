@@ -26,19 +26,18 @@
 #    flavor = "mocha";
 #  };
 
-xdg = {
-  enable = true;
-  configFile = {
-     "gtk-4.0/assets".source = "}${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-  };
+xdg.enable = true;
+
+xdg.configFile = {
+      "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+      "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+      "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
 };
 
 gtk = {
   enable = true;
   theme = {
-    name = "catppuccin-mocha-lavender-standard+default";
+    name = "catppuccin-mocha-mauve-standard+default";
     package =
       (pkgs.catppuccin-gtk.overrideAttrs {
         src = pkgs.fetchFromGitHub {
@@ -52,7 +51,7 @@ gtk = {
         postUnpack = "";
       }).override
         {
-          accents = [ "lavender" ];
+          accents = [ "mauve" ];
           variant = "mocha";
           #size = "compact";
         };
@@ -61,12 +60,12 @@ gtk = {
     name = "Papirus-Dark";
     package = pkgs.catppuccin-papirus-folders.override {
       flavor = "mocha";
-      accent = "lavender";
+      accent = "mauve";
     };
   };
   cursorTheme = {
     name = "catppuccin-cursors";
-    package = pkgs.catppuccin-cursors.mochaLavender;
+    package = pkgs.catppuccin-cursors.mochaMauve;
   };
   # gtk3.extraConfig = {
   #   Settings = ''
@@ -114,17 +113,17 @@ dconf.settings = {
     natural-scroll = "false";
   };
   "org/gnome/shell/extensions/user-theme" = {
-    name = "catppuccin-mocha-lavender-standard+default";
+    name = "catppuccin-mocha-mauve-standard+default";
   };
   "org/gnome/desktop/interface/cursor-theme" = {
-    name = "catppuccin-mocha-lavender-cursors";
+    name = "catppuccin-mocha-mauve-cursors";
   };
   "org/gnome/settings-daemon/plugins/power" = {
     sleep-inactive-ac-type = "nothing";
     sleep-inactive-battery-type = "suspend";
   };
   "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-    binding = "<Control>grave";
+    binding = "<Control>Escape";
     command = "kgx";
     name = "Open Terminal";
   };
