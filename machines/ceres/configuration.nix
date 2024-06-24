@@ -273,10 +273,8 @@
   services.tailscale.enable = true;
   networking.firewall.checkReversePath = "loose";
 
-
   # KVM Virtualization
   virtualisation.libvirtd.enable = true;
-
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;
