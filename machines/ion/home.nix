@@ -323,6 +323,7 @@ dconf.settings = {
     protonup-qt
     lutris
 
+
     #### Minecraft ####
     prismlauncher
 

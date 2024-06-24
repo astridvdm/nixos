@@ -123,6 +123,7 @@
     tailscale # Remote wireguard based p2p vpn
     dive # look into docker image layers
     gparted # partition manager
+    steamtinkerlaunch
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
