@@ -37,7 +37,7 @@
  gtk = {
   enable = true;
   theme = {
-    name = "catppuccin-mocha-lavender-standard+default";
+    name = "catppuccin-mocha-mauve-standard+default";
     package =
       (pkgs.catppuccin-gtk.overrideAttrs {
         src = pkgs.fetchFromGitHub {
@@ -51,7 +51,7 @@
         postUnpack = "";
       }).override
         {
-          accents = [ "lavender" ];
+          accents = [ "mauve" ];
           variant = "mocha";
           #size = "compact";
         };
@@ -60,13 +60,13 @@
     name = "Papirus-Dark";
     package = pkgs.catppuccin-papirus-folders.override {
       flavor = "mocha";
-      accent = "lavender";
+      accent = "mauve";
     };
   };
-  cursorTheme = {
-    name = "catppuccin-cursors";
-    package = pkgs.catppuccin-cursors.mochaLavender;
-  };
+  # cursorTheme = {
+  #   name = "catppuccin-cursors";
+  #   package = pkgs.catppuccin-cursors.mochaLavender;
+  # };
   # gtk3.extraConfig = {
   #   Settings = ''
   #     gtk-application-prefer-dark-theme=1
@@ -113,11 +113,11 @@
       natural-scroll = "false";
     };
     "org/gnome/shell/extensions/user-theme" = {
-      name = "catppuccin-mocha-lavender-standard+default";
+      name = "catppuccin-mocha-mauve-standard+default";
     };
-    "org/gnome/desktop/interface/cursor-theme" = {
-      name = "catppuccin-mocha-lavender-cursors";
-    };
+    # "org/gnome/desktop/interface/cursor-theme" = {
+    #   name = "catppuccin-mocha-lavender-cursors";
+    # };
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
       sleep-inactive-battery-type = "suspend";
