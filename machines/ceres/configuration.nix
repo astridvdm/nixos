@@ -21,15 +21,15 @@
     prefixLength = 24;
   } ];
   networking.defaultGateway = "10.0.0.1";
-  networking.nameservers = [ "10.0.0.1" "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
+  networking.nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
 
   networking.interfaces.enp0s31f6.ipv6.addresses = [ {
-    address = "2c0f:f4c0:1185:8100::2";
+    address = "2c0f:f4c0:1185:8300::2";
     prefixLength = 64;
   } ];
 
   networking.defaultGateway6 = {
-    address = "2c0f:f4c0:1185:8100::1";
+    address = "2c0f:f4c0:1185:8300::1";
     interface = "enp0s31f6";
   };
 
