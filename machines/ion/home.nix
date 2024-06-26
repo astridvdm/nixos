@@ -63,10 +63,10 @@ gtk = {
       accent = "mauve";
     };
   };
-  cursorTheme = {
-    name = "catppuccin-cursors";
-    package = pkgs.catppuccin-cursors.mochaMauve;
-  };
+#  cursorTheme = {
+#    name = "catppuccin-cursors";
+#    package = pkgs.catppuccin-cursors.mochaMauve;
+#  };
   # gtk3.extraConfig = {
   #   Settings = ''
   #     gtk-application-prefer-dark-theme=1
