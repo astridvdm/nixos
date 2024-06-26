@@ -407,12 +407,12 @@ dconf.settings = {
     compression = true;
     matchBlocks = {
       "ceres" = {
-      hostname = "100.97.224.36";
+      hostname = "ceres";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17";
       };
       "polaris" = {
-      hostname = "100.88.236.67";
+      hostname = "polaris";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17";
       };
