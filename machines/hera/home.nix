@@ -412,11 +412,21 @@
       "polaris" = {
       hostname = "polaris";
       user = "max";
-      identityFile = "/home/max/.ssh/max-a17-lux";
+      identityFile = "/home/max/.ssh/max-a17";
+      };
+      "duck" = {
+      hostname = "duck.taila948e.ts.net";
+      user = "Brock";
+      identityFile = "/home/max/.ssh/max-a17";
+      };
+      "austin" = {
+      hostname = "austin-poweredge-r710.tail97c97.ts.net";
+      user = "austin";
+      identityFile = "/home/max/.ssh/max-a17";
       };
       "lux" = {
       hostname = "172.16.0.212";
-      proxyJump = "100.96.163.55";
+      proxyJump = "duck.taila948e.ts.net";
       user = "brock";
       identityFile = "/home/max/.ssh/max-a17";
       };
