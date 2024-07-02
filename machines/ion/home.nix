@@ -63,10 +63,10 @@ gtk = {
       accent = "mauve";
     };
   };
-  cursorTheme = {
-    name = "catppuccin-cursors";
-    package = pkgs.catppuccin-cursors.mochaMauve;
-  };
+#  cursorTheme = {
+#    name = "catppuccin-cursors";
+#    package = pkgs.catppuccin-cursors.mochaMauve;
+#  };
   # gtk3.extraConfig = {
   #   Settings = ''
   #     gtk-application-prefer-dark-theme=1
@@ -407,12 +407,12 @@ dconf.settings = {
     compression = true;
     matchBlocks = {
       "ceres" = {
-      hostname = "100.97.224.36";
+      hostname = "ceres";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17";
       };
       "polaris" = {
-      hostname = "100.88.236.67";
+      hostname = "polaris";
       user = "max";
       identityFile = "/home/max/.ssh/max-a17";
       };
