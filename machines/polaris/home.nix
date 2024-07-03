@@ -27,12 +27,6 @@
     enable = true;
     compression = true;
     matchBlocks = {
-      "lux" = {
-      hostname = "172.16.0.212";
-      proxyJump = "100.96.163.55";
-      user = "brock";
-      identityFile = "/home/max/.ssh/max-a17";
-      };
       "u334582.your-storagebox.de" = {
       hostname = "u334582.your-storagebox.de";
       user = "u334582";
