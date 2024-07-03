@@ -318,7 +318,7 @@
     #### Gaming ####
     adwsteamgtk
     protontricks # steam game based wine manager
-    protonup-qt
+    protonplus
     lutris
 
     #### Minecraft ####
