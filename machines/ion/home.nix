@@ -428,7 +428,7 @@ dconf.settings = {
       };
       "lux" = {
       hostname = "172.16.0.212";
-      proxyJump = "duck.taila948e.ts.net";
+      proxyJump = "duck";
       user = "brock";
       identityFile = "/home/max/.ssh/max-a17";
       };
