@@ -414,6 +414,17 @@
       user = "max";
       identityFile = "/home/max/.ssh/max-a17";
       };
+      "u334582.your-storagebox.de" = {
+      hostname = "u334582.your-storagebox.de";
+      user = "u334582";
+      port = 23;
+      identityFile = "/home/max/.ssh/hetzner-borg";
+      };
+      "github.com" = {
+      hostname = "github.com";
+      user = "git";
+      identityFile = "/home/max/.ssh/max-git";
+      };
       "duck" = {
       hostname = "duck.taila948e.ts.net";
       user = "Brock";
@@ -429,17 +440,6 @@
       proxyJump = "duck";
       user = "brock";
       identityFile = "/home/max/.ssh/max-a17";
-      };
-      "u334582.your-storagebox.de" = {
-      hostname = "u334582.your-storagebox.de";
-      user = "u334582";
-      port = 23;
-      identityFile = "/home/max/.ssh/hetzner-borg";
-      };
-      "github.com" = {
-      hostname = "github.com";
-      user = "git";
-      identityFile = "/home/max/.ssh/max-git";
       };
     };
   };
