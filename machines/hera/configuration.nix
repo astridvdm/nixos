@@ -168,7 +168,7 @@
   networking.firewall.checkReversePath = "loose";
 
   # Hardware crypto wallet manager
-  #hardware.ledger.enable = true;
+  hardware.ledger.enable = true;
 
   # KVM Virtual machines
   virtualisation.libvirtd.enable = true;
