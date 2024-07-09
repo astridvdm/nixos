@@ -373,7 +373,7 @@
 
     #### Gnome ####
     gnome-extension-manager
-    gnome.gnome-tweaks
+    gnome-tweaks
     #bibata-cursors
 
     #### Gnome Extensions ####

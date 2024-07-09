@@ -127,17 +127,17 @@
     gnome-photos
     gnome-tour
     gedit # text editor
+    cheese # webcam tool
+    epiphany # web browser
+    geary # email reader
+    yelp # Help view
   ]) ++ (with pkgs.gnome; [
-      cheese # webcam tool
-      gnome-music
-      epiphany # web browser
-      geary # email reader
+      gnome-music      
       gnome-characters
       tali # poker game
       iagno # go game
       hitori # sudoku game
       atomix # puzzle game
-      yelp # Help view
       gnome-contacts
       gnome-initial-setup
     ]);
