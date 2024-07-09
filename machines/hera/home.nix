@@ -368,8 +368,8 @@
     quickemu
     quickgui
 
-    #### Neofetch ####
-    neofetch
+    # #### Neofetch ####
+    # neofetch
 
     #### Gnome ####
     gnome-extension-manager
