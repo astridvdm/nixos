@@ -340,8 +340,6 @@
     #wineWowPackages.full # wine packages for running windows software/games
     wineWowPackages.waylandFull # same as above for wayland
     zip
-    lm_sensors
-    thefuck
     pavucontrol
     ncdu
     pdfarranger

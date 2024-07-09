@@ -344,7 +344,6 @@ dconf.settings = {
     wineWowPackages.waylandFull # same as above for wayland
     zip
     lm_sensors
-    thefuck
     pavucontrol
     ncdu
     pdfarranger
