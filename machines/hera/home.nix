@@ -287,7 +287,7 @@
     borgbackup
 
     #### Ledger Crypto Hardware Wallet ####
-    #ledger-live-desktop
+    ledger-live-desktop
 
     #### Web Dev ####
     hugo
