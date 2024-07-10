@@ -344,7 +344,6 @@ dconf.settings = {
     wineWowPackages.waylandFull # same as above for wayland
     zip
     lm_sensors
-    thefuck
     pavucontrol
     ncdu
     pdfarranger
@@ -370,12 +369,12 @@ dconf.settings = {
     quickemu
     quickgui
 
-    #### Neofetch ####
-    neofetch
+    # #### Neofetch ####
+    # neofetch
 
     #### Gnome ####
     gnome-extension-manager
-    gnome.gnome-tweaks
+    gnome-tweaks
     #bibata-cursors
 
     #### Gnome Extensions ####
@@ -456,7 +455,7 @@ dconf.settings = {
     autosuggestion.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "thefuck" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];
+      plugins = [ "git" "command-not-found" "colored-man-pages" "colorize" "docker" "git" "screen" "starship" "vscode" ];
       #theme = "robbyrussell";
     };
   };
