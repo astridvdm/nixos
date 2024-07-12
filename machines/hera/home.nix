@@ -37,7 +37,7 @@
  gtk = {
   enable = true;
   theme = {
-    name = "catppuccin-mocha-mauve-standard+default";
+    name = "catppuccin-mocha-mauve-standard";
     package =
       (pkgs.catppuccin-gtk.overrideAttrs {
         src = pkgs.fetchFromGitHub {
@@ -113,7 +113,7 @@
       natural-scroll = "false";
     };
     "org/gnome/shell/extensions/user-theme" = {
-      name = "catppuccin-mocha-mauve-standard+default";
+      name = "catppuccin-mocha-mauve-standard";
     };
     # "org/gnome/desktop/interface/cursor-theme" = {
     #   name = "catppuccin-mocha-lavender-cursors";
