@@ -39,11 +39,7 @@ for host in "${hosts[@]}"; do
     fqdn="$host.tail14bcea.ts.net"
     if [ $reboot -eq 0 ]; then
         echo "$fqdn with reboot"
-        ssh -i $rsa_key $fqdn 
-        cd /etc/nixos
-        git fetch && git pull
-        nixos-rebuild boot --flake ".#$host"
-        ssh -i $rsa_key $fqdn 'sudo reboot'
+        ssh -t -i $rsa_key $fqdn 'cd /etc/nixos; git fetch; git pull; sudo nixos-rebuild boot --flake .#$host; sudo reboot'
     fi
     echo
     echo
