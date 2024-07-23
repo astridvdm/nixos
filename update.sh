@@ -38,8 +38,22 @@ for host in "${hosts[@]}"; do
     fi
     fqdn="$host.tail14bcea.ts.net"
     if [ $reboot -eq 0 ]; then
-        echo "$fqdn with reboot"
-        ssh -t -i $rsa_key $fqdn 'cd /etc/nixos; git fetch; git pull; sudo nixos-rebuild boot --flake .#$host; sudo reboot'
+        echo "Update $fqdn"
+        ssh -t -i $rsa_key $fqdn 'cd /etc/nixos; git fetch; git pull; sudo nixos-rebuild boot --flake .#$host'
+    fi
+    echo
+    echo
+done
+
+for host in "${hosts[@]}"; do
+    # Check if the host is in the skip list
+    if [[ " ${skip[*]} " =~ " ${host} " ]]; then
+        continue
+    fi
+    fqdn="$host.tail14bcea.ts.net"
+    if [ $reboot -eq 0 ]; then
+        echo "Reboot $fqdn"
+        ssh -t -i $rsa_key $fqdn 'sudo reboot'
     fi
     echo
     echo
