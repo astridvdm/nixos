@@ -1,4 +1,4 @@
-{ config, pkgs, nix-vscode-extensions, ... }:
+{ config, pkgs, nix-vscode-extensions, inputs, ... }:
 
 {
   # TODO please change the username & home direcotry to your own
@@ -487,6 +487,34 @@
       mblode.pretty-formatter
     ];
   };
+
+  programs.spicetify =
+   let
+     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+   in
+   {
+     enable = true;
+     enabledExtensions = with spicePkgs.extensions; [
+       adblock
+       hidePodcasts
+       shuffle # shuffle+ (special characters are sanitized out of extension names)
+       fullAppDisplayMod
+       groupSession
+       playlistIcons
+       fullAlbumDate
+       goToSong
+       playlistIntersection
+       phraseToPlaylist
+       wikify
+       songStats
+       showQueueDuration
+       betterGenres
+       lastfm
+       beautifulLyrics
+     ];
+     theme = spicePkgs.themes.catppuccin;
+     colorScheme = "mocha";
+   };
 
   home.stateVersion = "24.05";
 

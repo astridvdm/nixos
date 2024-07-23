@@ -1,5 +1,4 @@
-{ config, pkgs, nix-vscode-extensions, ... }:
-
+{ config, pkgs, nix-vscode-extensions, inputs, ... }:
 {
   # TODO please change the username & home direcotry to your own
   home.username = "max";
@@ -470,7 +469,8 @@ dconf.settings = {
     package = pkgs.vscodium;
     extensions = with nix-vscode-extensions.extensions.x86_64-linux.open-vsx; [
       jeanp413.open-remote-ssh
-      arcticicestudio.nord-visual-studio-code
+      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
       pkief.material-product-icons
       tailscale.vscode-tailscale
       ms-azuretools.vscode-docker
@@ -480,6 +480,7 @@ dconf.settings = {
       christian-kohler.path-intellisense
       tomoki1207.pdf
       mhutchie.git-graph
+      #cschleiden.vscode-github-actions
       ziyasal.vscode-open-in-github
       ms-vscode.live-server
       mtxr.sqltools
@@ -488,6 +489,34 @@ dconf.settings = {
       mblode.pretty-formatter
     ];
   };
+
+  programs.spicetify =
+   let
+     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+   in
+   {
+     enable = true;
+     enabledExtensions = with spicePkgs.extensions; [
+       adblock
+       hidePodcasts
+       shuffle # shuffle+ (special characters are sanitized out of extension names)
+       fullAppDisplayMod
+       groupSession
+       playlistIcons
+       fullAlbumDate
+       goToSong
+       playlistIntersection
+       phraseToPlaylist
+       wikify
+       songStats
+       showQueueDuration
+       betterGenres
+       lastfm
+       beautifulLyrics
+     ];
+     theme = spicePkgs.themes.catppuccin;
+     colorScheme = "mocha";
+   };
 
   # Chromium extensions
   
@@ -519,7 +548,7 @@ dconf.settings = {
   # Reddit Insights|oehlhkdmigpcpcjkpfklbmnppiddhgfi
   # Enhancer for YouTube™|ponfpcnoihfmfllpaingbgckeeldkhle
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;

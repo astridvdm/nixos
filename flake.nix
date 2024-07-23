@@ -18,12 +18,16 @@
 
     # Unstable
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/master";
-
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = { 
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Spicetify
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Flatpaks
     nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
@@ -40,13 +44,13 @@
       # TODO please change the hostname to your own
       hera = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit spicetify-nix nix-vscode-extensions;};
+        specialArgs = {inherit nix-vscode-extensions;};
         modules = [
           ./machines/hera/configuration.nix
           ./machines/hera/hardware-configuration.nix
-          ./machines/hera/spicetify.nix # file where you configure spicetify
           nix-flatpak.nixosModules.nix-flatpak
           catppuccin.nixosModules.catppuccin
+          inputs.spicetify-nix.nixosModules.default
           nixos-hardware.nixosModules.asus-fa507rm
 
           # make home-manager as a module of nixos
@@ -64,21 +68,20 @@
             home-manager.users.max.imports = [
               ./machines/hera/home.nix
               catppuccin.homeManagerModules.catppuccin
+              inputs.spicetify-nix.homeManagerModules.default
             ];
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
         ];
       };
       ion = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit spicetify-nix nix-vscode-extensions;};
+        specialArgs = {inherit inputs nix-vscode-extensions;};
         modules = [
           ./machines/ion/configuration.nix
           ./machines/ion/hardware-configuration.nix
-          #./machines/ion/nvidia-config.nix
-          ./machines/ion/spicetify.nix # file where you configure spicetify
           nix-flatpak.nixosModules.nix-flatpak
           catppuccin.nixosModules.catppuccin
+          inputs.spicetify-nix.nixosModules.default
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
@@ -95,8 +98,8 @@
             home-manager.users.max.imports = [
               ./machines/ion/home.nix
               catppuccin.homeManagerModules.catppuccin
+              inputs.spicetify-nix.homeManagerModules.default
             ];
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
         ];
       };
