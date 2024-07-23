@@ -1,59 +1,48 @@
-git fetch
+#!/usr/bin/env bash
 
-git pull
+set -e
+
+cd /etc/nixos
 
 nix flake update
 
+git fetch
+
 git add *
 
-# git commit -m "Update systems"
+git commit -m "Update"
 
-sudo nixos-rebuild boot
+hosts=($(echo $(nix eval .#nixosConfigurations --apply 'pkgs: builtins.concatStringsSep " " (builtins.attrNames pkgs)') | xargs))
+skip=(
 
-# ssh ceres
+)
 
-# cd /etc/nixos
+rsa_key="$HOME/.ssh/max-a17"
+export NIX_SSHOPTS="-t -i $rsa_key"
+reboot=0
 
-# git fetch
+while getopts ":r" option; do
+    case $option in
+    r)
+        reboot=1
+        ;;
+    esac
+done
 
-# git pull
-
-# sudo nixos-rebuild boot
-
-# reboot
-
-# ssh polaris
-
-# cd /etc/nixos
-
-# git fetch
-
-# git pull
-
-# sudo nixos-rebuild boot
-
-# reboot
-
-# ssh ion
-
-# cd /etc/nixos
-
-# git fetch
-
-# git pull
-
-# sudo nixos-rebuild boot
-
-# reboot
-
-# ssh hera
-
-# cd /etc/nixos
-
-# git fetch
-
-# git pull
-
-# sudo nixos-rebuild boot
-
-# reboot
+for host in "${hosts[@]}"; do
+    # Check if the host is in the skip list
+    if [[ " ${skip[*]} " =~ " ${host} " ]]; then
+        continue
+    fi
+    fqdn="$host.tail14bcea.ts.net"
+    if [ $reboot -eq 0 ]; then
+        echo "$fqdn with reboot"
+        ssh -i $rsa_key $fqdn 
+        cd /etc/nixos
+        git fetch && git pull
+        nixos-rebuild boot --flake ".#$host"
+        ssh -i $rsa_key $fqdn 'sudo reboot'
+    fi
+    echo
+    echo
+done
