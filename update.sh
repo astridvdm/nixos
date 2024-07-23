@@ -45,16 +45,16 @@ for host in "${hosts[@]}"; do
     echo
 done
 
-for host in "${hosts[@]}"; do
-    # Check if the host is in the skip list
-    if [[ " ${skip[*]} " =~ " ${host} " ]]; then
-        continue
-    fi
-    fqdn="$host.tail14bcea.ts.net"
-    if [ $reboot -eq 0 ]; then
-        echo "Reboot $fqdn"
-        ssh -t -i $rsa_key $fqdn 'sudo reboot'
-    fi
-    echo
-    echo
-done
+# for host in "${hosts[@]}"; do
+#     # Check if the host is in the skip list
+#     if [[ " ${skip[*]} " =~ " ${host} " ]]; then
+#         continue
+#     fi
+#     fqdn="$host.tail14bcea.ts.net"
+#     if [ $reboot -eq 0 ]; then
+#         echo "Reboot $fqdn"
+#         ssh -t -i $rsa_key $fqdn 'sudo reboot'
+#     fi
+#     echo
+#     echo
+# done
