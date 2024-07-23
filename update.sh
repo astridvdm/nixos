@@ -43,7 +43,7 @@ for host in "${hosts[@]}"; do
     fi
     echo
     echo
-done
+then
 
 for host in "${hosts[@]}"; do
     # Check if the host is in the skip list
