@@ -12,6 +12,8 @@ git add *
 
 git commit -m "Update"
 
+git push origin main
+
 hosts=($(echo $(nix eval .#nixosConfigurations --apply 'pkgs: builtins.concatStringsSep " " (builtins.attrNames pkgs)') | xargs))
 skip=(
 
