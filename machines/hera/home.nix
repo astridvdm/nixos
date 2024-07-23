@@ -429,7 +429,7 @@
       identityFile = "/home/max/.ssh/max-a17";
       };
       "austin" = {
-      hostname = "austin-poweredge-r710.tail97c97.ts.net";
+      hostname = "austin-r710.tail97c97.ts.net";
       user = "austin";
       identityFile = "/home/max/.ssh/max-a17";
       };

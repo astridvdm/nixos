@@ -115,9 +115,9 @@ dconf.settings = {
   "org/gnome/shell/extensions/user-theme" = {
     name = "catppuccin-mocha-mauve-standard";
   };
-  "org/gnome/desktop/interface/cursor-theme" = {
-    name = "catppuccin-mocha-mauve-cursors";
-  };
+  # "org/gnome/desktop/interface/cursor-theme" = {
+  #   name = "catppuccin-mocha-mauve-cursors";
+  # };
   "org/gnome/settings-daemon/plugins/power" = {
     sleep-inactive-ac-type = "nothing";
     sleep-inactive-battery-type = "suspend";
@@ -432,7 +432,7 @@ dconf.settings = {
       identityFile = "/home/max/.ssh/max-a17";
       };
       "austin" = {
-      hostname = "austin-poweredge-r710.tail97c97.ts.net";
+      hostname = "austin-r710.tail97c97.ts.net";
       user = "austin";
       identityFile = "/home/max/.ssh/max-a17";
       };

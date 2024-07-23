@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -90,7 +89,7 @@
     # Name
     description = "Max";
     # Groups
-    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvrt" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirtd" "input" "plugdev" ];
     # Specify user shell
     shell = "/run/current-system/sw/bin/zsh";
     # User packages
@@ -170,6 +169,7 @@
   # KVM Virtual machines
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
+  programs.virt-manager.enable = true;
 
   # Steam
   programs.steam.enable = true;
@@ -199,14 +199,14 @@
   ## Mullvad
   #services.mullvad-vpn.enable = true;
 
-  # # OBS Virtual Cam
-  # boot.extraModulePackages = with config.boot.kernelPackages; [
-  #   v4l2loopback
-  # ];
-  # boot.extraModprobeConfig = ''
-  #   options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-  # '';
-  # security.polkit.enable = true;
+  # OBS Virtual Cam
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  '';
+  security.polkit.enable = true;
 
 
   # NixOS Optimise
@@ -233,5 +233,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
