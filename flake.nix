@@ -35,11 +35,11 @@
     # VSCode
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
-    # catppuccin
-    catppuccin.url = "github:catppuccin/nix";
+    # # catppuccin
+    # catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nix-vscode-extensions, nix-flatpak, nixos-hardware, catppuccin, ... } : {
+  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nix-vscode-extensions, nix-flatpak, nixos-hardware, ... } : {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       hera = nixpkgs.lib.nixosSystem {

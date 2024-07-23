@@ -366,8 +366,11 @@
     quickemu
     quickgui
 
-    # #### Neofetch ####
-    # neofetch
+    #### CLI Nonsense ####
+    cowsay # Displays mesasges in the form of a character
+    fortune # Displays a random message
+    sl # Train animation.
+    figlet # Asci art generator.
 
     #### Gnome ####
     gnome-extension-manager
@@ -448,6 +451,7 @@
       size = 99999;
       share = true;
     };
+    loginExtra = "fortune | cowsay -r";
     #enableAutosuggestions = true;
     autosuggestion.enable = true;
     oh-my-zsh = {
@@ -459,7 +463,7 @@
   # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;
-    catppuccin.enable = true;
+    #catppuccin.enable = true;
   };
 
   programs.vscode = {
@@ -467,8 +471,8 @@
     package = pkgs.vscodium;
     extensions = with nix-vscode-extensions.extensions.x86_64-linux.open-vsx; [
       jeanp413.open-remote-ssh
-      catppuccin.catppuccin-vsc
-      catppuccin.catppuccin-vsc-icons
+      # Catppuccin.catppuccin-vsc
+      # Catppuccin.catppuccin-vsc-icons
       pkief.material-product-icons
       tailscale.vscode-tailscale
       ms-azuretools.vscode-docker
