@@ -49,7 +49,7 @@
           ./machines/hera/configuration.nix
           ./machines/hera/hardware-configuration.nix
           nix-flatpak.nixosModules.nix-flatpak
-          catppuccin.nixosModules.catppuccin
+          #catppuccin.nixosModules.catppuccin
           inputs.spicetify-nix.nixosModules.default
           nixos-hardware.nixosModules.asus-fa507rm
 
@@ -67,7 +67,7 @@
             # import the home.nix config file
             home-manager.users.max.imports = [
               ./machines/hera/home.nix
-              catppuccin.homeManagerModules.catppuccin
+              #catppuccin.homeManagerModules.catppuccin
               inputs.spicetify-nix.homeManagerModules.default
             ];
           }
@@ -80,7 +80,7 @@
           ./machines/ion/configuration.nix
           ./machines/ion/hardware-configuration.nix
           nix-flatpak.nixosModules.nix-flatpak
-          catppuccin.nixosModules.catppuccin
+          #catppuccin.nixosModules.catppuccin
           inputs.spicetify-nix.nixosModules.default
 
           # make home-manager as a module of nixos
@@ -97,7 +97,7 @@
             # import the home.nix config file
             home-manager.users.max.imports = [
               ./machines/ion/home.nix
-              catppuccin.homeManagerModules.catppuccin
+              #catppuccin.homeManagerModules.catppuccin
               inputs.spicetify-nix.homeManagerModules.default
             ];
           }
