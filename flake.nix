@@ -37,6 +37,8 @@
 
     # # catppuccin
     # catppuccin.url = "github:catppuccin/nix";
+    # # catppuccin
+    # catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nix-vscode-extensions, nix-flatpak, nixos-hardware, ... } : {
