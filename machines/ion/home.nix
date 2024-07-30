@@ -461,7 +461,7 @@ dconf.settings = {
   # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;
-    catppuccin.enable = true;
+    #catppuccin.enable = true;
   };
 
   programs.vscode = {
@@ -500,13 +500,13 @@ dconf.settings = {
        adblock
        hidePodcasts
        shuffle # shuffle+ (special characters are sanitized out of extension names)
-       fullAppDisplayMod
+       #fullAppDisplayMod
        groupSession
        playlistIcons
        fullAlbumDate
        goToSong
        playlistIntersection
-       phraseToPlaylist
+       #phraseToPlaylist
        wikify
        songStats
        showQueueDuration
@@ -514,8 +514,8 @@ dconf.settings = {
        lastfm
        beautifulLyrics
      ];
-     theme = spicePkgs.themes.catppuccin;
-     colorScheme = "mocha";
+     theme = spicePkgs.themes.comfy;
+     colorScheme = "catppuccin-mocha";
    };
 
   # Chromium extensions

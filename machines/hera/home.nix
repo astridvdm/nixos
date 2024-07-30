@@ -502,13 +502,13 @@
        adblock
        hidePodcasts
        shuffle # shuffle+ (special characters are sanitized out of extension names)
-       fullAppDisplayMod
+       #fullAppDisplayMod
        groupSession
        playlistIcons
        fullAlbumDate
        goToSong
        playlistIntersection
-       phraseToPlaylist
+       #phraseToPlaylist
        wikify
        songStats
        showQueueDuration
@@ -516,8 +516,8 @@
        lastfm
        beautifulLyrics
      ];
-     theme = spicePkgs.themes.catppuccin;
-     colorScheme = "mocha";
+     theme = spicePkgs.themes.comfy;
+     colorScheme = "catppuccin-mocha";
    };
 
   home.stateVersion = "24.05";
