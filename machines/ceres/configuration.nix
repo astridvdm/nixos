@@ -166,6 +166,7 @@
      docker-compose # start group of containers for dev
      ctop
      zsh
+     bat
    ];
 
   # Enable cron service

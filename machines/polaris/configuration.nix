@@ -50,6 +50,7 @@
      blocky
      zsh
      ncdu
+     bat
   ];
 
   # Enable the OpenSSH daemon.
