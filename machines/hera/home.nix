@@ -471,8 +471,8 @@
     package = pkgs.vscodium;
     extensions = with nix-vscode-extensions.extensions.x86_64-linux.open-vsx; [
       jeanp413.open-remote-ssh
-      catppuccin.catppuccin-vsc
-      catppuccin.catppuccin-vsc-icons
+      # Catppuccin.catppuccin-vsc
+      # Catppuccin.catppuccin-vsc-icons
       pkief.material-product-icons
       tailscale.vscode-tailscale
       ms-azuretools.vscode-docker

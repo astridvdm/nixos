@@ -106,7 +106,7 @@
 
   # for a WiFi printer
   services.avahi.openFirewall = true;
-  #services.printing.drivers = [ pkgs.pantum-driver ];
+  services.printing.drivers = [ pkgs.pantum-driver ];
   services.avahi.publish.enable = true;
   services.avahi.publish.userServices = true;
   services.printing.browsing = true;
