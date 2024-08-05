@@ -308,6 +308,10 @@ dconf.settings = {
     # Ebook Management
     calibre
 
+    # Audiobook Management
+    audible-cli
+    libation
+
     # OBS Studio
     obs-studio
 
@@ -379,6 +383,13 @@ dconf.settings = {
 
     # #### Neofetch ####
     # neofetch
+
+    #### CLI Nonsense ####
+    cowsay # Displays mesasges in the form of a character
+    fortune # Displays a random message
+    sl # Train animation.
+    figlet # Asci art generator.
+    bat
 
     #### Gnome ####
     gnome-extension-manager
@@ -528,34 +539,36 @@ dconf.settings = {
    };
 
   # Chromium extensions
-  
   # Twitch Chat pronouns|agnfbjmjkdncblnkpkgoefbpogemfcii
   # BetterTTV|ajopnjidmegmdimjlfnijceegpefgped
+  # Allkeyshop - Compare Game Prices|bibdjkcebiliphphjbnkngdjgeklgcdf
   # Catppuccin Chrome Theme - Mocha|bkkmolkhemgaeaeggcmfbghljjjoofoh
   # Honey: Automatic Coupons & Rewards|bmnlcjabgnpnenekpadlanbbkooimhnj
-  # OpenDyslexic for Chrome™|cdnapgfjopgaggbmfgbiinmmbdcglnam
   # Stylus|clngdbkpkpeebahjckkjfobafhncgmne
   # Torrent Clipper|cmhdhpcfabppigjedlenkmleklplflhp
   # Augmented Steam|dnhpnfgdlenaccegplpojghhmaamnnfp
-  # Star Citizen CCU Game|efkaeodcipbmkhbbfmiagjcnnlhdkdlf
-  # Unwanted Twitch|egbpddkgpjmliolmpjenjomflclekjld
   # GitZip for github|ffabmkklhbepgcgfonabamgnfafbdlkn
   # AdBlock — block ads across the web|gighmmpiobklfepjocnamgkkbiglidom
-  # nightTab|hdpcadigjkbcpnlcpbcohpafiaefanki
   # Refined GitHub|hlepfoohegkhhmjieoechaddaejaokhf
   # Previews (For TTV & YT)|hpmbiinljekjjcjgijnlbmgcmoonclah
   # Shinigami Eyes|ijcpiojgefnkmcadacmacogglhjdjphj
   # Alby - Bitcoin Wallet for Lightning & Nostr|iokeahhehimjnekafflcihljlcjccdbe
   # Reddit Enhancement Suite|kbmfpngjjgdllneeigpgjifpgocmfgmb
   # SteamDB|kdbmhfkmnlmbkgbabkdealhhbfhlmmon
-  # Custom Progress Bar for YouTube™|nbkomboflhdlliegkaiepilnfmophgfg
+  # SponsorBlock for YouTube - Skip Sponsorships|mnjggcdmjocbbbhaepdhchncahnbgone
   # PronounDB|nblkbiljcjfemkfjnhoobnojjgjdmknf
-  # IPFS Companion|nibjojkomfdiaoajekhjakgkdhaomnch
   # DownThemAll!|nljkibfhlpcnanjgbnlnbjecgicbjkge
   # Bitwarden Password Manager|nngceckbapebfimnlniiiahkandclblb
   # Chromium Web Store|ocaahdebbfolfmndjeplogmgcagdmblk|https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml
-  # Reddit Insights|oehlhkdmigpcpcjkpfklbmnppiddhgfi
   # Enhancer for YouTube™|ponfpcnoihfmfllpaingbgckeeldkhle
+  # OpenDyslexic for Chrome|cdnapgfjopgaggbmfgbiinmmbdcglnam
+  # Star Citizen CCU Game|efkaeodcipbmkhbbfmiagjcnnlhdkdlf
+  # Unwanted Twitch|egbpddkgpjmliolmpjenjomflclekjld
+  # nightTab|hdpcadigjkbcpnlcpbcohpafiaefanki
+  # Satcom - Collaborative layer for the Internet|lhoejonhkpkgnhaamjcplefkkomlldgi
+  # Custom Progress Bar for YouTube™|nbkomboflhdlliegkaiepilnfmophgfg
+  # IPFS Companion|nibjojkomfdiaoajekhjakgkdhaomnch
+  # Reddit Insights|oehlhkdmigpcpcjkpfklbmnppiddhgfi
 
   home.stateVersion = "24.11";
 

@@ -298,6 +298,10 @@
     # Ebook Management
     calibre
 
+    # Audiobook Management
+    audible-cli
+    libation
+
     # OBS Studio
     obs-studio
 
@@ -371,6 +375,7 @@
     fortune # Displays a random message
     sl # Train animation.
     figlet # Asci art generator.
+    bat
 
     #### Gnome ####
     gnome-extension-manager
