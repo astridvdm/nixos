@@ -35,13 +35,11 @@
     # VSCode
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
-    # # catppuccin
-    # catppuccin.url = "github:catppuccin/nix";
-    # # catppuccin
-    # catppuccin.url = "github:catppuccin/nix";
+    # catppuccin
+    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nix-vscode-extensions, nix-flatpak, nixos-hardware, ... } : {
+  outputs = inputs@{ nixpkgs, home-manager, spicetify-nix, nix-vscode-extensions, nix-flatpak, catppuccin, nixos-hardware, ... } : {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       hera = nixpkgs.lib.nixosSystem {
@@ -51,7 +49,7 @@
           ./machines/hera/configuration.nix
           ./machines/hera/hardware-configuration.nix
           nix-flatpak.nixosModules.nix-flatpak
-          #catppuccin.nixosModules.catppuccin
+          catppuccin.nixosModules.catppuccin
           inputs.spicetify-nix.nixosModules.default
           nixos-hardware.nixosModules.asus-fa507rm
 
@@ -69,7 +67,7 @@
             # import the home.nix config file
             home-manager.users.max.imports = [
               ./machines/hera/home.nix
-              #catppuccin.homeManagerModules.catppuccin
+              catppuccin.homeManagerModules.catppuccin
               inputs.spicetify-nix.homeManagerModules.default
             ];
           }
@@ -82,7 +80,7 @@
           ./machines/ion/configuration.nix
           ./machines/ion/hardware-configuration.nix
           nix-flatpak.nixosModules.nix-flatpak
-          #catppuccin.nixosModules.catppuccin
+          catppuccin.nixosModules.catppuccin
           inputs.spicetify-nix.nixosModules.default
 
           # make home-manager as a module of nixos
@@ -99,7 +97,7 @@
             # import the home.nix config file
             home-manager.users.max.imports = [
               ./machines/ion/home.nix
-              #catppuccin.homeManagerModules.catppuccin
+              catppuccin.homeManagerModules.catppuccin
               inputs.spicetify-nix.homeManagerModules.default
             ];
           }
