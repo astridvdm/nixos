@@ -202,6 +202,7 @@
     dive # look into docker image layers
     gparted # partition manager
     steamtinkerlaunch
+    nodejs_22
   ];
 
   environment.gnome.excludePackages = (with pkgs; [

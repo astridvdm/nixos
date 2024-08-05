@@ -119,6 +119,7 @@
     dive # look into docker image layers
     gparted # partition manager
     steamtinkerlaunch
+    nodejs_22
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
@@ -145,6 +146,7 @@
     #allowUnfree = true;
     ungoogled.enableWideVine = true;
     chromium.enableWideVine = true;
+    chromium.commandLineArgs = "--disable-session-crashed-bubble";
   };
 
   # List services that you want to enable:
