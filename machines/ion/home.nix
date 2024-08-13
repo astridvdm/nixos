@@ -151,7 +151,6 @@ dconf.settings = {
     favorite-apps = [
       "chromium-browser.desktop"
       "spotify.desktop"
-      "tidal-hifi.desktop"
       "org.signal.Signal.desktop"
       "org.telegram.desktop.desktop"
       "vesktop.desktop"
@@ -280,7 +279,7 @@ dconf.settings = {
     filebot
     jellyfin-media-player
     delfin
-    tidal-hifi
+    #tidal-hifi
 
     # Deluge
     deluge
