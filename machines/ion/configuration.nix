@@ -134,6 +134,40 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  environment.gnome.excludePackages = (with pkgs; [
+   gnome-photos
+   gnome-tour
+   gedit # text editor
+   cheese # webcam tool
+   epiphany # web browser
+   geary # email reader
+   yelp # Help view
+  ]) ++ (with pkgs.gnome; [
+     gnome-music      
+     gnome-characters
+     tali # poker game
+     iagno # go game
+     hitori # sudoku game
+     atomix # puzzle game
+     gnome-contacts
+     gnome-initial-setup
+   ]);
+
+  # # Enable the KDE Desktop
+  # services.xserver.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+
+  # services.displayManager.sddm = {
+  #   catppuccin = { 
+  #     enable = true;
+  #     flavor = "mocha";
+  #     loginBackground = true;
+  #   };
+  # };
+
+
   # Enable gsync for unverified monitor(s)
   services.xserver.screenSection =
   ''
@@ -205,25 +239,6 @@
     nodejs_22
   ];
 
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-    gedit # text editor
-    cheese # webcam tool
-    epiphany # web browser
-    geary # email reader
-    yelp # Help view
-  ]) ++ (with pkgs.gnome; [
-      gnome-music      
-      gnome-characters
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-      gnome-contacts
-      gnome-initial-setup
-    ]);
-
   # Enable Widevine for Chrome
   nixpkgs.config = {
     #allowUnfree = true;
@@ -285,6 +300,12 @@
   '';
   security.polkit.enable = true;
 
+  # Winbox setup.
+  programs.winbox = {
+    enable = true;
+    openFirewall = true;
+    package = pkgs.winbox;
+  };
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;

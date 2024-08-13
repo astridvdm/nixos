@@ -19,11 +19,20 @@
     };
   };
 
-#  catppuccin = {
-#    enable = true;
-#    accent = "lavender";
-#    flavor = "mocha";
-#  };
+ catppuccin = {
+   enable = true;
+   accent = "lavender";
+   flavor = "mocha";
+ };
+
+# qt = {
+#   enable = true;
+#   platformTheme.name = "kvantum";
+#   style = {
+#     package = "pkgs.catppuccin-kde";
+#     name = "kvantum";
+#   };
+# };
 
 xdg.enable = true;
 
@@ -356,7 +365,7 @@ dconf.settings = {
     iperf3 # tool to test network throughput with matching server/client
     dnsutils  # `dig` + `nslookup`
     dig
-    winbox # Mikrotik client
+    #winbox # Mikrotik client
 
     # iOS
     libimobiledevice
