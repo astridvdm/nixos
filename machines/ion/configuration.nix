@@ -267,12 +267,10 @@
   programs.steam.enable = true;
 
   # Docker
-  virtualisation.docker = {
-  enable = true;
-  };
-  hardware.nvidia-container-toolkit.enable
+  virtualisation.docker.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
-# Flatpak
+  # Flatpak
   services.flatpak = {
     enable = true;
     update.auto = {
