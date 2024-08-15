@@ -279,7 +279,7 @@
 
     #### Rclone ####
     rclone
-    rclone-browser
+    #rclone-browser
 
     #### Backup ####
     pika-backup

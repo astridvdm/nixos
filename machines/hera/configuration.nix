@@ -188,7 +188,7 @@
       enable = true;
       onCalendar = "weekly"; # Default value
     };
-    packages = [ "hu.irl.cameractrls" "org.signal.Signal" ];
+    packages = [ "hu.irl.cameractrls" "org.signal.Signal" "io.github.pieterdd.RcloneShuttle" ];
   };
 
   # iOS Documents
