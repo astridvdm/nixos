@@ -268,7 +268,7 @@ dconf.settings = {
     #simplex-chat-desktop
 
     #### Matrix ####
-    fluffychat
+    #fluffychat
     # #fractal-next
   
     #### Zoom video calling.

@@ -268,7 +268,8 @@
 
   # Docker
   virtualisation.docker.enable = true;
-  hardware.nvidia-container-toolkit.enable = true;
+  virtualisation.docker.enableNvidia = true;
+  #hardware.nvidia-container-toolkit.enable = true;
 
   # Flatpak
   services.flatpak = {
