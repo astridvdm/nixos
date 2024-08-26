@@ -245,7 +245,7 @@
   home.packages = with pkgs; [
 
     #### Web ####
-    #firefox
+    #librewolf
     ungoogled-chromium
 
     #### Discord ####
@@ -261,7 +261,7 @@
     #simplex-chat-desktop
 
     #### Matrix ####
-    fluffychat
+    #fluffychat
     # #fractal-next
 
     #### Zoom video calling.
@@ -378,7 +378,7 @@
 
     #### Gnome ####
     gnome-extension-manager
-    gnome-tweaks
+    gnome.gnome-tweaks
     #bibata-cursors
 
     #### Gnome Extensions ####

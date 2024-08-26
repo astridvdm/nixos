@@ -126,11 +126,11 @@
     gnome-photos
     gnome-tour
     gedit # text editor
-    cheese # webcam tool
-    epiphany # web browser
-    geary # email reader
-    yelp # Help view
   ]) ++ (with pkgs.gnome; [
+      cheese # webcam tool
+      epiphany # web browser
+      geary # email reader
+      yelp # Help view
       gnome-music      
       gnome-characters
       tali # poker game
@@ -177,7 +177,8 @@
 
   # Docker
   virtualisation.docker.enable = true;
-  hardware.nvidia-container-toolkit.enable = true;
+  virtualisation.docker.enableNvidia = true;
+  #hardware.nvidia-container-toolkit.enable = true;
 
   # Flatpak
   services.flatpak = {
