@@ -141,6 +141,7 @@
     };
     "org/gnome/shell" = {
       favorite-apps = [
+        "librewolf.desktop"
         "chromium-browser.desktop"
         "spotify.desktop"
         "org.signal.Signal.desktop"
