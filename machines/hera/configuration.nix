@@ -126,20 +126,19 @@
     gnome-photos
     gnome-tour
     gedit # text editor
-  ]) ++ (with pkgs.gnome; [
-      cheese # webcam tool
-      epiphany # web browser
-      geary # email reader
-      yelp # Help view
-      gnome-music      
-      gnome-characters
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-      gnome-contacts
-      gnome-initial-setup
-    ]);
+    cheese # webcam tool
+    epiphany # web browser
+    geary # email reader
+    yelp # Help view
+    gnome-music      
+    gnome-characters
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+    gnome-contacts
+    gnome-initial-setup
+  ]);
 
   # Enable Widevine for Chrome
   nixpkgs.config = {
@@ -208,6 +207,8 @@
   '';
   security.polkit.enable = true;
 
+
+  hardware.nvidia.open = false;
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;
