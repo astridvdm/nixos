@@ -368,7 +368,7 @@
     dmg2img
     virt-manager
     quickemu
-    quickgui
+    #quickgui
 
     #### CLI Nonsense ####
     cowsay # Displays mesasges in the form of a character
