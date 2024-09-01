@@ -30,6 +30,9 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
+    # NixOS Hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # Spicetify
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -136,6 +139,7 @@
         modules = [
           ./machines/polaris/configuration.nix
           ./machines/polaris/hardware-configuration.nix
+          nixos-hardware.nixosModules.raspberrypi-4
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
