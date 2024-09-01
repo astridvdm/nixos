@@ -16,4 +16,12 @@ else
 echo "Update failed"
 fi
 
+cat /etc/host
+if hera
+then
+ssh polaris
+cd /etc/nixos
+git pull
+else
 exit 0
+
