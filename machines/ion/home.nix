@@ -537,37 +537,38 @@ dconf.settings = {
      colorScheme = "catppuccin-mocha";
    };
 
-  # Chromium extensions
-  # Twitch Chat pronouns|agnfbjmjkdncblnkpkgoefbpogemfcii
-  # BetterTTV|ajopnjidmegmdimjlfnijceegpefgped
-  # Allkeyshop - Compare Game Prices|bibdjkcebiliphphjbnkngdjgeklgcdf
-  # Catppuccin Chrome Theme - Mocha|bkkmolkhemgaeaeggcmfbghljjjoofoh
-  # Honey: Automatic Coupons & Rewards|bmnlcjabgnpnenekpadlanbbkooimhnj
-  # Stylus|clngdbkpkpeebahjckkjfobafhncgmne
-  # Torrent Clipper|cmhdhpcfabppigjedlenkmleklplflhp
-  # Augmented Steam|dnhpnfgdlenaccegplpojghhmaamnnfp
-  # GitZip for github|ffabmkklhbepgcgfonabamgnfafbdlkn
-  # AdBlock — block ads across the web|gighmmpiobklfepjocnamgkkbiglidom
-  # Refined GitHub|hlepfoohegkhhmjieoechaddaejaokhf
-  # Previews (For TTV & YT)|hpmbiinljekjjcjgijnlbmgcmoonclah
-  # Shinigami Eyes|ijcpiojgefnkmcadacmacogglhjdjphj
-  # Alby - Bitcoin Wallet for Lightning & Nostr|iokeahhehimjnekafflcihljlcjccdbe
-  # Reddit Enhancement Suite|kbmfpngjjgdllneeigpgjifpgocmfgmb
-  # SteamDB|kdbmhfkmnlmbkgbabkdealhhbfhlmmon
-  # SponsorBlock for YouTube - Skip Sponsorships|mnjggcdmjocbbbhaepdhchncahnbgone
-  # PronounDB|nblkbiljcjfemkfjnhoobnojjgjdmknf
-  # DownThemAll!|nljkibfhlpcnanjgbnlnbjecgicbjkge
-  # Bitwarden Password Manager|nngceckbapebfimnlniiiahkandclblb
-  # Chromium Web Store|ocaahdebbfolfmndjeplogmgcagdmblk|https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml
-  # Enhancer for YouTube™|ponfpcnoihfmfllpaingbgckeeldkhle
-  # OpenDyslexic for Chrome|cdnapgfjopgaggbmfgbiinmmbdcglnam
-  # Star Citizen CCU Game|efkaeodcipbmkhbbfmiagjcnnlhdkdlf
-  # Unwanted Twitch|egbpddkgpjmliolmpjenjomflclekjld
-  # nightTab|hdpcadigjkbcpnlcpbcohpafiaefanki
-  # Satcom - Collaborative layer for the Internet|lhoejonhkpkgnhaamjcplefkkomlldgi
-  # Custom Progress Bar for YouTube™|nbkomboflhdlliegkaiepilnfmophgfg
-  # IPFS Companion|nibjojkomfdiaoajekhjakgkdhaomnch
-  # Reddit Insights|oehlhkdmigpcpcjkpfklbmnppiddhgfi
+# Chromium extensions
+# Image downloader - Imageye|agionbommeaifngbhincahgmoflcikhm
+# Twitch Chat pronouns|agnfbjmjkdncblnkpkgoefbpogemfcii
+# BetterTTV|ajopnjidmegmdimjlfnijceegpefgped
+# AdGuard AdBlocker|bgnkhhnnamicmpeenaelnjfhikgbkllg
+# Allkeyshop - Compare Game Prices|bibdjkcebiliphphjbnkngdjgeklgcdf
+# Catppuccin Chrome Theme - Mocha|bkkmolkhemgaeaeggcmfbghljjjoofoh
+# Honey: Automatic Coupons & Rewards|bmnlcjabgnpnenekpadlanbbkooimhnj
+# OpenDyslexic for Chrome|cdnapgfjopgaggbmfgbiinmmbdcglnam
+# Plasma Integration|cimiefiiaegbelhefglklhhakcgmhkai
+# Stylus|clngdbkpkpeebahjckkjfobafhncgmne
+# Torrent Clipper|cmhdhpcfabppigjedlenkmleklplflhp
+# Augmented Steam|dnhpnfgdlenaccegplpojghhmaamnnfp
+# Star Citizen CCU Game|efkaeodcipbmkhbbfmiagjcnnlhdkdlf
+# Unwanted Twitch|egbpddkgpjmliolmpjenjomflclekjld
+# GitZip for github|ffabmkklhbepgcgfonabamgnfafbdlkn
+# nightTab|hdpcadigjkbcpnlcpbcohpafiaefanki
+# Refined GitHub|hlepfoohegkhhmjieoechaddaejaokhf
+# Previews (For TTV & YT)|hpmbiinljekjjcjgijnlbmgcmoonclah
+# Shinigami Eyes|ijcpiojgefnkmcadacmacogglhjdjphj
+# Alby - Bitcoin Wallet for Lightning & Nostr|iokeahhehimjnekafflcihljlcjccdbe
+# Reddit Enhancement Suite|kbmfpngjjgdllneeigpgjifpgocmfgmb
+# SteamDB|kdbmhfkmnlmbkgbabkdealhhbfhlmmon
+# SponsorBlock for YouTube - Skip Sponsorships|mnjggcdmjocbbbhaepdhchncahnbgone
+# PronounDB|nblkbiljcjfemkfjnhoobnojjgjdmknf
+# IPFS Companion|nibjojkomfdiaoajekhjakgkdhaomnch
+# DownThemAll!|nljkibfhlpcnanjgbnlnbjecgicbjkge
+# Bitwarden Password Manager|nngceckbapebfimnlniiiahkandclblb
+# Chromium Web Store|ocaahdebbfolfmndjeplogmgcagdmblk|https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml
+# Satcom - Collaborative layer for the Internet|lhoejonhkpkgnhaamjcplefkkomlldgi
+# Custom Progress Bar for YouTube™|nbkomboflhdlliegkaiepilnfmophgfg
+# Enhancer for YouTube™|ponfpcnoihfmfllpaingbgckeeldkhle
 
   home.stateVersion = "24.11";
 
