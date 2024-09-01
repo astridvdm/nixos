@@ -379,7 +379,7 @@ dconf.settings = {
     libguestfs
     dmg2img
     quickemu
-    quickgui
+    #quickgui
 
     # #### Neofetch ####
     # neofetch
