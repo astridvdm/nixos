@@ -139,7 +139,7 @@
         modules = [
           ./machines/polaris/configuration.nix
           ./machines/polaris/hardware-configuration.nix
-          nixos-hardware.nixosModules.raspberrypi-4
+          nixos-hardware.nixosModules.raspberry-pi-4
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
