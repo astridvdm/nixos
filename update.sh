@@ -16,8 +16,8 @@ else
 echo "Update failed"
 fi
 
-cat /etc/hostname
-if hera
+hostname=$hostname
+if $hostname=hera
 then
 ssh polaris
 cd /etc/nixos
