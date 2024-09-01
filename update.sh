@@ -11,12 +11,12 @@ echo $?
 
 if exit=0
 then
-git add * && git commit -m "Update" && git push origin
+git add * && git commit -m "Update" && git push
 else
 echo "Update failed"
 fi
 
-cat /etc/host
+cat /etc/hostname
 if hera
 then
 ssh polaris
