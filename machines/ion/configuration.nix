@@ -135,23 +135,22 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   environment.gnome.excludePackages = (with pkgs; [
-   gnome-photos
-   gnome-tour
-   gedit # text editor
-   cheese # webcam tool
-   epiphany # web browser
-   geary # email reader
-   yelp # Help view
-  ]) ++ (with pkgs.gnome; [
-     gnome-music      
-     gnome-characters
-     tali # poker game
-     iagno # go game
-     hitori # sudoku game
-     atomix # puzzle game
-     gnome-contacts
-     gnome-initial-setup
-   ]);
+    gnome-photos
+    gnome-tour
+    gedit # text editor
+    cheese # webcam tool
+    epiphany # web browser
+    geary # email reader
+    yelp # Help view
+    gnome-music      
+    gnome-characters
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+    gnome-contacts
+    gnome-initial-setup
+  ]);
 
   # # Enable the KDE Desktop
   # services.xserver.enable = true;

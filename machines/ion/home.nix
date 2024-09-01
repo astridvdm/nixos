@@ -149,7 +149,6 @@ dconf.settings = {
   };
   "org/gnome/shell" = {
     favorite-apps = [
-      "librewolf.desktop"
       "chromium-browser.desktop"
       "spotify.desktop"
       "org.signal.Signal.desktop"
@@ -253,7 +252,7 @@ dconf.settings = {
   home.packages = with pkgs; [
 
     #### Web ####
-    librewolf
+    #librewolf
     ungoogled-chromium
 
     #### Discord ####
