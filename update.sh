@@ -24,4 +24,4 @@ cd /etc/nixos
 git pull
 else
 exit 0
-
+fi
