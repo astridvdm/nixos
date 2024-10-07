@@ -2,8 +2,8 @@
 
 {
   # TODO please change the username & home direcotry to your own
-  home.username = "max";
-  home.homeDirectory = "/home/max";
+  home.username = "astrid";
+  home.homeDirectory = "/home/astrid";
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -200,7 +200,7 @@
       avatar-position = "0";
     };
     "org/gnome/shell/extensions/azwallpaper" = {
-      slideshow-directory = "/home/max/Pictures/wallpapers/sj";
+      slideshow-directory = "/home/astrid/Pictures/wallpapers/sj";
       slideshow-use-absolute-time-for-duration = true;
     };
     "org/gnome/shell/extensions/weatherornot" = {
@@ -369,6 +369,9 @@
     virt-manager
     quickemu
     #quickgui
+
+    # VR
+    immersed-vr
 
     #### CLI Nonsense ####
     cowsay # Displays mesasges in the form of a character

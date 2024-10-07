@@ -81,12 +81,12 @@
 
   # Users
 
-  # Max
-  users.users.max = {
+  # Astrid
+  users.users.astrid = {
     # create account as standard user
     isNormalUser = true;
     # Name
-    description = "Max";
+    description = "Astrid";
     # Groups
     extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirtd" "input" "plugdev" ];
     # Specify user shell
@@ -206,6 +206,13 @@
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
   security.polkit.enable = true;
+
+  # Winbox setup.
+  programs.winbox = {
+    enable = true;
+    openFirewall = true;
+    package = pkgs.winbox4;
+  };
 
 
   hardware.nvidia.open = false;

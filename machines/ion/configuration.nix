@@ -195,12 +195,12 @@
 
   # Users
 
-  # Max
-  users.users.max = {
+  # Astrid
+  users.users.astrid = {
     # create account as standard user
     isNormalUser = true;
     # Name
-    description = "Max";
+    description = "Astrid";
     # Groups
     extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "libvirtd" "input" "plugdev" ];
     # Specify user shell
@@ -302,8 +302,13 @@
   programs.winbox = {
     enable = true;
     openFirewall = true;
-    package = pkgs.winbox;
+    package = pkgs.winbox4;
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "fluffychat-linux-1.20.0"
+    "olm-3.2.16"
+  ];
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;

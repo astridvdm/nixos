@@ -1,8 +1,8 @@
 { config, pkgs, nix-vscode-extensions, inputs, ... }:
 {
   # TODO please change the username & home direcotry to your own
-  home.username = "max";
-  home.homeDirectory = "/home/max";
+  home.username = "astrid";
+  home.homeDirectory = "/home/astrid";
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -207,7 +207,7 @@ dconf.settings = {
     avatar-position = "0";
   };
   "org/gnome/shell/extensions/azwallpaper" = {
-    slideshow-directory = "/home/max/Pictures/wallpapers/sj";
+    slideshow-directory = "/home/astrid/Pictures/wallpapers/sj";
     slideshow-use-absolute-time-for-duration = true;
   };
   "org/gnome/shell/extensions/weatherornot" = {
@@ -217,8 +217,8 @@ dconf.settings = {
     day = "1";
   };
   "org/virt-manager/virt-manager/connections" = {
-    autoconnect = ["qemu:///system" "qemu+ssh://max@ceres/system"];
-    uris = ["qemu:///system" "qemu+ssh://max@ceres/system"];
+    autoconnect = ["qemu:///system" "qemu+ssh://astrid@ceres/system"];
+    uris = ["qemu:///system" "qemu+ssh://astrid@ceres/system"];
   };
   # "org/gnome/nautilus/icon-view" = {
   #   default-zoom-level = "standard";
@@ -268,11 +268,14 @@ dconf.settings = {
     #simplex-chat-desktop
 
     #### Matrix ####
-    #fluffychat
+    fluffychat
     # #fractal-next
   
     #### Zoom video calling.
     zoom-us
+
+    # Photography
+    rawtherapee
 
     #### Media ####
     vlc
@@ -380,6 +383,9 @@ dconf.settings = {
     quickemu
     #quickgui
 
+    # VR
+    immersed-vr
+
     # #### Neofetch ####
     # neofetch
 
@@ -425,40 +431,40 @@ dconf.settings = {
     matchBlocks = {
       "ceres" = {
       hostname = "ceres";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17";
+      user = "astrid";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
       "polaris" = {
       hostname = "polaris";
       user = "max";
-      identityFile = "/home/max/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
       "u334582.your-storagebox.de" = {
       hostname = "u334582.your-storagebox.de";
       user = "u334582";
       port = 23;
-      identityFile = "/home/max/.ssh/hetzner-borg";
+      identityFile = "/home/astrid/.ssh/hetzner-borg";
       };
       "github.com" = {
       hostname = "github.com";
       user = "git";
-      identityFile = "/home/max/.ssh/max-git";
+      identityFile = "/home/astrid/.ssh/max-git";
       };
       "duck" = {
       hostname = "duck.taila948e.ts.net";
       user = "Brock";
-      identityFile = "/home/max/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
       "austin" = {
       hostname = "austin-r710.tail97c97.ts.net";
       user = "austin";
-      identityFile = "/home/max/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
       "lux" = {
       hostname = "172.16.0.212";
       proxyJump = "duck";
       user = "brock";
-      identityFile = "/home/max/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
     };
   };
@@ -537,8 +543,8 @@ dconf.settings = {
      colorScheme = "catppuccin-mocha";
    };
 
-# Chromium extensions
-# Image downloader - Imageye|agionbommeaifngbhincahgmoflcikhm
+# Ghromuim extensions
+#   "Image downloader - Imageye|agionbommeaifngbhincahgmoflcikhm
 # Twitch Chat pronouns|agnfbjmjkdncblnkpkgoefbpogemfcii
 # BetterTTV|ajopnjidmegmdimjlfnijceegpefgped
 # AdGuard AdBlocker|bgnkhhnnamicmpeenaelnjfhikgbkllg
@@ -568,7 +574,7 @@ dconf.settings = {
 # Chromium Web Store|ocaahdebbfolfmndjeplogmgcagdmblk|https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml
 # Satcom - Collaborative layer for the Internet|lhoejonhkpkgnhaamjcplefkkomlldgi
 # Custom Progress Bar for YouTube™|nbkomboflhdlliegkaiepilnfmophgfg
-# Enhancer for YouTube™|ponfpcnoihfmfllpaingbgckeeldkhle
+# Enhancer for YouTube™|ponfpcnoihfmfllpaingbgckeeldkhle"
 
   home.stateVersion = "24.11";
 

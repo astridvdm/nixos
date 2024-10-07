@@ -75,7 +75,7 @@
             home-manager.extraSpecialArgs = { inherit inputs nix-vscode-extensions; };
 
             # import the home.nix config file
-            home-manager.users.max.imports = [
+            home-manager.users.astrid.imports = [
               ./machines/hera/home.nix
               catppuccin.homeManagerModules.catppuccin
               inputs.spicetify-nix.homeManagerModules.default
@@ -105,7 +105,7 @@
             home-manager.extraSpecialArgs = { inherit inputs nix-vscode-extensions; };
 
             # import the home.nix config file
-            home-manager.users.max.imports = [
+            home-manager.users.astrid.imports = [
               ./machines/ion/home.nix
               catppuccin.homeManagerModules.catppuccin
               inputs.spicetify-nix.homeManagerModules.default
@@ -127,7 +127,7 @@
             home-manager.useUserPackages = true;
 
             # import the home.nix config file
-            home-manager.users.max.imports = [
+            home-manager.users.astrid.imports = [
               ./machines/ceres/home.nix
             ];
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
@@ -149,7 +149,7 @@
             home-manager.useUserPackages = true;
 
             # import the home.nix config file
-            home-manager.users.max.imports = [
+            home-manager.users.astrid.imports = [
               ./machines/polaris/home.nix
             ];
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix

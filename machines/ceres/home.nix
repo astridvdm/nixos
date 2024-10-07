@@ -2,8 +2,8 @@
 
 {
   # TODO please change the username & home direcotry to your own
-  home.username = "max";
-  home.homeDirectory = "/home/max";
+  home.username = "astrid";
+  home.homeDirectory = "/home/astrid";
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -31,18 +31,18 @@
       hostname = "172.16.0.212";
       proxyJump = "100.96.163.55";
       user = "brock";
-      identityFile = "/home/max/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
       "u334582.your-storagebox.de" = {
       hostname = "u334582.your-storagebox.de";
       user = "u334582";
       port = 23;
-      identityFile = "/home/max/.ssh/hetzner-borg";
+      identityFile = "/home/astrid/.ssh/hetzner-borg";
       };
       "github.com" = {
       hostname = "github.com";
       user = "git";
-      identityFile = "/home/max/.ssh/max-git";
+      identityFile = "/home/astrid/.ssh/max-git";
       };
     };
   };

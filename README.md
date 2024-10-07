@@ -1,4 +1,4 @@
-# Max van der Merwe's [NixOS] configuration using [flakes] and [Home Manager].
+# Astrid van der Merwe's [NixOS] configuration using [flakes] and [Home Manager].
 
 **Machines**
 
@@ -19,7 +19,7 @@
 
 ## Instructions
 ```
-git clone https://github.com/maxvdmerwe/nixos.git
+git clone https://github.com/astrid/nixos.git
 
 cd nixos
 ```

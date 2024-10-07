@@ -120,16 +120,16 @@
 
   # Users
 
-  # Max
+  # astrid
   # create account as standard user
-  users.users.max = {
+  users.users.astrid = {
     isNormalUser = true;
     # Name
-    description = "Max";
+    description = "astrid";
     # Groups
     extraGroups = [ "wheel" "docker" "libvirtd" ];
     # SSH public keys allowed to connect to the ssh server for user.
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIGaeHs7LX8API5+OH4brfqe31b8WMSIZnJ2PIdHsD65 max-pc-lux" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFFi3dbVfeHJBHYqbx2UD1JkMofbWGdG9kWpu+QqesEN max-a17-lux" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBItfYtTxsE7xl6BgH3LtAoHnFureihclIkoIIyp0HSvdWXz8lyHAYTNm5fRqdb8Wl7ApDn4okCoOajsnyQmLQ/A= max@iphone" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC93Pzn2DxRZK3naV+TCa3FhSKUj+c30GXndAiNiJ0Ksb+KM/fKoxD4tndbF8fSI9e5Kgtneem/1y3ARJrQqiDM= max@ipad" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMsnW2eSbP4juFbmLpaEc0E5zROGWoU6Qx3V9n73yl9M max-iphone"];
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIGaeHs7LX8API5+OH4brfqe31b8WMSIZnJ2PIdHsD65 astrid-pc-lux" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFFi3dbVfeHJBHYqbx2UD1JkMofbWGdG9kWpu+QqesEN max-a17-lux" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBItfYtTxsE7xl6BgH3LtAoHnFureihclIkoIIyp0HSvdWXz8lyHAYTNm5fRqdb8Wl7ApDn4okCoOajsnyQmLQ/A= max@iphone" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC93Pzn2DxRZK3naV+TCa3FhSKUj+c30GXndAiNiJ0Ksb+KM/fKoxD4tndbF8fSI9e5Kgtneem/1y3ARJrQqiDM= max@ipad" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMsnW2eSbP4juFbmLpaEc0E5zROGWoU6Qx3V9n73yl9M max-iphone"];
     # Specify user shell
     shell = "/run/current-system/sw/bin/zsh";
     packages = with pkgs; [];
@@ -173,9 +173,9 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "0 3 */2 * * max sh /home/max/containers/backup.sh >/dev/null 2>&1"
-      "0 3 */2 * * max sh /ceres/backups/photosync/photosync-backup.sh >/dev/null 2>&1"
-      "0 3 */2 * * max sh /ceres/media/yt-dlp.sh >/dev/null 2>&1"
+      "0 3 */2 * * astrid sh /home/astrid/containers/backup.sh >/dev/null 2>&1"
+      "0 3 */2 * * astrid sh /ceres/backups/photosync/photosync-backup.sh >/dev/null 2>&1"
+      "0 3 */2 * * astrid sh /ceres/media/yt-dlp.sh >/dev/null 2>&1"
     ];
   };
 
