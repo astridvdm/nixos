@@ -305,6 +305,9 @@
     package = pkgs.winbox4;
   };
 
+  # Enable RTL-SDR
+  hardware.rtl-sdr.enable = true;
+
   nixpkgs.config.permittedInsecurePackages = [
     "fluffychat-linux-1.20.0"
     "olm-3.2.16"

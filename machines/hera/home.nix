@@ -8,8 +8,8 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName  = "Max van der Merwe";
-    userEmail = "git@maxvdm.com";
+    userName  = "astrid van der Merwe";
+    userEmail = "git@astridvdm.com";
 
     extraConfig = {
       # Sign all commits using ssh key
@@ -210,8 +210,8 @@
       day = "1";
     };
     "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system" "qemu+ssh://max@ceres/system"];
-      uris = ["qemu:///system" "qemu+ssh://max@ceres/system"];
+      autoconnect = ["qemu:///system" "qemu+ssh://astrid@ceres/system"];
+      uris = ["qemu:///system" "qemu+ssh://astrid@ceres/system"];
     };
     # "org/gnome/nautilus/icon-view" = {
     #   default-zoom-level = "standard";
@@ -262,7 +262,7 @@
     #simplex-chat-desktop
 
     #### Matrix ####
-    #fluffychat
+    fluffychat
     # #fractal-next
 
     #### Zoom video calling.
@@ -415,40 +415,40 @@
     matchBlocks = {
       "ceres" = {
       hostname = "ceres";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17";
+      user = "astrid";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
       "polaris" = {
       hostname = "polaris";
-      user = "max";
-      identityFile = "/home/max/.ssh/max-a17";
+      user = "astrid";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
       "u334582.your-storagebox.de" = {
       hostname = "u334582.your-storagebox.de";
       user = "u334582";
       port = 23;
-      identityFile = "/home/max/.ssh/hetzner-borg";
+      identityFile = "/home/astrid/.ssh/hetzner-borg";
       };
       "github.com" = {
       hostname = "github.com";
       user = "git";
-      identityFile = "/home/max/.ssh/max-git";
+      identityFile = "/home/astrid/.ssh/max-git";
       };
       "duck" = {
       hostname = "duck.taila948e.ts.net";
       user = "Brock";
-      identityFile = "/home/max/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
       "austin" = {
       hostname = "austin-r710.tail97c97.ts.net";
       user = "austin";
-      identityFile = "/home/max/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
       "lux" = {
       hostname = "172.16.0.212";
       proxyJump = "duck";
       user = "brock";
-      identityFile = "/home/max/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/max-a17";
       };
     };
   };
