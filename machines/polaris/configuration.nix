@@ -74,11 +74,11 @@
       port = 53; # Port for incoming DNS Queries.
       upstream.default = [
         # Cloudflare
-        "https://cloudflare-dns.com/dns-query" # Using Cloudflare's DNS over HTTPS server for resolving queries.
+        "https://security.cloudflare-dns.com/dns-query" # Using Cloudflare's DNS over HTTPS server for resolving queries.
       ];
       # For initially solving DoH/DoT Requests when no system Resolver is available.
       bootstrapDns = {
-        upstream = "https://cloudflare-dns.com/dns-query";
+        upstream = "https://security.cloudflare-dns.com/dns-query";
         ips = [ "1.1.1.1" "1.0.0.1" ];
       };
       #Enable Blocking of certian domains.
