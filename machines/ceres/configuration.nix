@@ -47,7 +47,7 @@
   #### ZFS ####
 
   # Choose latest compatible kernel for ZFS
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  # boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
   # Automatic scrubbing
   services.zfs.autoScrub.enable = true;
