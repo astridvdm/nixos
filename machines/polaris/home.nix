@@ -2,8 +2,8 @@
 
 {
   # TODO please change the username & home direcotry to your own
-  home.username = "max";
-  home.homeDirectory = "/home/max";
+  home.username = "astrid";
+  home.homeDirectory = "/home/astrid";
 
   # basic configuration of git, please change to your own
   programs.git = {
