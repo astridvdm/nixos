@@ -7,15 +7,15 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName  = "Max van der Merwe";
-    userEmail = "git@maxvdm.com";
+    userName  = "Astrid van der Merwe";
+    userEmail = "git@astridvdm.com";
 
     extraConfig = {
       # Sign all commits using ssh key
       commit.gpgsign = true;
       gpg.format = "ssh";
       gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-      user.signingkey = "~/.ssh/max-git.pub";
+      user.signingkey = "~/.ssh/astrid-git.pub";
     };
   };
 
@@ -432,12 +432,12 @@ dconf.settings = {
       "ceres" = {
       hostname = "ceres";
       user = "astrid";
-      identityFile = "/home/astrid/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/astrid-a17";
       };
       "polaris" = {
       hostname = "polaris";
-      user = "max";
-      identityFile = "/home/astrid/.ssh/max-a17";
+      user = "astrid";
+      identityFile = "/home/astrid/.ssh/astrid-a17";
       };
       "u334582.your-storagebox.de" = {
       hostname = "u334582.your-storagebox.de";
@@ -448,23 +448,23 @@ dconf.settings = {
       "github.com" = {
       hostname = "github.com";
       user = "git";
-      identityFile = "/home/astrid/.ssh/max-git";
+      identityFile = "/home/astrid/.ssh/astrid-git";
       };
       "duck" = {
       hostname = "duck.taila948e.ts.net";
       user = "Brock";
-      identityFile = "/home/astrid/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/astrid-a17";
       };
       "austin" = {
       hostname = "austin-r710.tail97c97.ts.net";
       user = "austin";
-      identityFile = "/home/astrid/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/astrid-a17";
       };
       "lux" = {
       hostname = "172.16.0.212";
       proxyJump = "duck";
       user = "brock";
-      identityFile = "/home/astrid/.ssh/max-a17";
+      identityFile = "/home/astrid/.ssh/astrid-a17";
       };
     };
   };

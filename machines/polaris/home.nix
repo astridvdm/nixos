@@ -8,15 +8,15 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName  = "Max van der Merwe";
-    userEmail = "git@maxvdm.com";
+    userName  = "Astrid van der Merwe";
+    userEmail = "git@astridvdm.com";
 
     extraConfig = {
       # Sign all commits using ssh key
       commit.gpgsign = true;
       gpg.format = "ssh";
       gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-      user.signingkey = "~/.ssh/max-git.pub";
+      user.signingkey = "~/.ssh/astrid-git.pub";
     };
   };
 
@@ -32,11 +32,6 @@
       user = "u334582";
       port = 23;
       identityFile = "/home/max/.ssh/hetzner-borg";
-      };
-      "github.com" = {
-      hostname = "github.com";
-      user = "git";
-      identityFile = "/home/max/.ssh/max-git";
       };
     };
   };
