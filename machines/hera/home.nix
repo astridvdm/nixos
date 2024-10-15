@@ -373,6 +373,10 @@
     # VR
     immersed-vr
 
+    # SDR - Software defined radio
+    gqrx
+    sdrpp
+
     #### CLI Nonsense ####
     cowsay # Displays mesasges in the form of a character
     fortune # Displays a random message

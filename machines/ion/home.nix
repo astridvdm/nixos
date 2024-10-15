@@ -386,6 +386,10 @@ dconf.settings = {
     # VR
     immersed-vr
 
+    # SDR - Software defined radio
+    gqrx
+    sdrpp
+
     # #### Neofetch ####
     # neofetch
 
