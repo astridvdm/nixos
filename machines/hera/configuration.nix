@@ -218,10 +218,10 @@
   hardware.rtl-sdr.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
-    "fluffychat-linux-1.20.0"
+    "fluffychat-linux-1.22.1"
     "olm-3.2.16"
   ];
-
+  
   hardware.nvidia.open = false;
 
   # NixOS Optimise
