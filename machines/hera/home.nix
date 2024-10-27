@@ -371,7 +371,7 @@
     #quickgui
 
     # VR
-    immersed-vr
+    immersed
 
     # SDR - Software defined radio
     gqrx

@@ -308,7 +308,7 @@ dconf.settings = {
     #rpi-imager
 
     # Ebook Management
-    calibre
+    #calibre
 
     # Audiobook Management
     audible-cli
@@ -384,7 +384,7 @@ dconf.settings = {
     #quickgui
 
     # VR
-    immersed-vr
+    immersed
 
     # SDR - Software defined radio
     gqrx
