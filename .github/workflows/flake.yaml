@@ -1,19 +1,23 @@
 on:
-  pull_request:
-  push:
-    branches: [main]
+  workflow_dispatch: # allows manual triggering
+  schedule:
+    - cron: '0 0 * * 0' # runs weekly on Sunday at 00:00
 
 jobs:
-  build:
-    name: Build Nix targets
-    runs-on: ubuntu-22.04
+  lockfile:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Check Nix flake inputs
-        uses: DeterminateSystems/flake-checker-action@v4 # This action
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v3
-      - name: Build default package
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@main
+        with:
+          pr-title: "Update flake.lock" # Title of PR to be created
+          pr-labels: |                  # Labels to be set on the PR
+            dependencies
+            automated
         run: nix build
       - name: Automatically update flake.lock
         uses: DeterminateSystems/update-flake-lock@main
