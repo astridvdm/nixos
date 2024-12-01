@@ -16,7 +16,7 @@
     #  nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     #  home-manager.url = "github:nix-community/home-manager/release-24.05";
 
-    # Stable 24.05
+    # Stable 24.11
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
 
