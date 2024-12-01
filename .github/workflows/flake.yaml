@@ -1,3 +1,4 @@
+name: update-flake-lock
 on:
   workflow_dispatch: # allows manual triggering
   schedule:
@@ -18,9 +19,3 @@ jobs:
           pr-labels: |                  # Labels to be set on the PR
             dependencies
             automated
-        run: nix build
-      - name: Automatically update flake.lock
-        uses: DeterminateSystems/update-flake-lock@main
-        with:
-          pr-title: "Update flake.lock"        # PR title
-          pr-labels: [dependencies, automated] # PR labels
