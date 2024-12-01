@@ -15,8 +15,10 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@v3
       - name: Build default package
         run: nix build
-      - name: Automatically update flake.lock
-        uses: DeterminateSystems/update-flake-lock
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@main
         with:
-          pr-title: "Update flake.lock"        # PR title
-          pr-labels: [dependencies, automated] # PR labels
+          pr-title: "Update flake.lock" # Title of PR to be created
+          pr-labels: |                  # Labels to be set on the PR
+            dependencies
+            automated
