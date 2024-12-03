@@ -10,30 +10,27 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" "nvidiabl" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4cd32182-f2d1-4211-a845-b950f28140bc";
+    { device = "/dev/disk/by-uuid/f7d301d2-a66a-4540-868e-ab77c02e756f";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
-  boot.initrd.luks.devices."luks-513876bf-cc09-4856-93f4-a26ed6f708af".device = "/dev/disk/by-uuid/513876bf-cc09-4856-93f4-a26ed6f708af";
+  boot.initrd.luks.devices."luks-3fd51d07-b76c-4396-b629-6d960cac818d".device = "/dev/disk/by-uuid/3fd51d07-b76c-4396-b629-6d960cac818d";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E2F4-9818";
+    { device = "/dev/disk/by-uuid/65C0-5BB2";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices = [ {
     device = "/var/lib/swapfile";
     size = 32*1024;
   } ];
-
-
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
@@ -48,7 +45,7 @@
   # Hardware power options
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "powersave";
+    cpuFreqGovernor = "adaptive";
     powertop.enable = true;
   };
 }

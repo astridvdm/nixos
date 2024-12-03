@@ -21,6 +21,3 @@ jobs:
             automated
                 with:
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
-
-
-# GIT SIGNING TEST 3
