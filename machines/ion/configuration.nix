@@ -42,14 +42,14 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
+    open = true;
 
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   # Increase vm count for Star Citizen
@@ -73,7 +73,7 @@
   fileSystems."/ceres" =
    { device = "astrid@ceres:/ceres";
      fsType = "fuse.sshfs";
-     options = [ "noauto" "x-systemd.automount" "_netdev" "user" "idmap=user" "follow_symlinks" "identityfile=/home/max/.ssh/astrid-a17" "allow_other" "default_permissions" "uid=1000" "gid=1000" ];
+     options = [ "noauto" "x-systemd.automount" "_netdev" "user" "idmap=user" "follow_symlinks" "identityfile=/home/astrid/.ssh/astrid-a17" "allow_other" "default_permissions" "uid=1000" "gid=1000" ];
    };
 
 
@@ -267,8 +267,8 @@
 
   # Docker
   virtualisation.docker.enable = true;
-  virtualisation.docker.enableNvidia = true;
-  #hardware.nvidia-container-toolkit.enable = true;
+  #virtualisation.docker.enableNvidia = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   # Flatpak
   services.flatpak = {
