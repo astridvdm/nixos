@@ -149,13 +149,14 @@ dconf.settings = {
   };
   "org/gnome/shell" = {
     favorite-apps = [
-      "chromium-browser.desktop"
+      "firefox.desktop"
       "spotify.desktop"
+      "io.github.kukuruzka165.materialgram.desktop"
+      "motrix.desktop"
       "org.signal.Signal.desktop"
-      "org.telegram.desktop.desktop"
       "vesktop.desktop"
       "codium.desktop"
-      "org.gnome.Nautilus.desktop"     
+      "org.gnome.Nautilus.desktop"    
     ];
     disable-user-extensions = false;
     enabled-extensions = [

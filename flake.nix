@@ -77,6 +77,7 @@
 
             # Special Args
             home-manager.extraSpecialArgs = { inherit inputs nix-vscode-extensions; };
+            home-manager.backupFileExtension = "backup";
 
             # import the home.nix config file
             home-manager.users.astrid.imports = [
@@ -107,6 +108,7 @@
 
             # Special Args
             home-manager.extraSpecialArgs = { inherit inputs nix-vscode-extensions; };
+            home-manager.backupFileExtension = "backup";
 
             # import the home.nix config file
             home-manager.users.astrid.imports = [
@@ -130,6 +132,9 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
+            # Special Args
+            home-manager.backupFileExtension = "backup";
+
             # import the home.nix config file
             home-manager.users.astrid.imports = [
               ./machines/ceres/home.nix
@@ -151,6 +156,9 @@
             # allow home-manager to follow allow unfree
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+
+            # Special Args
+            home-manager.backupFileExtension = "backup";
 
             # import the home.nix config file
             home-manager.users.astrid.imports = [
