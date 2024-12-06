@@ -24,12 +24,12 @@
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
 
   networking.interfaces.enp0s31f6.ipv6.addresses = [ {
-    address = "2c0f:f4c0:1185:8300::2";
+    address = "2c0f:f4c0:1185:8174::2";
     prefixLength = 64;
   } ];
 
   networking.defaultGateway6 = {
-    address = "2c0f:f4c0:1185:8300::1";
+    address = "2c0f:f4c0:1185:8174::1";
     interface = "enp0s31f6";
   };
 
