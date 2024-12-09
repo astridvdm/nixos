@@ -250,6 +250,9 @@ dconf.settings = {
     ungoogled-chromium
     motrix
 
+    #### Mail ####
+    mailspring
+
     #### Discord ####
     vesktop
 
