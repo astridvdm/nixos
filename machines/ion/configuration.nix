@@ -111,6 +111,13 @@
   # Enable networking for Gnome
   networking.networkmanager.enable = true;
 
+  networking.interfaces.br0.useDHCP = true;
+  networking.bridges = {
+    "br0" = {
+      interfaces = [ "enp4s0" ];
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
 

@@ -45,7 +45,7 @@ xdg.configFile = {
 gtk = {
   enable = true;
   theme = {
-    name = "catppuccin-mocha-mauve-standard";
+    name = "catppuccin-mocha-lavender-standard";
     package =
       (pkgs.catppuccin-gtk.overrideAttrs {
         src = pkgs.fetchFromGitHub {
@@ -59,7 +59,7 @@ gtk = {
         postUnpack = "";
       }).override
         {
-          accents = [ "mauve" ];
+          accents = [ "lavender" ];
           variant = "mocha";
           #size = "compact";
         };
@@ -68,7 +68,7 @@ gtk = {
     name = "Papirus-Dark";
     package = pkgs.catppuccin-papirus-folders.override {
       flavor = "mocha";
-      accent = "mauve";
+      accent = "lavender";
     };
   };
 #  cursorTheme = {
@@ -121,7 +121,7 @@ dconf.settings = {
     natural-scroll = "false";
   };
   "org/gnome/shell/extensions/user-theme" = {
-    name = "catppuccin-mocha-mauve-standard";
+    name = "catppuccin-mocha-lavender-standard";
   };
   # "org/gnome/desktop/interface/cursor-theme" = {
   #   name = "catppuccin-mocha-mauve-cursors";
@@ -134,6 +134,10 @@ dconf.settings = {
     binding = "<Control>Escape";
     command = "kgx";
     name = "Open Terminal";
+  };
+  "org/gnome/Console" = {
+    use-system-font = "false";
+    custom-font = "Fira Code 14";
   };
   "org/gnome/desktop/media-handling" = {
     autorun-never = true;
@@ -350,6 +354,7 @@ dconf.settings = {
 
     #### Emulation ####
     ryujinx
+    retroarchFull
 
     #### System ####
     pciutils # lspci
@@ -359,7 +364,7 @@ dconf.settings = {
     # gccgo13 # C Compiler
     xwayland # allow x.org programs to run under wayland
     starship # theme for zsh
-    #nerdfonts # fonts required for starship
+    fira-code # fonts required for starship
     btrfs-progs # Utilities for the btrfs filesystem
     #wineWowPackages.full # wine packages for running windows software/games
     wineWowPackages.waylandFull # same as above for wayland

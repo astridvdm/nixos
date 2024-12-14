@@ -344,7 +344,7 @@ dconf.settings = {
     # gccgo13 # C Compiler
     xwayland # allow x.org programs to run under wayland
     starship # theme for zsh
-    #nerdfonts-firacode # fonts required for starship
+    fira-code # fonts required for starship
     btrfs-progs # Utilities for the btrfs filesystem
     #wineWowPackages.full # wine packages for running windows software/games
     wineWowPackages.waylandFull # same as above for wayland
