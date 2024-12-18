@@ -7,9 +7,8 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   # Choose kernel package
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  #TEST SIGNING 5
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Networking
   networking.hostName = "polaris"; # Define your hostname.
