@@ -7,7 +7,7 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   # Choose kernel package
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest; 
   #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Networking
