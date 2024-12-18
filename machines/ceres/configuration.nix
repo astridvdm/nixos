@@ -16,6 +16,10 @@
   # enable Flakes and the new command line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Choose kernel package
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   networking.interfaces.enp0s31f6.ipv4.addresses = [ {
     address = "10.0.0.2";
     prefixLength = 24;

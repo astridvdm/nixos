@@ -6,6 +6,11 @@
   # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
 
+  # Choose kernel package
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  #TEST SIGNING 5
+
   # Networking
   networking.hostName = "polaris"; # Define your hostname.
 
