@@ -150,6 +150,7 @@
     gparted # partition manager
     steamtinkerlaunch
     nodejs_22
+    ptyxis
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
@@ -168,6 +169,7 @@
     atomix # puzzle game
     gnome-contacts
     gnome-initial-setup
+    gnome-terminal
   ]);
 
   # Enable Widevine for Chrome

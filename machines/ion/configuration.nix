@@ -157,6 +157,7 @@
     atomix # puzzle game
     gnome-contacts
     gnome-initial-setup
+    gnome-terminal
   ]);
 
   # # Enable the KDE Desktop
@@ -243,6 +244,7 @@
     gparted # partition manager
     steamtinkerlaunch
     nodejs_22
+    ptyxis
   ];
 
   # Enable Widevine for Chrome

@@ -132,7 +132,7 @@ dconf.settings = {
   };
   "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
     binding = "<Control>Escape";
-    command = "kgx";
+    command = "ptyxis";
     name = "Open Terminal";
   };
   "org/gnome/Console" = {
@@ -188,6 +188,11 @@ dconf.settings = {
       "autohide-volume@unboiled.info"
       "supergfxctl-gex@asus-linux.org"
     ];
+  };
+  "org/gnome/nautilus/preferences" = {
+    recursive-search = "always";
+    show-image-thumbnails = "always";
+    show-directory-item-counts = "always";
   };
   # Configure Extensions
   # Configure Bluetooth Quick Connect
