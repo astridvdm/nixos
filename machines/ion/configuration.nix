@@ -291,7 +291,7 @@
       enable = true;
       onCalendar = "weekly"; # Default value
     };
-    packages = [ "hu.irl.cameractrls" "org.signal.Signal" "io.github.pieterdd.RcloneShuttle" ];
+    packages = [ "hu.irl.cameractrls" "org.signal.Signal" "io.github.pieterdd.RcloneShuttle" "com.spotify.Client" ];
   };
 
   # iOS Documents

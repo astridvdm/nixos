@@ -299,6 +299,7 @@ dconf.settings = {
     filebot
     jellyfin-media-player
     delfin
+    #spotify
     #tidal-hifi
 
     # Deluge
@@ -537,33 +538,33 @@ dconf.settings = {
     ];
   };
 
-  programs.spicetify =
-   let
-     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-   in
-   {
-     enable = true;
-     enabledExtensions = with spicePkgs.extensions; [
-       adblock
-       hidePodcasts
-       shuffle # shuffle+ (special characters are sanitized out of extension names)
-       #fullAppDisplayMod
-       groupSession
-       playlistIcons
-       fullAlbumDate
-       goToSong
-       playlistIntersection
-       #phraseToPlaylist
-       wikify
-       songStats
-       showQueueDuration
-       betterGenres
-       lastfm
-       beautifulLyrics
-     ];
-     theme = spicePkgs.themes.comfy;
-     colorScheme = "catppuccin-mocha";
-   };
+  # programs.spicetify = BROKEN
+  #  let
+  #    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  #  in
+  #  {
+  #    enable = true;
+  #    enabledExtensions = with spicePkgs.extensions; [
+  #      adblock
+  #      hidePodcasts
+  #      shuffle # shuffle+ (special characters are sanitized out of extension names)
+  #      #fullAppDisplayMod
+  #      groupSession
+  #      playlistIcons
+  #      fullAlbumDate
+  #      goToSong
+  #      playlistIntersection
+  #      #phraseToPlaylist
+  #      wikify
+  #      songStats
+  #      showQueueDuration
+  #      betterGenres
+  #      lastfm
+  #      beautifulLyrics
+  #    ];
+  #    theme = spicePkgs.themes.comfy;
+  #    colorScheme = "catppuccin-mocha";
+  #  };
 
 # Ghromuim extensions
 #   "Image downloader - Imageye|agionbommeaifngbhincahgmoflcikhm

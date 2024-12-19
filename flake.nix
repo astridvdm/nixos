@@ -64,7 +64,7 @@
           ./machines/hera/hardware-configuration.nix
           nix-flatpak.nixosModules.nix-flatpak
           catppuccin.nixosModules.catppuccin
-          inputs.spicetify-nix.nixosModules.default
+          #inputs.spicetify-nix.nixosModules.default
           nixos-hardware.nixosModules.asus-fa507rm
 
           # make home-manager as a module of nixos
@@ -83,7 +83,7 @@
             home-manager.users.astrid.imports = [
               ./machines/hera/home.nix
               catppuccin.homeManagerModules.catppuccin
-              inputs.spicetify-nix.homeManagerModules.default
+              #inputs.spicetify-nix.homeManagerModules.default
             ];
           }
         ];
@@ -96,7 +96,7 @@
           ./machines/ion/hardware-configuration.nix
           nix-flatpak.nixosModules.nix-flatpak
           catppuccin.nixosModules.catppuccin
-          inputs.spicetify-nix.nixosModules.default
+          #inputs.spicetify-nix.nixosModules.default
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
@@ -114,7 +114,7 @@
             home-manager.users.astrid.imports = [
               ./machines/ion/home.nix
               catppuccin.homeManagerModules.catppuccin
-              inputs.spicetify-nix.homeManagerModules.default
+              #inputs.spicetify-nix.homeManagerModules.default
             ];
           }
         ];
