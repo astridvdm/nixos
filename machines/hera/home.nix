@@ -142,13 +142,14 @@ dconf.settings = {
   "org/gnome/shell" = {
     favorite-apps = [
       "firefox.desktop"
-      "spotify.desktop"
+      "com.spotify.Client.desktop"
       "io.github.kukuruzka165.materialgram.desktop"
       "motrix.desktop"
       "org.signal.Signal.desktop"
       "vesktop.desktop"
       "codium.desktop"
       "org.gnome.Nautilus.desktop"    
+      "org.gnome.Ptyxis.desktop"
     ];
     disable-user-extensions = false;
     enabled-extensions = [
