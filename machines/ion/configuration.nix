@@ -281,8 +281,8 @@
 
   # Docker
   virtualisation.docker.enable = true;
-  #virtualisation.docker.enableNvidia = true;
-  hardware.nvidia-container-toolkit.enable = true;
+  virtualisation.docker.enableNvidia = true;
+  #hardware.nvidia-container-toolkit.enable = true;
 
   # Flatpak
   services.flatpak = {
@@ -291,7 +291,7 @@
       enable = true;
       onCalendar = "weekly"; # Default value
     };
-    packages = [ "hu.irl.cameractrls" "org.signal.Signal" "io.github.pieterdd.RcloneShuttle" "com.spotify.Client" ];
+    packages = [ "hu.irl.cameractrls" "org.signal.Signal" "io.github.pieterdd.RcloneShuttle" "com.spotify.Client" "com.github.tchx84.Flatseal" "com.termius.Termius" ];
   };
 
   # iOS Documents
@@ -322,10 +322,10 @@
   # Enable RTL-SDR
   hardware.rtl-sdr.enable = true;
   
-  nixpkgs.config.permittedInsecurePackages = [
-    "fluffychat-linux-1.22.1"
-    "olm-3.2.16"
-  ];
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "fluffychat-linux-1.22.1"
+  #   "olm-3.2.16"
+  # ];
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;
