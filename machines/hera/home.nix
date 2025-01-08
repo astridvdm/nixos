@@ -145,6 +145,7 @@ dconf.settings = {
       "com.spotify.Client.desktop"
       "io.github.kukuruzka165.materialgram.desktop"
       "org.signal.Signal.desktop"
+      "Mailspring.desktop"
       "motrix.desktop"
       "vesktop.desktop"
       "codium.desktop"

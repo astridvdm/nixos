@@ -158,6 +158,7 @@ dconf.settings = {
       "io.github.kukuruzka165.materialgram.desktop"
       "org.signal.Signal.desktop"
       "vesktop.desktop"
+      "Mailspring.desktop"
       "motrix.desktop"
       "codium.desktop"
       "org.gnome.Nautilus.desktop"    
