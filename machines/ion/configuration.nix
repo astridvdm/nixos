@@ -245,6 +245,7 @@
     steamtinkerlaunch
     nodejs_22
     ptyxis
+    kitty
   ];
 
   # Enable Widevine for Chrome
@@ -301,7 +302,7 @@
   services.openssh.enable = true;
 
   ## Mullvad
-  #services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.enable = true;
 
   # OBS Virtual Cam
   boot.extraModulePackages = with config.boot.kernelPackages; [
