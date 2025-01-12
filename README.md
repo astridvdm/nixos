@@ -19,7 +19,7 @@
 
 ## Instructions
 ```
-git clone https://github.com/astrid/nixos.git
+git clone https://github.com/astridvdm/nixos.git
 
 cd nixos
 ```
