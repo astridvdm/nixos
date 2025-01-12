@@ -199,6 +199,24 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    extraConfig.pipewire-pulse = {
+      "disable-mic-auto-gain-for-some-applications" = {
+        "pulse.rules" = [
+          {
+            actions = {
+              quirks = [
+                "disable-mic-auto-gain-for-some-applications"
+              ];
+            };
+            matches = [
+              {
+                "application.process.binary" = "chrome";
+              }
+            ];
+          }
+        ];
+      };
+    };
   };
 
   # Users

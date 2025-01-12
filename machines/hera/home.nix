@@ -387,9 +387,14 @@ dconf.settings = {
     # VR
     immersed
 
+    # Radio nonsense
+    chirp # open-source tool for programming your amateur radio
     # SDR - Software defined radio
     gqrx
     sdrpp
+
+    # #### Neofetch ####
+    # neofetch
 
     #### CLI Nonsense ####
     cowsay # Displays mesasges in the form of a character
