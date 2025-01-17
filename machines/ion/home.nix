@@ -189,6 +189,7 @@ dconf.settings = {
       "autohide-battery@sitnik.ru"
       "autohide-volume@unboiled.info"
       "supergfxctl-gex@asus-linux.org"
+      "Airpod-Battery-Monitor@maniacx.github.com"
     ];
   };
   "org/gnome/nautilus/preferences" = {
@@ -227,6 +228,9 @@ dconf.settings = {
   };
   "org/gnome/shell/extensions/weekstartmodifier" = {
     day = "1";
+  };
+  "org/gnome/shell/extensions/Airpod-Battery-Monitor" = {
+    gui-interface = "true";
   };
   "org/virt-manager/virt-manager/connections" = {
     autoconnect = ["qemu:///system" "qemu+ssh://astrid@ceres/system"];
@@ -448,6 +452,7 @@ dconf.settings = {
     gnomeExtensions.fullscreen-avoider
     gnomeExtensions.grand-theft-focus
     gnomeExtensions.gsconnect
+    gnomeExtensions.airpod-battery-monitor
     # gnomeExtensions.supergfxctl-gex
     # gnomeExtensions.autohide-battery
     # gnomeExtensions.autohide-volume
