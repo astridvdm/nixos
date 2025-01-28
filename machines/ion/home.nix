@@ -95,7 +95,7 @@ gtk = {
   #      flavor = "mocha";
   #    };
   #  gnomeShellTheme = true;
-    #  icon = { 
+    #  icon = {
     #   enable = true;
     #   accent = "lavender";
     #   flavor = "mocha";
@@ -117,7 +117,7 @@ dconf.settings = {
     # font-name = "Red Hat Text 10";
     # monospace-font-name = "Red Hat Mono 10";
   };
-  "org/gnome/desktop/peripherals/touchpad" = {  
+  "org/gnome/desktop/peripherals/touchpad" = {
     natural-scroll = "false";
   };
   "org/gnome/shell/extensions/user-theme" = {
@@ -161,7 +161,7 @@ dconf.settings = {
       "Mailspring.desktop"
       "motrix.desktop"
       "codium.desktop"
-      "org.gnome.Nautilus.desktop"    
+      "org.gnome.Nautilus.desktop"
       "org.gnome.Ptyxis.desktop"
     ];
     disable-user-extensions = false;
@@ -204,7 +204,7 @@ dconf.settings = {
     bluetooth-auto-power-off = true;
     keep-menu-on-toggle = true;
     refresh-button-on = true;
-    show-battery-value-on = true; 
+    show-battery-value-on = true;
     show-battery-icon-on = true;
   };
   "org/gnome/shell/extensions/mediacontrols" = {
@@ -293,7 +293,7 @@ dconf.settings = {
     #fluffychat # Marked insecure
     # #fractal-next
     element-desktop
-  
+
     #### Zoom video calling.
     zoom-us
 
@@ -310,7 +310,7 @@ dconf.settings = {
 
     # Deluge
     deluge
-    
+
     #### Rclone ####
     rclone
     #rclone-browser
@@ -337,6 +337,11 @@ dconf.settings = {
     # Audiobook Management
     audible-cli
     libation
+
+
+    ## Media
+    ffmpeg
+    handbrake
 
     # OBS Studio
     obs-studio
@@ -524,7 +529,7 @@ dconf.settings = {
 
   programs.kitty = {
     enable = true;
-    settings = { 
+    settings = {
       tab_bar_min_tabs = "1";
       tab_bar_edge = "bottom";
       tab_bar_style = "powerline";
