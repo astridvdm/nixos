@@ -6,7 +6,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # "vm.swappiness"
-  boot.kernel.sysctl = { "vm.swappiness" = 100; }; 
+  boot.kernel.sysctl = { "vm.swappiness" = 100; };
 
   # Networking
 
@@ -63,7 +63,7 @@
 
   boot.zfs.extraPools = [ "ceres" ];
   boot.kernelParams = [ "zfs.zfs_arc_max=32000000000" ];
-  
+
 
   # # BTRFS Array
   # fileSystems."/mnt/ceres" =
@@ -138,7 +138,7 @@
     shell = "/run/current-system/sw/bin/zsh";
     packages = with pkgs; [];
   };
-  
+
   environment.shells = with pkgs; [ zsh ];
 
   # Allow unfree
@@ -179,7 +179,7 @@
     systemCronJobs = [
       "0 3 */2 * * astrid sh /home/astrid/containers/backup.sh >/dev/null 2>&1"
       "0 3 */2 * * astrid sh /ceres/backups/photosync/photosync-backup.sh >/dev/null 2>&1"
-      "0 3 */2 * * astrid sh /ceres/media/yt-dlp.sh >/dev/null 2>&1"
+      "0 3 */2 * * astrid sh /ceres/media/media.sh >/dev/null 2>&1"
     ];
   };
 
@@ -231,22 +231,22 @@
 	#       dns_enabled = true;
 	#       ipv6_enabled = true;
   #     };
-          
+
   #     # Automaticly prune old images.
   #     autoPrune.enable = true;
   #   };
   # };
 
 
-  # networking.firewall.interfaces."podman[0-9]+".allowedUDPPorts = [ 
-  #   53 
-  #   80 
-  #   443 
+  # networking.firewall.interfaces."podman[0-9]+".allowedUDPPorts = [
+  #   53
+  #   80
+  #   443
   # ];
-  # networking.firewall.interfaces."podman[0-9]+".allowedTCPPorts = [ 
-  #   53 
-  #   80 
-  #   443 
+  # networking.firewall.interfaces."podman[0-9]+".allowedTCPPorts = [
+  #   53
+  #   80
+  #   443
   # ];
 
   # Docker
@@ -280,6 +280,35 @@
 
   # KVM Virtualization
   virtualisation.libvirtd.enable = true;
+
+  # UPS Backup
+  power.ups = {
+    enable = true;
+    mode = "standalone";
+    ups = {
+      ups = {
+        driver = "nutdrv_qx";
+        port = "auto";
+        description = "My UPS";
+        summary = "subdriver=cypress\nvendorid=0665\nproductid=5161\npollinterval=10";
+      };
+    };
+  };
+
+  # environment.etc."nut/upsd.conf".text = '';
+  environment.etc."nut/upsd.users".text = ''
+  ...
+  [upsuser]
+     password = 30hUq04qnytuB72s
+     upsmon primary
+     actions = SET
+     instcmds = ALL
+  '';
+  environment.etc."nut/upsmon.conf".text =
+  ''
+  MONITOR ups@127.0.0.1 1 upsuser 30hUq04qnytuB72s primary
+  SHUTDOWNCMD "/run/current-system/sw/bin/poweroff"
+  '';
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;
