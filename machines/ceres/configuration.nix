@@ -293,22 +293,20 @@
         summary = "subdriver=cypress\nvendorid=0665\nproductid=5161\npollinterval=10";
       };
     };
+    upsd = {
+      password = "30hUq04qnytuB72s";
+      upsmon = "primary";
+      actions = "SET";
+      instcmds = "ALL";
+    };
+    upsmon = {
+      MONITOR ups@127.0.0.1 1 upsuser 30hUq04qnytuB72s primary
+      SHUTDOWNCMD "/run/current-system/sw/bin/poweroff"
+    };
+    users = {
+      astrid:
+    };
   };
-
-  # environment.etc."nut/upsd.conf".text = '';
-  environment.etc."nut/upsd.users".text = ''
-  ...
-  [upsuser]
-     password = 30hUq04qnytuB72s
-     upsmon primary
-     actions = SET
-     instcmds = ALL
-  '';
-  environment.etc."nut/upsmon.conf".text =
-  ''
-  MONITOR ups@127.0.0.1 1 upsuser 30hUq04qnytuB72s primary
-  SHUTDOWNCMD "/run/current-system/sw/bin/poweroff"
-  '';
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;
