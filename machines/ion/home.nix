@@ -548,7 +548,8 @@ dconf.settings = {
       pkief.material-product-icons
       tailscale.vscode-tailscale
       ms-azuretools.vscode-docker
-      jnoortheen.nix-ide
+      #jnoortheen.nix-ide
+      bbenoist.nix
       eamodio.gitlens
       usernamehw.errorlens
       christian-kohler.path-intellisense
