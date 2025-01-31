@@ -171,6 +171,7 @@
      ctop
      zsh
      bat
+     nut
    ];
 
   # Enable cron service
@@ -280,32 +281,60 @@
 
   # KVM Virtualization
   virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.onShutdown = "shutdown";
 
-  # UPS Backup
+
+  # UPS configuration
   power.ups = {
+
+    # Enable
     enable = true;
     mode = "standalone";
-    ups = {
-      ups = {
-        driver = "nutdrv_qx";
-        port = "auto";
-        description = "My UPS";
-        summary = "subdriver=cypress\nvendorid=0665\nproductid=5161\npollinterval=10";
+
+    # Device
+    ups.ceres = {
+      driver = "nutdrv_qx";
+      port = "auto";
+      description = "My UPS";
+      summary = "subdriver=cypress\nvendorid=0665\nproductid=5161\npollinterval=10";
+      shutdownOrder = 0;
+    };
+
+    # Service
+    upsd = {
+      enable = true;
+      # Bind address
+      listen = [ { address = "127.0.0.1"; } ];
+    };
+
+    # Users
+    users.admin = {
+      # UPS Monitor
+      upsmon = "primary";
+      # Password
+      passwordFile = "/etc/ups/password";
+    };
+
+    # Maintenance
+    users.maintenance = {
+      instcmds = [ "ALL" ];
+      actions = [ "set" "fsd" ];
+      # Password
+      passwordFile = "/etc/ups/password";
+    };
+    # Monitor
+    upsmon = {
+
+      # Connection
+      monitor.main = {
+        system = "ceres@localhost";
+        powerValue = 1;
+        user = "admin";
+        passwordFile = "/etc/ups/password";
+        type = "primary";
       };
     };
-    upsd = {
-      password = "30hUq04qnytuB72s";
-      upsmon = "primary";
-      actions = "SET";
-      instcmds = "ALL";
-    };
-    upsmon = {
-      MONITOR ups@127.0.0.1 1 upsuser 30hUq04qnytuB72s primary
-      SHUTDOWNCMD "/run/current-system/sw/bin/poweroff"
-    };
-    users = {
-      astrid:
-    };
+
   };
 
   # NixOS Optimise
@@ -328,5 +357,3 @@
   # NixOS System Version
   system.stateVersion = "23.11";
 }
-
-
