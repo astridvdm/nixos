@@ -391,6 +391,7 @@ dconf.settings = {
     pavucontrol
     ncdu
     pdfarranger
+    linux-wallpaperengine
 
     #### Networking ####
     mtr # A network diagnostic tool

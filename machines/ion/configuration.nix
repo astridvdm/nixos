@@ -9,8 +9,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Choose kernel package
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Nvidia config
 
@@ -37,9 +37,9 @@
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Support is limited to the Turing and later architectures. Full list of
+    # supported GPUs is at:
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
     open = false;
@@ -149,7 +149,7 @@
     epiphany # web browser
     geary # email reader
     yelp # Help view
-    gnome-music      
+    gnome-music
     gnome-characters
     tali # poker game
     iagno # go game
@@ -167,7 +167,7 @@
   # services.desktopManager.plasma6.enable = true;
 
   # services.displayManager.sddm = {
-  #   catppuccin = { 
+  #   catppuccin = {
   #     enable = true;
   #     flavor = "mocha";
   #     loginBackground = true;
@@ -340,7 +340,7 @@
 
   # Enable RTL-SDR
   hardware.rtl-sdr.enable = true;
-  
+
   # nixpkgs.config.permittedInsecurePackages = [
   #   "fluffychat-linux-1.22.1"
   #   "olm-3.2.16"
