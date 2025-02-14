@@ -17,7 +17,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Choose kernel package
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.interfaces.enp0s31f6.ipv4.addresses = [ {
@@ -119,8 +119,8 @@
   services.printing.defaultShared = true; # If you want
 
   # Firewall
-  networking.firewall.allowedUDPPorts = [ 631 ];
-  networking.firewall.allowedTCPPorts = [ 631 ];
+  networking.firewall.allowedUDPPorts = [ 53 80 443 631 ];
+  networking.firewall.allowedTCPPorts = [ 53 80 443 631 ];
 
   # Users
 
@@ -131,7 +131,7 @@
     # Name
     description = "astrid";
     # Groups
-    extraGroups = [ "wheel" "docker" "libvirtd" ];
+    extraGroups = [ "wheel" "podman" "libvirtd" ];
     # SSH public keys allowed to connect to the ssh server for user.
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIGaeHs7LX8API5+OH4brfqe31b8WMSIZnJ2PIdHsD65 astrid-pc-lux" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFFi3dbVfeHJBHYqbx2UD1JkMofbWGdG9kWpu+QqesEN max-a17-lux" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBItfYtTxsE7xl6BgH3LtAoHnFureihclIkoIIyp0HSvdWXz8lyHAYTNm5fRqdb8Wl7ApDn4okCoOajsnyQmLQ/A= max@iphone" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC93Pzn2DxRZK3naV+TCa3FhSKUj+c30GXndAiNiJ0Ksb+KM/fKoxD4tndbF8fSI9e5Kgtneem/1y3ARJrQqiDM= max@ipad" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMsnW2eSbP4juFbmLpaEc0E5zROGWoU6Qx3V9n73yl9M max-iphone"];
     # Specify user shell
@@ -216,40 +216,6 @@
   # "diffie-hellman-group-exchange-sha256"
   # ];
 
-
-  # # Enable common container config files in /etc/containers
-  # virtualisation.containers.enable = true;
-  # virtualisation.containers.registries.search = [ "docker.io" "quay.io"  "ghcr.io" "lscr.io" ];
-  # virtualisation = {
-  #   podman = {
-  #     enable = true;
-
-  #     # Create a `docker` alias for podman, to use it as a drop-in replacement
-  #     dockerCompat = true;
-
-  #     # Required for containers under podman-compose to be able to talk to each other.
-  #     defaultNetwork.settings = {
-	#       dns_enabled = true;
-	#       ipv6_enabled = true;
-  #     };
-
-  #     # Automaticly prune old images.
-  #     autoPrune.enable = true;
-  #   };
-  # };
-
-
-  # networking.firewall.interfaces."podman[0-9]+".allowedUDPPorts = [
-  #   53
-  #   80
-  #   443
-  # ];
-  # networking.firewall.interfaces."podman[0-9]+".allowedTCPPorts = [
-  #   53
-  #   80
-  #   443
-  # ];
-
   # # Docker
   # virtualisation.docker = {
   #   enable = true;
@@ -278,13 +244,15 @@
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings = {
 	      dns_enabled = true;
-	      ipv6_enabled = true;
+	      #ipv6_enabled = true;
       };
 
       # Automaticly prune old images.
       autoPrune.enable = true;
     };
   };
+
+  boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 53;
 
   # Make sure docker starts after the storage array is mounted.
   #systemd.services.docker.after = ["mnt-ceres.mount"];
