@@ -119,8 +119,8 @@
   services.printing.defaultShared = true; # If you want
 
   # Firewall
-  networking.firewall.allowedUDPPorts = [ 53 80 443 631 ];
-  networking.firewall.allowedTCPPorts = [ 53 80 443 631 ];
+  networking.firewall.allowedUDPPorts = [ 2377 631 ];
+  networking.firewall.allowedTCPPorts = [ 2377 631 ];
 
   # Users
 
