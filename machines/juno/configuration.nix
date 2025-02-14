@@ -111,7 +111,7 @@
       ip6tables = true;
       fixed-cidr-v6 = "fd00:0::/64";
       experimental = true;
-      live-restore = true;
+      live-restore = false;
     };
   };
 
