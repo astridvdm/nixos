@@ -101,13 +101,17 @@
   virtualisation.docker = {
     enable = true;
     #setSocketVariable = true;
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
+    };
     daemon.settings = {
       #userland-proxy = false;
       ipv6 = true;
       ip6tables = true;
       fixed-cidr-v6 = "fd00:0::/64";
       experimental = true;
-      autoPrune = true;
+      live-restore = true;
     };
   };
 
