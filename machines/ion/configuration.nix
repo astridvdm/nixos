@@ -341,6 +341,10 @@
   # Enable RTL-SDR
   hardware.rtl-sdr.enable = true;
 
+  # enable appimage support
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+
   # nixpkgs.config.permittedInsecurePackages = [
   #   "fluffychat-linux-1.22.1"
   #   "olm-3.2.16"

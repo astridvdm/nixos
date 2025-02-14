@@ -153,7 +153,8 @@ dconf.settings = {
   };
   "org/gnome/shell" = {
     favorite-apps = [
-      "firefox.desktop"
+      #"firefox.desktop"
+      "chromium-browser.desktop"
       "com.spotify.Client.desktop"
       "io.github.kukuruzka165.materialgram.desktop"
       "org.signal.Signal.desktop"
@@ -491,7 +492,7 @@ dconf.settings = {
       };
       "duck" = {
       hostname = "duck.taila948e.ts.net";
-      user = "Brock";
+      user = "brock";
       identityFile = "/home/astrid/.ssh/astrid-a17";
       };
       "austin" = {
