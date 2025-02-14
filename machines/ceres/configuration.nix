@@ -165,9 +165,9 @@
      smartmontools
      e2fsprogs
      dive # look into docker image layers
-     podman-tui # status of containers in the terminal
-     podman-compose # start group of containers for dev
-     #docker-compose # start group of containers for dev
+     #podman-tui # status of containers in the terminal
+     #podman-compose # start group of containers for dev
+     docker-compose # start group of containers for dev
      ctop
      zsh
      bat
@@ -216,43 +216,43 @@
   # "diffie-hellman-group-exchange-sha256"
   # ];
 
-  # # Docker
-  # virtualisation.docker = {
-  #   enable = true;
-  #   #setSocketVariable = true;
-  #   daemon.settings = {
-  #     #userland-proxy = false;
-  #     ipv6 = true;
-  #     ip6tables = true;
-  #     fixed-cidr-v6 = "fd00:0::/64";
-  #     experimental = true;
-  #     #autoPrune = true;
-  #   };
-  # };
-
-  # Podman
-
-  # Enable common container config files in /etc/containers
-  virtualisation.containers.enable = true;
-  virtualisation = {
-    podman = {
-      enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings = {
-	      dns_enabled = true;
-	      #ipv6_enabled = true;
-      };
-
-      # Automaticly prune old images.
-      autoPrune.enable = true;
+  # Docker
+  virtualisation.docker = {
+    enable = true;
+    #setSocketVariable = true;
+    daemon.settings = {
+      #userland-proxy = false;
+      ipv6 = true;
+      ip6tables = true;
+      fixed-cidr-v6 = "fd00:0::/64";
+      experimental = true;
+      #autoPrune = true;
     };
   };
 
-  boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 53;
+  # # Podman
+
+  # # Enable common container config files in /etc/containers
+  # virtualisation.containers.enable = true;
+  # virtualisation = {
+  #   podman = {
+  #     enable = true;
+
+  #     # Create a `docker` alias for podman, to use it as a drop-in replacement
+  #     dockerCompat = true;
+
+  #     # Required for containers under podman-compose to be able to talk to each other.
+  #     defaultNetwork.settings = {
+	#       dns_enabled = true;
+	#       ipv6_enabled = true;
+  #     };
+
+  #     # Automaticly prune old images.
+  #     autoPrune.enable = true;
+  #   };
+  # };
+
+  # boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 53;
 
   # Make sure docker starts after the storage array is mounted.
   #systemd.services.docker.after = ["mnt-ceres.mount"];

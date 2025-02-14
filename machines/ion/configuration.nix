@@ -192,7 +192,7 @@
 
   # Enable sound with pipewire.
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -264,6 +264,7 @@
     nodejs_22
     ptyxis
     kitty
+    podman-desktop
   ];
 
   # Enable Widevine for Chrome
@@ -298,10 +299,34 @@
   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
 };
 
-  # Docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableNvidia = true;
-  #hardware.nvidia-container-toolkit.enable = true;
+  # # Docker
+  # virtualisation.docker.enable = true;
+  # virtualisation.docker.enableNvidia = true;
+  # #hardware.nvidia-container-toolkit.enable = true;
+
+  # Podman
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings = {
+	      dns_enabled = true;
+	      #ipv6_enabled = true;
+      };
+
+      # Automaticly prune old images.
+      autoPrune.enable = true;
+
+      # Nvidia
+      enableNvidia = true;
+    };
+  };
 
   # Flatpak
   services.flatpak = {
