@@ -17,8 +17,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Choose kernel package
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.interfaces.enp0s31f6.ipv4.addresses = [ {
     address = "10.0.0.2";
@@ -276,7 +276,13 @@
       dockerCompat = true;
 
       # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
+      defaultNetwork.settings = {
+	      dns_enabled = true;
+	      ipv6_enabled = true;
+      };
+
+      # Automaticly prune old images.
+      autoPrune.enable = true;
     };
   };
 
