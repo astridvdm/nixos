@@ -139,7 +139,7 @@
 
   # boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 53;
 
-  Make sure docker starts after the storage array is mounted.
+  # Make sure docker starts after the storage array is mounted.
   systemd.services.docker.after = ["mnt-ceres.mount"];
 
   # SSHFS mount for Ceres's ZFS Array
@@ -171,7 +171,7 @@
 
     # Enable
     enable = true;
-    mode = "client";
+    mode = "netclient";
 
     # Monitor
     upsmon = {

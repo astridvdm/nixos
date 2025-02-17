@@ -143,11 +143,11 @@
           }
         ];
       };
-      juno = nixpkgs.lib.nixosSystem {
+      neptune = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./machines/juno/configuration.nix
-          ./machines/juno/hardware-configuration.nix
+          ./machines/neptune/configuration.nix
+          ./machines/neptune/hardware-configuration.nix
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
@@ -161,7 +161,7 @@
 
             # import the home.nix config file
             home-manager.users.astrid.imports = [
-              ./machines/juno/home.nix
+              ./machines/neptune/home.nix
             ];
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
