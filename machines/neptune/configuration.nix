@@ -11,7 +11,7 @@
   # Networking
 
   # Define your hostname
-  networking.hostName = "ceres";
+  networking.hostName = "neptune";
 
   # enable Flakes and the new command line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -20,25 +20,25 @@
   #boot.kernelPackages = pkgs.linuxPackages_latest;
   #boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  networking.interfaces.enp0s31f6.ipv4.addresses = [ {
+  networking.interfaces.eno1.ipv4.addresses = [ {
     address = "10.0.0.3";
     prefixLength = 24;
   } ];
   networking.defaultGateway = "10.0.0.1";
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
 
-  networking.interfaces.enp0s31f6.ipv6.addresses = [ {
+  networking.interfaces.eno1.ipv6.addresses = [ {
     address = "2c0f:f4c0:1185:8174::3";
     prefixLength = 64;
   } ];
 
   networking.defaultGateway6 = {
     address = "2c0f:f4c0:1185:8174::1";
-    interface = "enp0s31f6";
+    interface = "eno1";
   };
 
 
-  networking.interfaces.enp0s31f6.tempAddress = "disabled";
+  networking.interfaces.eno1.tempAddress = "disabled";
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
@@ -144,7 +144,7 @@
 
   # SSHFS mount for Ceres's ZFS Array
   fileSystems."/ceres" =
-   { device = "astrid@ceres:/ceres";
+   { device = "astrid@10.0.0.2:/ceres";
      fsType = "fuse.sshfs";
      options = [ "noauto" "x-systemd.automount" "_netdev" "user" "idmap=user" "follow_symlinks" "identityfile=/home/astrid/.ssh/astrid-a17" "allow_other" "default_permissions" "uid=1000" "gid=1000" ];
    };
