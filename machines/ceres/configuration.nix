@@ -119,8 +119,8 @@
   services.printing.defaultShared = true; # If you want
 
   # Firewall
-  networking.firewall.allowedUDPPorts = [ 2377 631 ];
-  networking.firewall.allowedTCPPorts = [ 2377 631 ];
+  networking.firewall.allowedUDPPorts = [ 80 443 2377 631 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 2377 631 ];
 
   # Users
 
@@ -298,7 +298,7 @@
     upsd = {
       enable = true;
       # Bind address
-      listen = [ { address = "10.0.0.2"; } ];
+      listen = [ { address = "0.0.0.0"; } ];
     };
 
     # Users
