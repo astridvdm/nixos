@@ -143,7 +143,7 @@
           }
         ];
       };
-      neptune = nixpkgs.lib.nixosSystem {
+       neptune = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./machines/neptune/configuration.nix

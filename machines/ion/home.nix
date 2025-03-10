@@ -153,7 +153,7 @@ dconf.settings = {
   };
   "org/gnome/shell" = {
     favorite-apps = [
-      #"firefox.desktop"
+      "firefox.desktop"
       "chromium-browser.desktop"
       "com.spotify.Client.desktop"
       "io.github.kukuruzka165.materialgram.desktop"
@@ -366,6 +366,7 @@ dconf.settings = {
     protontricks # steam game based wine manager
     protonplus
     lutris
+    r2modman
 
 
     #### Minecraft ####
@@ -556,7 +557,7 @@ dconf.settings = {
       usernamehw.errorlens
       christian-kohler.path-intellisense
       tomoki1207.pdf
-      mhutchie.git-graph
+      #mhutchie.git-graph
       #cschleiden.vscode-github-actions
       ziyasal.vscode-open-in-github
       ms-vscode.live-server
