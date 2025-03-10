@@ -20,30 +20,29 @@
   #boot.kernelPackages = pkgs.linuxPackages_latest;
   #boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  networking.interfaces.enp0s31f6.ipv4.addresses = [ {
-    address = "10.0.0.2";
-    prefixLength = 24;
-  } ];
-  networking.defaultGateway = "10.0.0.1";
-  networking.nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
-
-  networking.interfaces.enp0s31f6.ipv6.addresses = [ {
-    address = "2c0f:f4c0:1185:8174::2";
-    prefixLength = 64;
-  } ];
-
-  networking.defaultGateway6 = {
-    address = "2c0f:f4c0:1185:8174::1";
-    interface = "enp0s31f6";
+  networking = {
+    interfaces.enp0s31f6 = {
+      ipv6.addresses = [{
+        address = "2c0f:f4c0:1185:8174::2";
+        prefixLength = 64;
+      }];
+      ipv4.addresses = [{
+        address = "10.0.0.2";
+        prefixLength = 24;
+      }];
+      tempAddress = "disabled";
+    };
+    defaultGateway = {
+      address = "10.0.0.1";
+      interface = "enp0s31f6";
+    };
+    defaultGateway6 = {
+      address = "2c0f:f4c0:1185:8174::1";
+      interface = "enp0s31f6";
+    };
+    nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
   };
 
-
-  networking.interfaces.enp0s31f6.tempAddress = "disabled";
-
-  # networking.defaultGateway6 = {
-  # address = "fe80::9ab7:85ff:fe01:e7c4";
-  # interface = "enp0s31f6";
-  # };
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
