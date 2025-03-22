@@ -20,28 +20,26 @@
   #boot.kernelPackages = pkgs.linuxPackages_latest;
   #boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  networking = {
-    interfaces.eno1 = {
-      ipv6.addresses = [{
-        address = "2c0f:f4c0:1185:8174::3";
-        prefixLength = 64;
-      }];
-      ipv4.addresses = [{
-        address = "10.0.0.3";
-        prefixLength = 24;
-      }];
-      tempAddress = "disabled";
-    };
-    defaultGateway = {
-      address = "10.0.0.1";
-      interface = "eno1";
-    };
-    defaultGateway6 = {
-      address = "2c0f:f4c0:1185:8174::1";
-      interface = "eno1";
-    };
-    nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
+  networking.interfaces.eno1.ipv4.addresses = [ {
+    address = "10.0.0.3";
+    prefixLength = 24;
+  } ];
+  networking.defaultGateway = "10.0.0.1";
+  networking.nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
+
+  networking.interfaces.eno1.ipv6.addresses = [ {
+    address = "2c0f:f4c0:1185:8174::3";
+    prefixLength = 64;
+  } ];
+
+  networking.defaultGateway6 = {
+    address = "2c0f:f4c0:1185:8174::1";
+    interface = "eno1";
   };
+
+
+  networking.interfaces.eno1.tempAddress = "disabled";
+
 
   networking.interfaces.br0.useDHCP = true;
   networking.bridges = {
@@ -102,6 +100,7 @@
      zsh
      bat
      nut
+     wireguard-tools
    ];
 
   # Enable the OpenSSH daemon.
