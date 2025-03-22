@@ -43,6 +43,13 @@
     nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
   };
 
+  networking.interfaces.br0.useDHCP = true;
+  networking.bridges = {
+    "br0" = {
+      interfaces = [ "eno1" ];
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
   # Users
