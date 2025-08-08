@@ -118,8 +118,8 @@
   services.printing.defaultShared = true; # If you want
 
   # Firewall
-  networking.firewall.allowedUDPPorts = [ 80 443 2377 631 2049 ];
-  networking.firewall.allowedTCPPorts = [ 80 443 2377 631 2049 ];
+  networking.firewall.allowedUDPPorts = [ 80 443 2377 631 111 2049 4000 4001  4002 2004 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 2377 631 111 2049 4000 4001  4002 2004 ];
 
   # Users
 
@@ -368,6 +368,15 @@ services.samba-wsdd = {
 
 networking.firewall.enable = true;
 networking.firewall.allowPing = true;
+
+services.nfs.server = {
+  enable = true;
+  # fixed rpc.statd port; for firewall
+  lockdPort = 4001;
+  mountdPort = 4002;
+  statdPort = 4000;
+  extraNfsdConfig = '''';
+};
 
 services.nfs.server.enable = true;
 services.nfs.server.exports = ''
