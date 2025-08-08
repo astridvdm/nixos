@@ -376,12 +376,10 @@ services.nfs.server = {
   mountdPort = 4002;
   statdPort = 4000;
   extraNfsdConfig = '''';
-};
-
-services.nfs.server.enable = true;
-services.nfs.server.exports = ''
+  exports = ''
     /ceres         10.0.0.23(rw,fsid=0,no_subtree_check)
   '';
+};
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;
