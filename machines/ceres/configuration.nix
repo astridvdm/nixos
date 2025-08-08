@@ -337,8 +337,8 @@
   settings = {
     global = {
       "workgroup" = "WORKGROUP";
-      "server string" = "smbnix";
-      "netbios name" = "smbnix";
+      "server string" = "merwe";
+      "netbios name" = "merwe";
       "security" = "user";
       #"use sendfile" = "yes";
       #"max protocol" = "smb2";
