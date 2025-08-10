@@ -351,10 +351,19 @@
       };
     };
 
-  services.samba-wsdd = {
+    services.samba-wsdd = {
       enable = true;
       discovery = true;
     };
+
+    services.avahi = {
+      enable = true;
+
+      publish.enable = true;
+      publish.userServices = true;
+      nssmdns4 = true;
+    };
+
 
 # services.nfs.server = {
 #   enable = true;
