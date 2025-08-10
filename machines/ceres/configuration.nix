@@ -363,7 +363,6 @@
       publish.userServices = true;
       nssmdns4 = true;
     };
-  };
 
 
 # services.nfs.server = {
