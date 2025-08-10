@@ -356,15 +356,6 @@
       discovery = true;
     };
 
-    services.avahi = {
-      #enable = true;
-
-      publish.enable = true;
-      publish.userServices = true;
-      nssmdns4 = true;
-    };
-
-
 # services.nfs.server = {
 #   enable = true;
 #   # fixed rpc.statd port; for firewall
