@@ -331,55 +331,52 @@
   # };
 
   services.samba = {
-  enable = true;
-  securityType = "user";
-  openFirewall = true;
-  settings = {
-    global = {
-      "workgroup" = "WORKGROUP";
-      "server string" = "merwe";
-      "netbios name" = "merwe";
-      "security" = "user";
-      #"use sendfile" = "yes";
-      #"max protocol" = "smb2";
-      # note: localhost is the ipv6 localhost ::1
-      "hosts allow" = "10.0.0. 127.0.0.1 localhost";
-      "hosts deny" = "0.0.0.0/0";
-      "guest account" = "nobody";
-      "map to guest" = "bad user";
+      enable = true;
+
+      settings = {
+        global = {
+          "workgroup" = "WORKGROUP";
+          "server string" = "ceres";
+          "netbios name" = "ceres";
+          "security" = "user";
+        };
+
+        "ceres" = {
+          "path" = "/ceres"
+          "valid users" = "astrid";
+          "force user" = "astrid";
+          "public" = "no";
+          "writeable" = "yes";
+        };
+      };
     };
-    "ceres" = {
-      "path" = "/ceres";
-      "browseable" = "yes";
-      "read only" = "no";
-      "guest ok" = "no";
-      "create mask" = "0644";
-      "directory mask" = "0755";
-      "force user" = "astrid";
-      "force group" = "astrid";
+
+    samba-wsdd = {
+      enable = true;
+      discovery = true;
+    };
+
+    avahi = {
+      enable = true;
+
+      publish.enable = true;
+      publish.userServices = true;
+      nssmdns4 = true;
     };
   };
-};
 
-services.samba-wsdd = {
-  enable = true;
-  openFirewall = true;
-};
 
-networking.firewall.enable = true;
-networking.firewall.allowPing = true;
-
-services.nfs.server = {
-  enable = true;
-  # fixed rpc.statd port; for firewall
-  lockdPort = 4001;
-  mountdPort = 4002;
-  statdPort = 4000;
-  extraNfsdConfig = '''';
-  exports = ''
-    /ceres         10.0.0.23(rw,fsid=0,no_subtree_check)
-  '';
-};
+# services.nfs.server = {
+#   enable = true;
+#   # fixed rpc.statd port; for firewall
+#   lockdPort = 4001;
+#   mountdPort = 4002;
+#   statdPort = 4000;
+#   extraNfsdConfig = '''';
+#   exports = ''
+#     /ceres         10.0.0.23(rw,fsid=0,no_subtree_check)
+#   '';
+# };
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;
