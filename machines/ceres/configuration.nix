@@ -357,7 +357,7 @@
     };
 
     services.avahi = {
-      enable = true;
+      #enable = true;
 
       publish.enable = true;
       publish.userServices = true;
