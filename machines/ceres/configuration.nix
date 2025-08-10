@@ -342,7 +342,7 @@
         };
 
         "ceres" = {
-          "path" = "/ceres"
+          "path" = "/ceres";
           "valid users" = "astrid";
           "force user" = "astrid";
           "public" = "no";
