@@ -132,7 +132,8 @@
     # Groups
     extraGroups = [ "wheel" "docker" "libvirtd" ];
     # SSH public keys allowed to connect to the ssh server for user.
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO3Z8H+FgQ/AV5XkgVbg5NvFhp5U5ihHnMhcewxDvGS8 ion@merwe.org"  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINvWOryzW7YZlPciCVBq4pd2qLh3vk3//6lc2O4dJXmP hera@merwe.org" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDqjSZnS97ER2y2LDmXGDxboBGXgdqaB5fcv/59yv3x8 atlas@merwe.org"];
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO3Z8H+FgQ/AV5XkgVbg5NvFhp5U5ihHnMhcewxDvGS8 ion@merwe.org"  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINvWOryzW7YZlPciCVBq4pd2qLh3vk3//6lc2O4dJXmP hera@merwe.org" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDqjSZnS97ER2y2LDmXGDxboBGXgdqaB5fcv/59yv3x8 atlas@merwe.org" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBUq8IQvIGgt0l2tDTPXWe+htp2eLEzJMMD5hhhcv5aRyRp1hKtK8az1mUL173okd370byRrquZHFIn75fwAw4k=
+ orion@merwe.org"];
     # Specify user shell
     shell = "/run/current-system/sw/bin/zsh";
     packages = with pkgs; [];
