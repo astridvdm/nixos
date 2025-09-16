@@ -10,20 +10,19 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" "ip6table_raw" ];
-  boot.kernelParams = [ "intel_iommu=on" "intel_iommu=pt" "kvm.ignore_msrs=1" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/db937996-a9dc-4cb1-80c7-f04792596ce4";
+    { device = "/dev/disk/by-uuid/7da3206c-fea4-405a-bfd5-c4cacbbb0825";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/19A2-C88A";
+    { device = "/dev/disk/by-uuid/EC34-6CA7";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices = [ {

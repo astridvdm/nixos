@@ -17,7 +17,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Choose kernel package
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking = {
@@ -63,43 +63,6 @@
   boot.zfs.extraPools = [ "ceres" ];
   boot.kernelParams = [ "zfs.zfs_arc_max=32000000000" ];
 
-
-  # # BTRFS Array
-  # fileSystems."/mnt/ceres" =
-  #   { device = "/dev/disk/by-uuid/1bca9e27-fc20-4ed1-b84e-3db5a6486019";
-  #     fsType = "btrfs";
-  #     options = [
-  #       "acl"
-  #       "autodefrag"
-  #       "defaults"
-  #       "nofail"
-  #       "nossd"
-  #       "compress=zstd:3"
-  #       "noatime"
-  #       #"ro"
-  #       #"rescue=all"
-  #       #"usebackuproot"
-  #       #"recovery"
-  #       #"nospace_cache"
-  #       #"clear_cache"
-  #     ];
-  #   };
-
-  # Archival BTRFS Array
-  # fileSystems."/mnt/6tb" =
-  #   { device = "/dev/disk/by-uuid/5018a3ea-a629-4007-b04d-51df486b0a25";
-  #     fsType = "btrfs";
-  #     options = [
-  #      "acl"
-  #      "autodefrag"
-  #      "defaults"
-  #      "nofail"
-  #      "nossd"
-  #      "compress=zstd:5"
-  #      "noatime"
-  #     ];
-  #   };
-
   # Printing
 
   # Enable CUPS to print documents.
@@ -132,8 +95,7 @@
     # Groups
     extraGroups = [ "wheel" "docker" "libvirtd" ];
     # SSH public keys allowed to connect to the ssh server for user.
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO3Z8H+FgQ/AV5XkgVbg5NvFhp5U5ihHnMhcewxDvGS8 ion@merwe.org"  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINvWOryzW7YZlPciCVBq4pd2qLh3vk3//6lc2O4dJXmP hera@merwe.org" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDqjSZnS97ER2y2LDmXGDxboBGXgdqaB5fcv/59yv3x8 atlas@merwe.org" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBUq8IQvIGgt0l2tDTPXWe+htp2eLEzJMMD5hhhcv5aRyRp1hKtK8az1mUL173okd370byRrquZHFIn75fwAw4k=
- orion@merwe.org"];
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO3Z8H+FgQ/AV5XkgVbg5NvFhp5U5ihHnMhcewxDvGS8 ion@merwe.org"  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINvWOryzW7YZlPciCVBq4pd2qLh3vk3//6lc2O4dJXmP hera@merwe.org" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDqjSZnS97ER2y2LDmXGDxboBGXgdqaB5fcv/59yv3x8 atlas@merwe.org" "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBUq8IQvIGgt0l2tDTPXWe+htp2eLEzJMMD5hhhcv5aRyRp1hKtK8az1mUL173okd370byRrquZHFIn75fwAw4k= orion@merwe.org" ];
     # Specify user shell
     shell = "/run/current-system/sw/bin/zsh";
     packages = with pkgs; [];
@@ -331,43 +293,17 @@
 
   # };
 
-  services.samba = {
-      enable = true;
-
-      settings = {
-        global = {
-          "workgroup" = "WORKGROUP";
-          "server string" = "ceres";
-          "netbios name" = "ceres";
-          "security" = "user";
-        };
-
-        "ceres" = {
-          "path" = "/ceres";
-          "valid users" = "astrid";
-          "force user" = "astrid";
-          "public" = "no";
-          "writeable" = "yes";
-        };
-      };
-    };
-
-    services.samba-wsdd = {
-      enable = true;
-      discovery = true;
-    };
-
-# services.nfs.server = {
-#   enable = true;
-#   # fixed rpc.statd port; for firewall
+ services.nfs.server = {
+   enable = true;
+   # fixed rpc.statd port; for firewall
 #   lockdPort = 4001;
 #   mountdPort = 4002;
 #   statdPort = 4000;
 #   extraNfsdConfig = '''';
-#   exports = ''
-#     /ceres         10.0.0.23(rw,fsid=0,no_subtree_check)
-#   '';
-# };
+   exports = ''
+     /ceres         10.0.0.21(rw,fsid=0,no_subtree_check)
+   '';
+ };
 
   # NixOS Optimise
   boot.loader.systemd-boot.configurationLimit = 10;
