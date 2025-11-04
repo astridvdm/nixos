@@ -48,7 +48,7 @@ in
   networking = {
     interfaces.enp0s31f6 = {
       ipv6.addresses = [{
-        address = "2c0f:f4c0:1185:814c::2";
+        address = "2c0f:f4c0:1185:90cc::2";
         prefixLength = 64;
       }];
       ipv4.addresses = [{
@@ -62,7 +62,7 @@ in
       interface = "enp0s31f6";
     };
     defaultGateway6 = {
-      address = "2c0f:f4c0:1185:814c::1";
+      address = "2c0f:f4c0:1185:90cc::1";
       interface = "enp0s31f6";
     };
     nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
