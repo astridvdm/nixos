@@ -292,35 +292,44 @@
 
   # };
 
- services.nfs.server = {
-   enable = true;
-   # fixed rpc.statd port; for firewall
-#   lockdPort = 4001;
-#   mountdPort = 4002;
-#   statdPort = 4000;
-#   extraNfsdConfig = '''';
-   exports = ''
-     /ceres         10.0.0.21(rw,fsid=0,no_subtree_check)
-   '';
- };
+#  services.nfs.server = {
+#    enable = true;
+#    # fixed rpc.statd port; for firewall
+# #   lockdPort = 4001;
+# #   mountdPort = 4002;
+# #   statdPort = 4000;
+# #   extraNfsdConfig = '''';
+#    exports = ''
+#      /ceres         10.0.0.21(rw,fsid=0,no_subtree_check)
+#    '';
+#  };
 
-  services.samba = {
-    package = pkgs.samba4Full;
-    # ^^ `samba4Full` is compiled with avahi, ldap, AD etc support (compared to the default package, `samba`
-    # Required for samba to register mDNS records for auto discovery
-    # See https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/pkgs/top-level/all-packages.nix#L27268
+  services = {
+    samba = {
       enable = true;
-      openFirewall = true;
-      shares.ceres = {
-        path = "/ceres";
-        writable = "true";
-        #comment = "";
+
+      settings = {
+        global = {
+          "workgroup" = "WORKGROUP";
+          "server string" = "smbnix";
+          "netbios name" = "smbnix";
+          "security" = "user";
+        };
+
+        "ceres" = {
+          "path" = "/ceres"
+          "valid users" = "astrid";
+          "force user" = "astrid";
+          "public" = "no";
+          "writeable" = "yes";
+        };
       };
-  };
-  services.samba-wsdd = {
-    # This enables autodiscovery on windows since SMB1 (and thus netbios) support was discontinued
-    enable = true;
-    openFirewall = true;
+    };
+
+    samba-wsdd = {
+      enable = true;
+      discovery = true;
+    };
   };
 
   # NixOS Optimise
