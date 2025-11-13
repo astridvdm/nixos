@@ -307,19 +307,18 @@
   services = {
     samba = {
       enable = true;
-
+      openFirewall = true;
       settings = {
         global = {
           "workgroup" = "WORKGROUP";
-          "server string" = "smbnix";
-          "netbios name" = "smbnix";
+          "server string" = "ceres";
+          "netbios name" = "ceres";
           "security" = "user";
         };
 
         "ceres" = {
           "path" = "/ceres";
           "valid users" = "astrid";
-          "force user" = "astrid";
           "public" = "no";
           "writeable" = "yes";
         };
@@ -329,6 +328,7 @@
     samba-wsdd = {
       enable = true;
       discovery = true;
+      openFirewall = true;
     };
   };
 
