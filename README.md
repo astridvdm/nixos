@@ -45,7 +45,7 @@ Of course a thank you to the wonderful [NixOS] project along with [Home Manager]
 [ASrock B550M Pro4]: https://www.asrock.com/mb/AMD/B550M%20Pro4/
 [Asus TUF A17 FA706QM]: https://www.asus.com/laptops/for-gaming/tuf-gaming/2021-asus-tuf-gaming-a17/
 [Dell OptiPlex 7050]: https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/OptiPlex-7050-Towers-Technical-Specifications.pdf
-[MSI X99A SLI Plus] https://www.msi.com/Motherboard/X99A-SLI-PLUS/Specification
+[MSI X99A SLI Plus]: https://www.msi.com/Motherboard/X99A-SLI-PLUS/Specification
 [Raspberry Pi 4B]: https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/
 [AMD Ryzen 7 5600]: https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5600x.html
 [AMD Ryzen 5 5800H]: https://www.amd.com/en/products/apu/amd-ryzen-7-5800h
