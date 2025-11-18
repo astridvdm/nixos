@@ -20,7 +20,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking = {
-    interfaces.enp0s31f6 = {
+    interfaces.eno1 = {
       ipv6.addresses = [{
         address = "2c0f:f4c0:1185:90cc::2";
         prefixLength = 64;
@@ -33,11 +33,11 @@
     };
     defaultGateway = {
       address = "10.0.0.1";
-      interface = "enp0s31f6";
+      interface = "eno1";
     };
     defaultGateway6 = {
       address = "2c0f:f4c0:1185:90cc::1";
-      interface = "enp0s31f6";
+      interface = "eno1";
     };
     nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
   };
