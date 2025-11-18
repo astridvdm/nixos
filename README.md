@@ -6,7 +6,7 @@
 | :---------: | :-------------------------: | :----------------------------: | :---: | :-------------------------: | :--: | :-: | :---: |
 | `ion`     | [ASrock B550M Pro4]           | [AMD Ryzen 7 5600]             | 32GB | [Nvidia RTX 3070]            | 🖥️ 🎮️| ❄️   | ✅    |
 | `hera`    | [Asus TUF A17 FA706QM]        | [AMD Ryzen 5 5800H]            | 32GB | [Nvidia RTX 3060]            | 💻️ 🎮️| ❄️   | ✅    |
-| `ceres`   | [Dell OptiPlex 7050]          | [Intel i5-7500T]               | 16GB | [Intel HD Graphics 630]      | ☁️    | ❄️   | ✅    |
+| `ceres`   | [MSI X99A SLI Plus]           | [Intel i7-5780k]               | 16GB | [Nvidia GTX 650]             | ☁️    | ❄️   | ✅    |
 | `polaris` | [Raspberry Pi 4B]             | [ARM-Cortex A72]               | 4GB  | []                           | ☁️    | ❄️   | ✅    |
 
 **Key**
