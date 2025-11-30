@@ -59,8 +59,8 @@
   boot.zfs.forceImportRoot = false;
   networking.hostId = "feab067a";
 
-  boot.zfs.extraPools = [ "ceres" ];
-  boot.kernelParams = [ "zfs.zfs_arc_max=32000000000" ];
+  #boot.zfs.extraPools = [ "ceres" ];
+  #boot.kernelParams = [ "zfs.zfs_arc_max=32000000000" ];
 
   # Printing
 
