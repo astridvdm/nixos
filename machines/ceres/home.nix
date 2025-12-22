@@ -10,7 +10,7 @@
     enable = true;
     settings = {
       # Sign all commits using ssh key
-      userName  = "Astrid van der Merwe";
+      userName = "Astrid van der Merwe";
       userEmail = "git@astridvdm.com";
       commit.gpgsign = true;
       gpg.format = "ssh";
