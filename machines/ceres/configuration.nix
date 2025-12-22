@@ -116,7 +116,7 @@
      rclone
      yt-dlp
      ffmpeg
-     aria
+     aria2
      borgbackup
      screen
      tailscale

@@ -8,11 +8,10 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName  = "Astrid van der Merwe";
-    userEmail = "git@astridvdm.com";
-
-    extraConfig = {
+    settings = {
       # Sign all commits using ssh key
+      userName  = "Astrid van der Merwe";
+      userEmail = "git@astridvdm.com";
       commit.gpgsign = true;
       gpg.format = "ssh";
       gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
@@ -26,6 +25,7 @@
   programs.ssh = {
     enable = true;
     compression = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       "lux" = {
       hostname = "172.16.0.212";
