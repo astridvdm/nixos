@@ -142,6 +142,7 @@
       "0 3 */2 * * astrid sh /home/astrid/containers/backup.sh >/dev/null 2>&1"
       "0 3 */2 * * astrid sh /ceres/backups/photosync/photosync-backup.sh >/dev/null 2>&1"
       "0 3 */2 * * astrid sh /ceres/media/media.sh >/dev/null 2>&1"
+	  "@reboot root sh /home/astrid/ceres-import.sh"
     ];
   };
 
