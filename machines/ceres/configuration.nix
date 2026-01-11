@@ -22,11 +22,11 @@
   networking = {
     interfaces.eno1 = {
       ipv6.addresses = [{
-        address = "2c0f:f4c0:1185:90cc::2";
+        address = "2c0f:f4c0:1185:9fdc::7";
         prefixLength = 64;
       }];
       ipv4.addresses = [{
-        address = "10.0.0.2";
+        address = "10.0.0.7";
         prefixLength = 24;
       }];
       tempAddress = "disabled";
@@ -36,10 +36,10 @@
       interface = "eno1";
     };
     defaultGateway6 = {
-      address = "2c0f:f4c0:1185:90cc::1";
+      address = "2c0f:f4c0:1185:9fdc::1";
       interface = "eno1";
     };
-    nameservers = [ "1.1.1.1" "9.9.9.9" "1.0.0.1" ];
+    nameservers = [ "10.0.0.1", "1.1.1.1" ];
   };
 
 
