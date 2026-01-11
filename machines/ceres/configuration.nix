@@ -39,7 +39,7 @@
       address = "2c0f:f4c0:1185:9fdc::1";
       interface = "eno1";
     };
-    nameservers = [ "10.0.0.1", "1.1.1.1" ];
+    nameservers = [ "10.0.0.1" "1.1.1.1" ];
   };
 
 
