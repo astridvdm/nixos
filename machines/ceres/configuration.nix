@@ -19,10 +19,26 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  networking = {
-    interfaces.enp7s0 = {
+#  systemd.network.links."eth1" = {
+#    matchConfig.PermanentMACAddress = "1c:86:0b:35:3a:26";
+#    linkConfig.Name = "eth1";
+#  }; 
+
+  systemd.network.links."eth1" = { # The "10-wan" part is arbitrary
+    matchConfig = {
+      PermanentMACAddress = "1c:86:0b:35:3a:26"; # Replace with your MAC
+    };
+    linkConfig = {
+      Name = "eth1"; # Your desired name
+      MACAddress = "1c:86:0b:35:3a:26"; # Optional: Re-set MAC if needed
+    };
+  };
+
+ networking = {
+    usePredictableInterfaceNames = false;
+    interfaces.eth0 = {
       ipv6.addresses = [{
-        address = "2c0f:f4c0:1185:9fdc::7";
+        address = "2c0f:f4c0:1185:a124::7";
         prefixLength = 64;
       }];
       ipv4.addresses = [{
@@ -33,11 +49,11 @@
     };
     defaultGateway = {
       address = "10.0.0.1";
-      interface = "enp7s0";
+      interface = "eth0";
     };
     defaultGateway6 = {
-      address = "2c0f:f4c0:1185:9fdc::1";
-      interface = "enp7s0";
+      address = "2c0f:f4c0:1185:a124::1";
+      interface = "eth0";
     };
     nameservers = [ "10.0.0.1" "1.1.1.1" ];
   };
@@ -59,7 +75,7 @@
   boot.zfs.forceImportRoot = false;
   networking.hostId = "feab067a";
 
-  #boot.zfs.extraPools = [ "ceres" ];
+  boot.zfs.extraPools = [ "ceres" ];
   #boot.kernelParams = [ "zfs.zfs_arc_max=32000000000" ];
 
   # Printing
@@ -142,7 +158,7 @@
       "0 3 */2 * * astrid sh /home/astrid/containers/backup.sh >/dev/null 2>&1"
       "0 3 */2 * * astrid sh /ceres/backups/photosync/photosync-backup.sh >/dev/null 2>&1"
       "0 3 */2 * * astrid sh /ceres/media/media.sh >/dev/null 2>&1"
-	  "@reboot root sh /home/astrid/ceres-import.sh"
+  #    "@reboot astrid sh /home/astrid/ceres-import.sh"
     ];
   };
 
@@ -209,8 +225,8 @@
 
   #     # Required for containers under podman-compose to be able to talk to each other.
   #     defaultNetwork.settings = {
-	#       dns_enabled = true;
-	#       ipv6_enabled = true;
+        #       dns_enabled = true;
+        #       ipv6_enabled = true;
   #     };
 
   #     # Automaticly prune old images.
@@ -238,7 +254,6 @@
   # KVM Virtualization
   virtualisation.libvirtd.enable = true;
   virtualisation.libvirtd.onShutdown = "shutdown";
-
 
   # # UPS configuration
   # power.ups = {
